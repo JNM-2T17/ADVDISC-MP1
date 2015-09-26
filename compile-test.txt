@@ -1,0 +1,5 @@
+dir src\ /s /B | find ".java" > src.txt && java FixSourceFile src.txt && javac -target 1.7 -source 1.7 -cp bin -d bin @src.txt && java -cp bin advdisc.mp1.Driver
+
+cd bin && jar cvfm "ADVDISC MP1.jar" manifest.txt advdisc && cd ..
+
+javadoc -d doc @src.txt

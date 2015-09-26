@@ -1,0 +1,3 @@
+"C:\\DLSU\\Term 7\\ADVDISC\\Requirements\\ADVDISC-MP1\\src\\advdisc\\mp1\\model\\object\\AdvancedObject2D.java"
+"C:\\DLSU\\Term 7\\ADVDISC\\Requirements\\ADVDISC-MP1\\src\\advdisc\\mp1\\model\\object\\Object2D.java"
+"C:\\DLSU\\Term 7\\ADVDISC\\Requirements\\ADVDISC-MP1\\src\\advdisc\\mp1\\model\\object\\ShearObject2D.java"
