@@ -1,2 +1,2 @@
-Main-Class: advdisc.mp1.Driver
+Main-Class: mp1.Driver
 

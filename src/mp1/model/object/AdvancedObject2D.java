@@ -1,4 +1,4 @@
-package advdisc.mp1.model.object;
+package mp1.model.object;
 
 public interface AdvancedObject2D extends Object2D {
 	public static final int ROTATE_LEFT_90 = 0;
