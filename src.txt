@@ -6,4 +6,5 @@
 "C:\\DLSU\\Term 7\\ADVDISC\\Requirements\\ADVDISC-MP1\\src\\mp1\\model\\object\\Object2D.java"
 "C:\\DLSU\\Term 7\\ADVDISC\\Requirements\\ADVDISC-MP1\\src\\mp1\\model\\object\\ShearObject2D.java"
 "C:\\DLSU\\Term 7\\ADVDISC\\Requirements\\ADVDISC-MP1\\src\\mp1\\view\\GraphicsFrame.java"
+"C:\\DLSU\\Term 7\\ADVDISC\\Requirements\\ADVDISC-MP1\\src\\mp1\\view\\MainGraphicsPanel.java"
 "C:\\DLSU\\Term 7\\ADVDISC\\Requirements\\ADVDISC-MP1\\src\\mp1\\view\\layout\\AGBLayout.java"
