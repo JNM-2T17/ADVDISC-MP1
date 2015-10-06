@@ -1,0 +1,99 @@
+package mp1.view;
+
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+
+import mp1.controller.IController;
+import mp1.model.Shape;
+import mp1.view.layout.AGBLayout;
+
+public class CreatePointPanel extends JPanel {
+	private JLabel pointLabel;
+	private JLabel xLabel;
+	private JLabel yLabel;
+	private JTextField xField;
+	private JTextField yField;
+	private JButton createButton;
+
+	private IController control;
+
+	public CreatePointPanel(IController control) {
+		this.control = control;
+
+		setLayout(new AGBLayout());
+		setBorder(BorderFactory.createEmptyBorder(5,10,10,10));
+
+		pointLabel = new JLabel("Create a Point");
+		pointLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		pointLabel.setFont(new Font("Segoe UI",Font.BOLD,24));
+		pointLabel.setBorder(BorderFactory.createEmptyBorder(5,10,10,10));
+		AGBLayout.addComp(this,pointLabel,0,0,4,1,100,100,GridBagConstraints.CENTER,GridBagConstraints.BOTH);
+
+		xLabel = new JLabel("X-coordinate:");
+		xLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		xLabel.setFont(new Font("Segoe UI",Font.PLAIN,14));
+		xLabel.setBorder(BorderFactory.createEmptyBorder(20,5,20,5));
+		AGBLayout.addComp(this,xLabel,0,1,1,1,100,100,GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL);
+
+		xField = new JTextField(10);
+		xField.setFont(new Font("Segoe UI",Font.PLAIN,14));
+		AGBLayout.addComp(this,xField,1,1,1,1,100,100,GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL);
+		
+		yLabel = new JLabel("Y-coordinate: ");
+		yLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		yLabel.setFont(new Font("Segoe UI",Font.PLAIN,14));
+		yLabel.setBorder(BorderFactory.createEmptyBorder(20,20,20,5));
+		AGBLayout.addComp(this,yLabel,2,1,1,1,100,100,GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL);
+
+		yField = new JTextField(10);
+		yField.setFont(new Font("Segoe UI",Font.PLAIN,14));
+		AGBLayout.addComp(this,yField,3,1,1,1,100,100,GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL);
+		
+		createButton = new JButton("Create Point");
+		createButton.setFont(new Font("Segoe UI",Font.PLAIN,14));
+		createButton.addActionListener(new CreateListener());
+		createButton.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+		AGBLayout.addComp(this,createButton,0,2,4,1,100,100,GridBagConstraints.CENTER,GridBagConstraints.NONE);
+	}
+
+	private class CreateListener implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			String error = "";
+			double x = 0;
+			double y = 0;
+
+			try {
+				x = Double.parseDouble(xField.getText());
+			} catch(NumberFormatException nfe) {
+				error += "Please input a numerical x-value";
+			}
+
+			try {
+				y = Double.parseDouble(yField.getText());
+			} catch(NumberFormatException nfe) {
+				error += error.length() == 0 ? "" : "\n" 
+						+ "Please input a numerical y-value";
+			}
+
+			if( error.length() == 0 ) {
+				double[] params = new double[2];
+				params[0] = x;
+				params[1] = y;
+				control.createShape(Shape.POINT,params);
+			} else {
+				JOptionPane.showMessageDialog(null,error,"Incorrect Input",
+												JOptionPane.ERROR_MESSAGE);
+			}
+		}
+	}
+}
