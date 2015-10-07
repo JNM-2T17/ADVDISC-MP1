@@ -17,7 +17,7 @@ import mp1.controller.IController;
 import mp1.model.Shape;
 import mp1.view.layout.AGBLayout;
 
-public class CreatePointPanel extends JPanel {
+public class CreatePointPanel extends AbstractCreatePanel {
 	private JLabel pointLabel;
 	private JLabel xLabel;
 	private JLabel yLabel;
@@ -25,14 +25,11 @@ public class CreatePointPanel extends JPanel {
 	private JTextField yField;
 	private JButton createButton;
 
-	private IController control;
+	public CreatePointPanel(Shape s, IController control) {
+		super(s,control);
+	}
 
-	public CreatePointPanel(IController control) {
-		this.control = control;
-
-		setLayout(new AGBLayout());
-		setBorder(BorderFactory.createEmptyBorder(5,10,10,10));
-
+	protected void createComponents() {
 		pointLabel = new JLabel("Create a Point");
 		pointLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		pointLabel.setFont(new Font("Segoe UI",Font.BOLD,24));
@@ -66,34 +63,36 @@ public class CreatePointPanel extends JPanel {
 		AGBLayout.addComp(this,createButton,0,2,4,1,100,100,GridBagConstraints.CENTER,GridBagConstraints.NONE);
 	}
 
-	private class CreateListener implements ActionListener{
-		public void actionPerformed(ActionEvent e) {
-			String error = "";
-			double x = 0;
-			double y = 0;
+	protected double[] getParams() throws Exception {
+		String error = "";
+		double x = 0;
+		double y = 0;
 
-			try {
-				x = Double.parseDouble(xField.getText());
-			} catch(NumberFormatException nfe) {
-				error += "Please input a numerical x-value";
-			}
-
-			try {
-				y = Double.parseDouble(yField.getText());
-			} catch(NumberFormatException nfe) {
-				error += error.length() == 0 ? "" : "\n" 
-						+ "Please input a numerical y-value";
-			}
-
-			if( error.length() == 0 ) {
-				double[] params = new double[2];
-				params[0] = x;
-				params[1] = y;
-				control.createShape(Shape.POINT,params);
-			} else {
-				JOptionPane.showMessageDialog(null,error,"Incorrect Input",
-												JOptionPane.ERROR_MESSAGE);
-			}
+		try {
+			x = Double.parseDouble(xField.getText());
+		} catch(NumberFormatException nfe) {
+			error += "Please input a numerical x-value";
 		}
+
+		try {
+			y = Double.parseDouble(yField.getText());
+		} catch(NumberFormatException nfe) {
+			error += (error.length() == 0 ? "" : "\n") 
+					+ "Please input a numerical y-value";
+		}
+
+		if( error.length() == 0 ) {
+			double[] params = new double[2];
+			params[0] = x;
+			params[1] = y;
+			return params;
+		} else {
+			throw new Exception(error);
+		}
+	}
+
+	protected void clear() {
+		xField.setText("");
+		yField.setText("");
 	}
 }

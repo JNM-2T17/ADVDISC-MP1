@@ -37,7 +37,7 @@ public class GraphicsController implements IController {
 			case HYPERBOLA:
 				break;
 			case POINT:
-				gf.setMain(new CreatePointPanel(this));
+				gf.setMain(new CreatePointPanel(Shape.POINT,this));
 				pack();
 				break;
 			case POLYGON:
