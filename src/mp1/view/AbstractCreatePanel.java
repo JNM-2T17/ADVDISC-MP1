@@ -18,7 +18,7 @@ import mp1.model.Shape;
 import mp1.view.layout.AGBLayout;
 
 public abstract class AbstractCreatePanel extends JPanel {
-	private Shape shape; 
+	protected Shape shape; 
 	private IController control;
 
 	public AbstractCreatePanel(Shape shape, IController control) {
@@ -45,7 +45,6 @@ public abstract class AbstractCreatePanel extends JPanel {
 				JOptionPane.showMessageDialog(null,ex.getMessage()
 											,"Incorrect Input",
 											JOptionPane.ERROR_MESSAGE);
-				clear();
 			}
 		}
 	}

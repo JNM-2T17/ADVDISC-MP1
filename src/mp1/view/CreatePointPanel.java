@@ -30,7 +30,7 @@ public class CreatePointPanel extends AbstractCreatePanel {
 	}
 
 	protected void createComponents() {
-		pointLabel = new JLabel("Create a Point");
+		pointLabel = new JLabel("Create a " + shape);
 		pointLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		pointLabel.setFont(new Font("Segoe UI",Font.BOLD,24));
 		pointLabel.setBorder(BorderFactory.createEmptyBorder(5,10,10,10));

@@ -43,6 +43,8 @@ public class GraphicsController implements IController {
 			case POLYGON:
 				break;
 			case VECTOR:
+				gf.setMain(new CreatePointPanel(Shape.VECTOR,this));
+				pack();
 				break;
 		}
 	}
@@ -64,6 +66,7 @@ public class GraphicsController implements IController {
 			case POLYGON:
 				break;
 			case VECTOR:
+				System.out.println("(" + params[0] + "," + params[1] + ")");
 				break;
 		}
 	}
