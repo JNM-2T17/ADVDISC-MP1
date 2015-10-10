@@ -56,7 +56,7 @@ public class CreatePointPanel extends AbstractCreatePanel {
 		yField.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,yField,3,1,1,1,100,100,GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL);
 		
-		createButton = new JButton("Create Point");
+		createButton = new JButton("Create " + shape);
 		createButton.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		createButton.addActionListener(new CreateListener());
 		createButton.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
