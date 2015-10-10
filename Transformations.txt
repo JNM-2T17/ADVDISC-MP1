@@ -68,6 +68,8 @@ y^2 -4px + 2hy = -h^2 - 4pk
 y^2 -4px + 2hy + h^2 + 4pk = 0
 (y^2 + 2hy + h^2) = -h^2 - 4pk + 4px + h^2
 (y + h)^2 = 4p(x - k)
+Vertex: (k,-h)
+Magnitude: p
 
 180
 [x y][-1  0][1 0][-1  0][x] + [-2h -4p][-1  0][x] = -h^2 - 4pk
@@ -75,6 +77,8 @@ y^2 -4px + 2hy + h^2 + 4pk = 0
 x^2 + 2hx + 4py = -h^2 - 4pk
 (x^2 + 2hx + h^2) = -4py - 4pk
 (x + h)^2 = -4p(y + k)
+Vertex: (-h, -k)
+Magnitude: -p
 
 90 counterclockwise
 [x y][0 -1][1 0][ 0 1][x] + [-2h -4p][ 0 1][x] = -h^2 - 4pk
@@ -83,6 +87,8 @@ x^2 + 2hx + 4py = -h^2 - 4pk
 y^2 + 4px - 2hy = -h^2 - 4pk
 (y^2 - 2hy + h^2) = -4px -4pk
 (y - h)^2 = -4p(x + k)
+Vertex: (-k,h)
+Magnitude: -p
 
 reflect
 x-axis
@@ -92,6 +98,8 @@ x-axis
 x^2 -2hx + 4py = -h^2 - 4pk
 (x^2 - 2hx + h^2) = -4py - 4pk
 (x - h)^2 = -4p(y + k)
+Vertex: (h,-k)
+Magnitude: -p
 
 y-axis
 [x y][-1 0][1 0][-1 0][x] + [-2h -4p][-1 0][x] = -h^2 - 4pk
@@ -100,6 +108,8 @@ y-axis
 x^2 + 2hx - 4py = -h^2 - 4pk
 (x^2 + 2hx + h^2) = 4py - 4pk
 (x + h)^2 = 4p(y - k)
+Vertex: (-h,k)
+Magnitude: p
 
 ellipse
 
@@ -129,7 +139,9 @@ a^2x^2 + b^2y^2 - 2a^2kx + 2b^2hy = a^2b^2 - b^2h^2 - a^2k^2
 a^2(x^2 - 2kx + k^2) + b^2(y^2 + 2hy + h^2) = a^2b^2
 a^2(x -k)^2 + b^2(y + h)^2 = a^2b^2
 (x -k)^2/b^2 + (y + h)^2/a^2 = 1
-
+Center: (k,-h)
+h.d.= b
+v.d.= a
 
 
 
