@@ -20,7 +20,8 @@ public class Ellipse implements DoubleRotateObject2D, AdvancedObject2D{
 	}
 
 	public Object2D rotate(int x){
-
+		
+		
 
 	}
 
