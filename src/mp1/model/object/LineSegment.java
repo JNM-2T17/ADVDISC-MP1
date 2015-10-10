@@ -1,5 +1,7 @@
 package mp1.model.object;
 
+import java.lang.Math;
+
 public class LineSegment implements AdvancedObject2D, ShearObject2D {
 
 	private int x1;
