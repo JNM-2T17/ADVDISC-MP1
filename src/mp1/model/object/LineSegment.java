@@ -4,32 +4,32 @@ import java.lang.Math;
 
 public class LineSegment implements AdvancedObject2D, ShearObject2D {
 
-	private int x1;
-	private int x2;
+	private double x1;
+	private double x2;
 
-	private int y1;
-	private int y2;
+	private double y1;
+	private double y2;
 
-	public LineSegment(x1, x2, y1, y2){
+	public LineSegment(double x1, double x2, double y1, double y2){
 		this.x1 = x1;
 		this.x2 = x2;
 		this.y1 = y1;
 		this.y2 = y2;
 	}
 
-	public void setX1(int x){
+	public void setX1(double x){
 		this.x1 = x;
 	}
 
-	public void setY1(int x){
+	public void setY1(double x){
 		this.y1 = x;
 	}
 
-	public void setX2(int x){
+	public void setX2(double x){
 		this.x2 = x;
 	}
 
-	public void setY2(int x){
+	public void setY2(double x){
 		this.y2 = x;
 	}
 
@@ -38,12 +38,16 @@ public class LineSegment implements AdvancedObject2D, ShearObject2D {
 	}
 
 	// Need to double check
-	public Object2D rotate(int degree){
+	public Object2D rotate(double degree){
 		double angleInRadian = Math.toRadians(degree);
 		double cos = Math.cos(angleInRadian);
 		double sin = Math.sin(angleInRadian);
 
 		return new LineSegment(this.x1 * cos + this.y1 * sin, -1 * this.x1 * sin + this.y1 * cos, this.x2 * cos + this.y2 * sin, -1 * this.x2 * sin + this.y2 * cos);
+	}
+
+	public Object2D rotate(int rotate){
+		return null;
 	}
 
 	public Object2D scale(double dd){
@@ -53,14 +57,13 @@ public class LineSegment implements AdvancedObject2D, ShearObject2D {
 	public Object2D reflect(int cas){
 		switch(cas){
 			case 3: return new LineSegment(this.x2, this.x1, this.y1, this.y2);
-					break;
 
 			case 4: return new LineSegment(this.x1, this.x2, this.y2, this.y1);
-					break;
 		}
+		return null;
 	}
 
 	public Object2D shear(double x){
-
+		return null;
 	}
 }
