@@ -69,10 +69,8 @@ public class GraphicsController implements IController {
 												,params[3]);
 				break;
 			case PARABOLA:
-				System.out.println("Vertex: (" + params[0] + "," + params[1] 
-									+ ")\np = " + params[2] + "\nOpening " 
-									+ (params[3] == 1 ? "Vertical" 
-										: "Horizontal"));
+				activeObject = new Parabola(params[0],params[1],params[2]
+											,params[3] == 1);
 				break;
 			case HYPERBOLA:
 				System.out.println("Center: (" + params[0] + "," + params[1] 

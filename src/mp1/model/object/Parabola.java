@@ -9,7 +9,7 @@ import java.lang.Math;
  *
  * @author Angelo Amadora
  */
-public class Parabola implements AdvancedObject2D, ShearObject2D, DoubleRotateObject2D{
+public class Parabola implements AdvancedObject2D {
 
     double vertexX;
     double vertexY;
@@ -55,14 +55,8 @@ public class Parabola implements AdvancedObject2D, ShearObject2D, DoubleRotateOb
         return new Parabola(this.vertexX+x,this.vertexY+y,this.magnitude,this.openingVertical);
     }
 
-    @Override
-    public Object2D shear(double angle) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String toString() {
+        return ("Vertex: (" + vertexX + "," + vertexY + ")\np = " + magnitude 
+                + "\nOpening " + (openingVertical ? "Vertical" : "Horizontal"));
     }
-
-    @Override
-    public Object2D rotate(double theta) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }
