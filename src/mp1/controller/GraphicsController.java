@@ -31,14 +31,19 @@ public class GraphicsController implements IController {
 	public void shapeScreen(Shape s) {
 		switch(s) {
 			case ELLIPSE:
-				break;
+				gf.setMain(new CreateEllipsePanel(this));
+				pack();break;
 			case LINE_SEGMENT:
 				gf.setMain(new CreateLineSegmentPanel(this));
 				pack();
 				break;
 			case PARABOLA:
+				gf.setMain(new CreateParabolaPanel(this));
+				pack();
 				break;
 			case HYPERBOLA:
+				gf.setMain(new CreateHyperbolaPanel(this));
+				pack();
 				break;
 			case POINT:
 				gf.setMain(new CreatePointPanel(Shape.POINT,this));
@@ -56,14 +61,25 @@ public class GraphicsController implements IController {
 	public void createShape(Shape s, double[] params) {
 		switch(s) {
 			case ELLIPSE:
+				activeObject = new Ellipse(params[0],params[1],params[2]
+												,params[3]);
 				break;
 			case LINE_SEGMENT:
 				activeObject = new LineSegment(params[0],params[1],params[2]
 												,params[3]);
 				break;
 			case PARABOLA:
+				System.out.println("Vertex: (" + params[0] + "," + params[1] 
+									+ ")\np = " + params[2] + "\nOpening " 
+									+ (params[3] == 1 ? "Vertical" 
+										: "Horizontal"));
 				break;
 			case HYPERBOLA:
+				System.out.println("Center: (" + params[0] + "," + params[1] 
+									+ ")\na = " + params[2] + "\nb = " 
+									+ params[3] + "\nOpening " 
+									+ (params[4] == 1 ? "Vertical" 
+										: "Horizontal"));
 				break;
 			case POINT:
 				activeObject = new Point(params[0],params[1]);

@@ -82,14 +82,14 @@ public class CreatePointPanel extends AbstractCreatePanel {
 		try {
 			x = Double.parseDouble(xField.getText());
 		} catch(NumberFormatException nfe) {
-			error += "Please input a numerical x-value";
+			error += "Please input a numerical x-value.";
 		}
 
 		try {
 			y = Double.parseDouble(yField.getText());
 		} catch(NumberFormatException nfe) {
 			error += (error.length() == 0 ? "" : "\n") 
-					+ "Please input a numerical y-value";
+					+ "Please input a numerical y-value.";
 		}
 
 		if( error.length() == 0 ) {

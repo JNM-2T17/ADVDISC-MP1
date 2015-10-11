@@ -8,15 +8,18 @@ public class Ellipse implements AdvancedObject2D{
 	private double vertDistance;
 
 
-	public Ellipse(double x, double y){
+	public Ellipse(double x, double y, double horizDistance
+					, double vertDistance) {
 
 		centerX = x;
 		centerY = y;
+		this.horizDistance = horizDistance;
+		this.vertDistance = vertDistance;
 	}
 
 	public Object2D translate(double x, double y){
 
-		return new Ellipse(centerX + x, centerY + y);
+		return new Ellipse(centerX + x, centerY + y,horizDistance,vertDistance);
 	}
 
 	public Object2D rotate(int x){
@@ -34,4 +37,9 @@ public class Ellipse implements AdvancedObject2D{
 
 		return null;
 	}
-}
+
+	public String toString() {
+		return ("Center: (" + centerX + "," + centerY + ")\na = " 
+				+ horizDistance + "\nb = " + vertDistance);
+	}
+} 

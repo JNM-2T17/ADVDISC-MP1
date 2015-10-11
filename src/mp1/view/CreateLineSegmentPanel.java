@@ -112,27 +112,28 @@ public class CreateLineSegmentPanel extends AbstractCreatePanel {
 		try {
 			x1 = Double.parseDouble(x1Field.getText());
 		} catch(NumberFormatException nfe) {
-			error += "Please input a numerical x-value for point 1";
+			error += "Please input a numerical x-value for point 1.";
 		}
 
 		try {
 			y1 = Double.parseDouble(y1Field.getText());
 		} catch(NumberFormatException nfe) {
 			error += (error.length() == 0 ? "" : "\n") 
-					+ "Please input a numerical y-value for point 1";
+					+ "Please input a numerical y-value for point 1.";
 		}
 
 		try {
 			x2 = Double.parseDouble(x2Field.getText());
 		} catch(NumberFormatException nfe) {
-			error += "Please input a numerical x-value for point 2";
+			error += (error.length() == 0 ? "" : "\n") 
+					+ "Please input a numerical x-value for point 2.";
 		}
 
 		try {
 			y2 = Double.parseDouble(y2Field.getText());
 		} catch(NumberFormatException nfe) {
 			error += (error.length() == 0 ? "" : "\n") 
-					+ "Please input a numerical y-value for point 2";
+					+ "Please input a numerical y-value for point 2.";
 		}
 
 		if( error.length() == 0 ) {
