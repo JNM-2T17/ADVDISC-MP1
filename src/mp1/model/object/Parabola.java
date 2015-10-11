@@ -52,7 +52,7 @@ public class Parabola implements AdvancedObject2D, ShearObject2D, DoubleRotateOb
 
     @Override
     public Object2D translate(double x, double y) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new Parabola(this.vertexX+x,this.vertexY+y,this.magnitude,this.openingVertical);
     }
 
     @Override
