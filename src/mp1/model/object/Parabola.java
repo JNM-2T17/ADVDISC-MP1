@@ -4,20 +4,18 @@
  * and open the template in the editor.
  */
 package mp1.model.object;
-
 import java.lang.Math;
-
 /**
  *
  * @author Angelo Amadora
  */
-public class Hyperbola implements AdvancedObject2D, ShearObject2D, DoubleRotateObject2D{
-    
-    double centerX;
-    double centerY;
-    double horizDistance;
-    double vertDistance;
+public class Parabola implements AdvancedObject2D, ShearObject2D, DoubleRotateObject2D{
+
+    double vertexX;
+    double vertexY;
+    double magnitude;
     boolean openingVertical;
+    
     
     @Override
     public Object2D rotate(int direction) throws IllegalArgumentException {
