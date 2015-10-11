@@ -16,15 +16,33 @@ public class Parabola implements AdvancedObject2D, ShearObject2D, DoubleRotateOb
     double magnitude;
     boolean openingVertical;
     
+    public Parabola (double vertexX, double vertexY, double magnitude, boolean openingVertical){
+        this.vertexX = vertexX;
+        this.vertexY = vertexY;
+        this.magnitude = magnitude;
+        this.openingVertical = openingVertical;
+    }
+    
+    public void setVertexX(double x){
+        vertexX = x;
+    }
+    
+    public void setVertexY(double y){
+        vertexY = y;
+    }
+    
+    public void setOpeningVertical(boolean opening){
+        openingVertical = opening;
+    }
     
     @Override
     public Object2D rotate(int direction) throws IllegalArgumentException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
     @Override
     public Object2D scale(double magnitude) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new Parabola(this.vertexX*magnitude, this.vertexY*magnitude, this.magnitude*magnitude, openingVertical);
     }
 
     @Override
