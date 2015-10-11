@@ -15,4 +15,8 @@ public class Point implements Object2D {
 
 		return new Point(this.x + x, this.y + y);
 	}
+
+	public String toString() {
+		return "(" + x + "," + y + ")";
+ 	}
 }

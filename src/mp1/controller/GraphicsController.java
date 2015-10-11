@@ -14,11 +14,13 @@ public class GraphicsController implements IController {
 	public GraphicsController() {
 		gf = new GraphicsFrame(this);
 		mgPanel = new MainGraphicsPanel(this);
-		gf.setMain(mgPanel);
+		showMain();
 	}
 
 	public void showMain() {
 		gf.setMain(mgPanel);
+		gf.setSize(600,400);
+		gf.setLocationRelativeTo(null);
 	}
 
 	public void pack() {
@@ -31,6 +33,8 @@ public class GraphicsController implements IController {
 			case ELLIPSE:
 				break;
 			case LINE_SEGMENT:
+				gf.setMain(new CreateLineSegmentPanel(this));
+				pack();
 				break;
 			case PARABOLA:
 				break;
@@ -54,20 +58,22 @@ public class GraphicsController implements IController {
 			case ELLIPSE:
 				break;
 			case LINE_SEGMENT:
+				activeObject = new LineSegment(params[0],params[1],params[2]
+												,params[3]);
 				break;
 			case PARABOLA:
 				break;
 			case HYPERBOLA:
 				break;
 			case POINT:
-				//activeObject = new Point(params[0],params[1]);
-				System.out.println("(" + params[0] + "," + params[1] + ")");
+				activeObject = new Point(params[0],params[1]);
 				break;
 			case POLYGON:
 				break;
 			case VECTOR:
-				System.out.println("(" + params[0] + "," + params[1] + ")");
+				//activeObject = new Vector(params[0],params[1]);
 				break;
 		}
+		System.out.println(activeObject);
 	}
 }

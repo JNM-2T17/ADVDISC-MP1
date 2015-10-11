@@ -37,10 +37,10 @@ by d degrees
 [1 tan d] [x]
 [0   1  ] [y]
 
-Line Segment - apply the above to endpoints
-Polygon - apply the above to all vertices
+LINE SEGMENT - apply the above to endpoints
+POLYGON - apply the above to all vertices
 
-Parabola
+PARABOLA
 Vertical
 
 4p(y - k) = (x-h)^2
@@ -111,7 +111,77 @@ x^2 + 2hx - 4py = -h^2 - 4pk
 Vertex: (-h,k)
 Magnitude: p
 
-ellipse
+Horizontal
+4p(x-h) = (y-k)^2
+4px - 4ph = y^2 - 2ky + k^2
+y^2 - 4px - 2ky + k^2 + 4ph = 0
+
+[x y][0 0][x] + [-4p -2k][x] = -k^2 - 4ph
+     [0 1][y]            [y]
+
+translate
+by [a]
+   [b]
+
+add [a] to [h]
+    [b]    [k]
+
+scale by r
+multiply r to p
+
+rotate
+90 clockwise
+[x y][ 0 1][0 0][0 -1][x] + [-4p -2k][0 -1][x] = -k^2 - 4ph
+     [-1 0][0 1][1  0][y]            [1  0][y]
+
+x^2 - 2kx + 4py = -k^2 - 4ph
+(x^2 - 2kx + k^2) = -4py - 4ph
+(x-k)^2 = -4p(y + h)
+Vertex: (k,-h)
+Magnitude: -p
+
+180
+[x y][-1  0][0 0][-1  0][x] + [-4p -2k][-1  0][x] = -k^2 - 4ph
+     [ 0 -1][0 1][ 0 -1][y]            [ 0 -1][y]
+
+y^2 + 4px + 2ky = -k^2 - 4ph
+(y^2 + 2ky + k^2) = -4px - 4ph
+(y + k)^2= -4p(x+h)
+Vertex: (-h,-k)
+Magnitude: -p
+
+90 counterclockwise
+[x y][0 -1][0 0][ 0 1][x] + [-4p -2k][ 0 1][x] = -k^2 - 4ph
+     [1  0][0 1][-1 0][y]            [-1 0][y]
+
+x^2 + 2kx - 4py = k^2 - 4ph
+(x^2 + 2kx + k^2) = 4py - 4ph
+(x+k)^2 = 4p(y-h)
+Vertex: (-k,h)
+Magnitude: p
+
+Reflect 
+x-axis
+[x y][1  0][0 0][1  0][x] + [-4p -2k][1  0][x] = -k^2 - 4ph
+     [0 -1][0 1][0 -1][y]            [0 -1][y]
+
+y^2 - 4px + 2ky = -k^2 - 4ph
+(y^2 + 2ky + k^2) = 4px - 4ph
+(y + k)^2 = 4p(x-h)
+Vertex: (h,-k)
+Magnitude: p
+
+y-axis
+[x y][-1 0][0 0][-1 0][x] + [-4p -2k][-1 0][x] = -k^2 - 4ph
+     [ 0 1][0 1][ 0 1][y]            [ 0 1][y]
+
+y^2 + 4px - 2ky = -k^2 - 4ph
+(y^2 - 2ky + k^2) = -4px - 4ph
+(y-k)^2 = -4p(x + h)
+Vertex: (-h,k)
+Magnitude: -p
+
+ELLIPSE
 
 (x-h)^2/a^2 + (y-k)^2/b^2 = 1
 (x^2 - 2hx + h^2)/a^2 + (y^2 - 2ky + k^2)/b^2 = 1
@@ -142,6 +212,23 @@ a^2(x -k)^2 + b^2(y + h)^2 = a^2b^2
 Center: (k,-h)
 h.d.= b
 v.d.= a
+
+180
+
+[x y][-1  0][b^2   0][-1  0][x] + [-2b^2h -2a^2k][-1  0][x] = a^2b^2 - b^2h^2 - a^2k^2 
+     [ 0 -1][0   a^2][ 0 -1][y]                  [ 0 -1][y]
+
+b^2x^2 + a^2y^2 + 2b^2hx + 2a^2ky = a^2b^2 - b^2h^2 - a^2k^2 
+b^2(x^2 + 2hx + h^2) + a^2(y^2 + 2ky + k^2) = a^2b^2
+(x + h)^2/a^2 + (y + k)^2/b^2 = 1
+Center: (-h,-k)
+h.d. = a
+v.d. = b
+
+90 counterclockwise
+
+[x y][ 0 1][b^2   0][0 -1][x] + [-2b^2h -2a^2k][0 -1][x] = a^2b^2 - b^2h^2 - a^2k^2 
+     [-1 0][0   a^2][1  0][y]                  [1  0][y]
 
 
 
