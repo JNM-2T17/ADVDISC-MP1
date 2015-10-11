@@ -19,7 +19,8 @@ public class Ellipse implements AdvancedObject2D{
 
 	public Object2D translate(double x, double y){
 
-		return new Ellipse(centerX + x, centerY + y,horizDistance,vertDistance);
+		return new Ellipse(centerX + x, centerY + y
+							, horizDistance, vertDistance);
 	}
 
 	public Object2D rotate(int x){
@@ -29,7 +30,9 @@ public class Ellipse implements AdvancedObject2D{
 	}
 
 	public Object2D scale(double x){
-		return null;
+
+		return new Ellipse(centerX, centerY
+							, horizDistance * x, vertDistance * x);
 
 	}
 
