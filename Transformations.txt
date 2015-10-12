@@ -1,0 +1,235 @@
+POINT
+[x y]
+translate
+by [a b]
+[x' y'] = [x y] + [a b]
+
+VECTOR
+[x]
+[y]
+
+translate
+by [a b]
+[x]	  [a]
+[y] + [b]
+
+rotate
+by d degrees
+[cos d -sin d] [x]
+[sin d  cos d] [y]
+
+scale
+by factor r
+
+r[x]
+ [y]
+
+reflect
+x-axis
+[1  0] [x]
+[0 -1] [y]
+y-axis
+[-1 0] [x]
+[ 0 1] [y]
+
+shear
+by d degrees
+[1 tan d] [x]
+[0   1  ] [y]
+
+LINE SEGMENT - apply the above to endpoints
+POLYGON - apply the above to all vertices
+
+PARABOLA
+Vertical
+
+4p(y - k) = (x-h)^2
+4py - 4pk = x^2 - 2hx + h^2
+x^2 - 2hx - 4py + h^2 + 4pk = 0
+
+[x y][1 0][x] + [-2h -4p][x] = -h^2 - 4pk
+     [0 0][y]            [y]
+XTCX + GX = -c
+
+translate
+by [a]
+   [b]
+
+add [a b] to [h k]
+
+scale by r
+multiply r to p
+
+rotate
+90 clockwise
+[x y][ 0 1][1 0][0 -1][x] + [-2h -4p][0 -1][x] = -h^2 - 4pk
+     [-1 0][0 0][1  0][y]            [1  0][y]
+y^2 -4px + 2hy = -h^2 - 4pk
+y^2 -4px + 2hy + h^2 + 4pk = 0
+(y^2 + 2hy + h^2) = -h^2 - 4pk + 4px + h^2
+(y + h)^2 = 4p(x - k)
+Vertex: (k,-h)
+Magnitude: p
+
+180
+[x y][-1  0][1 0][-1  0][x] + [-2h -4p][-1  0][x] = -h^2 - 4pk
+     [ 0 -1][0 0][ 0 -1][y]            [ 0 -1][y]
+x^2 + 2hx + 4py = -h^2 - 4pk
+(x^2 + 2hx + h^2) = -4py - 4pk
+(x + h)^2 = -4p(y + k)
+Vertex: (-h, -k)
+Magnitude: -p
+
+90 counterclockwise
+[x y][0 -1][1 0][ 0 1][x] + [-2h -4p][ 0 1][x] = -h^2 - 4pk
+     [1  0][0 0][-1 0][y]            [-1 0][y]
+
+y^2 + 4px - 2hy = -h^2 - 4pk
+(y^2 - 2hy + h^2) = -4px -4pk
+(y - h)^2 = -4p(x + k)
+Vertex: (-k,h)
+Magnitude: -p
+
+reflect
+x-axis
+[x y][1  0][1 0][1  0][x] + [-2h -4p][1  0][x] = -h^2 - 4pk
+     [0 -1][0 0][0 -1][y]            [0 -1][y]
+
+x^2 -2hx + 4py = -h^2 - 4pk
+(x^2 - 2hx + h^2) = -4py - 4pk
+(x - h)^2 = -4p(y + k)
+Vertex: (h,-k)
+Magnitude: -p
+
+y-axis
+[x y][-1 0][1 0][-1 0][x] + [-2h -4p][-1 0][x] = -h^2 - 4pk
+     [ 0 1][0 0][ 0 1][y]            [ 0 1][y]
+
+x^2 + 2hx - 4py = -h^2 - 4pk
+(x^2 + 2hx + h^2) = 4py - 4pk
+(x + h)^2 = 4p(y - k)
+Vertex: (-h,k)
+Magnitude: p
+
+Horizontal
+4p(x-h) = (y-k)^2
+4px - 4ph = y^2 - 2ky + k^2
+y^2 - 4px - 2ky + k^2 + 4ph = 0
+
+[x y][0 0][x] + [-4p -2k][x] = -k^2 - 4ph
+     [0 1][y]            [y]
+
+translate
+by [a]
+   [b]
+
+add [a] to [h]
+    [b]    [k]
+
+scale by r
+multiply r to p
+
+rotate
+90 clockwise
+[x y][ 0 1][0 0][0 -1][x] + [-4p -2k][0 -1][x] = -k^2 - 4ph
+     [-1 0][0 1][1  0][y]            [1  0][y]
+
+x^2 - 2kx + 4py = -k^2 - 4ph
+(x^2 - 2kx + k^2) = -4py - 4ph
+(x-k)^2 = -4p(y + h)
+Vertex: (k,-h)
+Magnitude: -p
+
+180
+[x y][-1  0][0 0][-1  0][x] + [-4p -2k][-1  0][x] = -k^2 - 4ph
+     [ 0 -1][0 1][ 0 -1][y]            [ 0 -1][y]
+
+y^2 + 4px + 2ky = -k^2 - 4ph
+(y^2 + 2ky + k^2) = -4px - 4ph
+(y + k)^2= -4p(x+h)
+Vertex: (-h,-k)
+Magnitude: -p
+
+90 counterclockwise
+[x y][0 -1][0 0][ 0 1][x] + [-4p -2k][ 0 1][x] = -k^2 - 4ph
+     [1  0][0 1][-1 0][y]            [-1 0][y]
+
+x^2 + 2kx - 4py = k^2 - 4ph
+(x^2 + 2kx + k^2) = 4py - 4ph
+(x+k)^2 = 4p(y-h)
+Vertex: (-k,h)
+Magnitude: p
+
+Reflect 
+x-axis
+[x y][1  0][0 0][1  0][x] + [-4p -2k][1  0][x] = -k^2 - 4ph
+     [0 -1][0 1][0 -1][y]            [0 -1][y]
+
+y^2 - 4px + 2ky = -k^2 - 4ph
+(y^2 + 2ky + k^2) = 4px - 4ph
+(y + k)^2 = 4p(x-h)
+Vertex: (h,-k)
+Magnitude: p
+
+y-axis
+[x y][-1 0][0 0][-1 0][x] + [-4p -2k][-1 0][x] = -k^2 - 4ph
+     [ 0 1][0 1][ 0 1][y]            [ 0 1][y]
+
+y^2 + 4px - 2ky = -k^2 - 4ph
+(y^2 - 2ky + k^2) = -4px - 4ph
+(y-k)^2 = -4p(x + h)
+Vertex: (-h,k)
+Magnitude: -p
+
+ELLIPSE
+
+(x-h)^2/a^2 + (y-k)^2/b^2 = 1
+(x^2 - 2hx + h^2)/a^2 + (y^2 - 2ky + k^2)/b^2 = 1
+b^2x^2 - 2b^2hx + b^2h^2 + a^2y^2 - 2a^2ky + a^2k^2 = a^2b^2
+b^2x^2 + a^2y^2 - 2b^2hx - 2a^2ky = a^2b^2 - b^2h^2 - a^2k^2 
+
+[x y][b^2   0][x] + [-2b^2h -2a^2k][x] = a^2b^2 - b^2h^2 - a^2k^2 
+     [0   a^2][y]            	   [y]
+
+translate
+by [a]
+   [b]
+
+add [a b] to [h k]
+
+scale by r
+multiply r to a and b
+
+rotate
+90 clockwise
+[x y][ 0 1][b^2   0][0 -1][x] + [-2b^2h -2a^2k][0 -1][x] = a^2b^2 - b^2h^2 - a^2k^2 
+     [-1 0][0   a^2][1  0][y]            	   [1  0][y]
+
+a^2x^2 + b^2y^2 - 2a^2kx + 2b^2hy = a^2b^2 - b^2h^2 - a^2k^2 
+a^2(x^2 - 2kx + k^2) + b^2(y^2 + 2hy + h^2) = a^2b^2
+a^2(x -k)^2 + b^2(y + h)^2 = a^2b^2
+(x -k)^2/b^2 + (y + h)^2/a^2 = 1
+Center: (k,-h)
+h.d.= b
+v.d.= a
+
+180
+
+[x y][-1  0][b^2   0][-1  0][x] + [-2b^2h -2a^2k][-1  0][x] = a^2b^2 - b^2h^2 - a^2k^2 
+     [ 0 -1][0   a^2][ 0 -1][y]                  [ 0 -1][y]
+
+b^2x^2 + a^2y^2 + 2b^2hx + 2a^2ky = a^2b^2 - b^2h^2 - a^2k^2 
+b^2(x^2 + 2hx + h^2) + a^2(y^2 + 2ky + k^2) = a^2b^2
+(x + h)^2/a^2 + (y + k)^2/b^2 = 1
+Center: (-h,-k)
+h.d. = a
+v.d. = b
+
+90 counterclockwise
+
+[x y][ 0 1][b^2   0][0 -1][x] + [-2b^2h -2a^2k][0 -1][x] = a^2b^2 - b^2h^2 - a^2k^2 
+     [-1 0][0   a^2][1  0][y]                  [1  0][y]
+
+
+
+
