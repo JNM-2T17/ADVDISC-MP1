@@ -12,11 +12,11 @@ public class Vector implements AdvancedObject2D, ShearObject2D {
 		this.y = y;
 	}
 
-	public void setX1(int x){
+	public void setX(int x){
 		this.x = x;
 	}
 
-	public void setY1(int x){
+	public void setY(int x){
 		this.y = x;
 	}
 
@@ -27,10 +27,10 @@ public class Vector implements AdvancedObject2D, ShearObject2D {
 	// Need to double check
 	public Object2D rotate(int degree){
 		double angleInRadian = Math.toRadians(degree);
-		double coss = Math.cos(angleInRadian);
-		double sins = Math.sin(angleInRadian);
+		double cos = Math.cos(angleInRadian);
+		double sin = Math.sin(angleInRadian);
 
-		return new Vector(this.x * coss + this.y * sin, -1 * this.x * sins + this.y * coss);
+		return new Vector(this.x * cos - this.y * sin, this.x * sin + this.y * cos);
 	}
 
 	public Object2D scale(double dd){
@@ -49,7 +49,7 @@ public class Vector implements AdvancedObject2D, ShearObject2D {
 
 	public Object2D shear(double x){
 		double angleInRadian = Math.toRadians(degree);
-		double tans = Math.tans(angleInRadian);
-		return new Vector(this.x + this.y * tans, this.y);
+		double tan = Math.tan(angleInRadian);
+		return new Vector(this.x + this.y * tan, this.y);
 	}
 }
