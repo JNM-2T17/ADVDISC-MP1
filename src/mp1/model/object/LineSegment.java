@@ -40,10 +40,10 @@ public class LineSegment implements AdvancedObject2D, ShearObject2D {
 	// Need to double check
 	public Object2D rotate(int degree){
 		double angleInRadian = Math.toRadians(degree);
-		double cos = Math.cos(angleInRadian);
-		double sin = Math.sin(angleInRadian);
+		double coss = Math.cos(angleInRadian);
+		double sins = Math.sin(angleInRadian);
 
-		return new LineSegment(this.x1 * cos + this.y1 * sin, -1 * this.x1 * sin + this.y1 * cos, this.x2 * cos + this.y2 * sin, -1 * this.x2 * sin + this.y2 * cos);
+		return new LineSegment(this.x1 * coss + this.y1 * sin, -1 * this.x1 * sins + this.y1 * coss, this.x2 * coss + this.y2 * sins, -1 * this.x2 * sins + this.y2 * coss);
 	}
 
 	public Object2D scale(double dd){
@@ -61,6 +61,8 @@ public class LineSegment implements AdvancedObject2D, ShearObject2D {
 	}
 
 	public Object2D shear(double x){
-
+		double angleInRadian = Math.toRadians(degree);
+		double tans = Math.tans(angleInRadian);
+		return new LineSegment(this.x1 + this.y1 * tans, this.y1, this.x2 + this.y2 * tans, this.y2);
 	}
 }
