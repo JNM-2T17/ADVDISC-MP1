@@ -69,7 +69,7 @@ public class LineSegment implements AdvancedObject2D, ShearObject2D
 		return null;
 	}
 
-	public Object2D shear(double x){
+	public Object2D shear(double degree){
 		double angleInRadian = Math.toRadians(degree);
 		double tan = Math.tan(angleInRadian);
 		return new LineSegment(this.x1 + this.y1 * tan, this.y1, this.x2 + this.y2 * tan, this.y2);
