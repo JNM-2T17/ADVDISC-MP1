@@ -11,24 +11,24 @@ import java.lang.Math;
  */
 public class Parabola implements AdvancedObject2D {
 
-    double vertexX;
-    double vertexY;
+    double h;
+    double k;
     double magnitude;
     boolean openingVertical;
     
-    public Parabola (double vertexX, double vertexY, double magnitude, boolean openingVertical){
-        this.vertexX = vertexX;
-        this.vertexY = vertexY;
+    public Parabola (double h, double k, double magnitude, boolean openingVertical){
+        this.h = h;
+        this.k = k;
         this.magnitude = magnitude;
         this.openingVertical = openingVertical;
     }
     
-    public void setVertexX(double x){
-        vertexX = x;
+    public void setH(double x){
+        h = x;
     }
     
-    public void setVertexY(double y){
-        vertexY = y;
+    public void setK(double y){
+        k = y;
     }
     
     public void setOpeningVertical(boolean opening){
@@ -37,12 +37,22 @@ public class Parabola implements AdvancedObject2D {
     
     @Override
     public Object2D rotate(int direction) throws IllegalArgumentException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        switch(direction) {
+            case AdvancedObject2D.ROTATE_LEFT_90:
+                return new Parabola(-k,h,-magnitude,false);
+            case AdvancedObject2D.ROTATE_RIGHT_90:
+                return new Parabola(-h,-k,-magnitude,true);
+            case AdvancedObject2D.ROTATE_180:
+                return new Parabola(k,-h,magnitude,false);
+            default:
+                return null;
+        }
     }
     
     @Override
     public Object2D scale(double magnitude) {
-        return new Parabola(this.vertexX*magnitude, this.vertexY*magnitude, this.magnitude*magnitude, openingVertical);
+        return new Parabola(this.h, this.k, this.magnitude*magnitude
+                            , openingVertical);
     }
 
     @Override
@@ -52,11 +62,12 @@ public class Parabola implements AdvancedObject2D {
 
     @Override
     public Object2D translate(double x, double y) {
-        return new Parabola(this.vertexX+x,this.vertexY+y,this.magnitude,this.openingVertical);
+        return new Parabola(this.h + x,this.k + y,this.magnitude
+                            ,this.openingVertical);
     }
 
     public String toString() {
-        return ("Vertex: (" + vertexX + "," + vertexY + ")\np = " + magnitude 
+        return ("Vertex: (" + h + "," + k + ")\np = " + magnitude 
                 + "\nOpening " + (openingVertical ? "Vertical" : "Horizontal"));
     }
 }
