@@ -70,6 +70,7 @@ y^2 -4px + 2hy + h^2 + 4pk = 0
 (y + h)^2 = 4p(x - k)
 Vertex: (k,-h)
 Magnitude: p
+Opening Horizontal
 
 180
 [x y][-1  0][1 0][-1  0][x] + [-2h -4p][-1  0][x] = -h^2 - 4pk
@@ -79,6 +80,7 @@ x^2 + 2hx + 4py = -h^2 - 4pk
 (x + h)^2 = -4p(y + k)
 Vertex: (-h, -k)
 Magnitude: -p
+Opening Vertical
 
 90 counterclockwise
 [x y][0 -1][1 0][ 0 1][x] + [-2h -4p][ 0 1][x] = -h^2 - 4pk
@@ -89,6 +91,7 @@ y^2 + 4px - 2hy = -h^2 - 4pk
 (y - h)^2 = -4p(x + k)
 Vertex: (-k,h)
 Magnitude: -p
+Opening Horizontal
 
 reflect
 x-axis
@@ -100,6 +103,7 @@ x^2 -2hx + 4py = -h^2 - 4pk
 (x - h)^2 = -4p(y + k)
 Vertex: (h,-k)
 Magnitude: -p
+Opening Vertical
 
 y-axis
 [x y][-1 0][1 0][-1 0][x] + [-2h -4p][-1 0][x] = -h^2 - 4pk
@@ -110,6 +114,7 @@ x^2 + 2hx - 4py = -h^2 - 4pk
 (x + h)^2 = 4p(y - k)
 Vertex: (-h,k)
 Magnitude: p
+Opening Vertical
 
 Horizontal
 4p(x-h) = (y-k)^2
@@ -139,6 +144,7 @@ x^2 - 2kx + 4py = -k^2 - 4ph
 (x-k)^2 = -4p(y + h)
 Vertex: (k,-h)
 Magnitude: -p
+Opening Vertical
 
 180
 [x y][-1  0][0 0][-1  0][x] + [-4p -2k][-1  0][x] = -k^2 - 4ph
@@ -149,6 +155,7 @@ y^2 + 4px + 2ky = -k^2 - 4ph
 (y + k)^2= -4p(x+h)
 Vertex: (-h,-k)
 Magnitude: -p
+Opening Horizontal
 
 90 counterclockwise
 [x y][0 -1][0 0][ 0 1][x] + [-4p -2k][ 0 1][x] = -k^2 - 4ph
@@ -159,6 +166,7 @@ x^2 + 2kx - 4py = k^2 - 4ph
 (x+k)^2 = 4p(y-h)
 Vertex: (-k,h)
 Magnitude: p
+Opening Vertical
 
 Reflect 
 x-axis
@@ -170,6 +178,7 @@ y^2 - 4px + 2ky = -k^2 - 4ph
 (y + k)^2 = 4p(x-h)
 Vertex: (h,-k)
 Magnitude: p
+Opening Horizontal
 
 y-axis
 [x y][-1 0][0 0][-1 0][x] + [-4p -2k][-1 0][x] = -k^2 - 4ph
@@ -180,6 +189,7 @@ y^2 + 4px - 2ky = -k^2 - 4ph
 (y-k)^2 = -4p(x + h)
 Vertex: (-h,k)
 Magnitude: -p
+Opening Horizontal
 
 ELLIPSE
 
@@ -227,9 +237,95 @@ v.d. = b
 
 90 counterclockwise
 
-[x y][ 0 1][b^2   0][0 -1][x] + [-2b^2h -2a^2k][0 -1][x] = a^2b^2 - b^2h^2 - a^2k^2 
-     [-1 0][0   a^2][1  0][y]                  [1  0][y]
+[x y][0 -1][b^2   0][ 0 1][x] + [-2b^2h -2a^2k][ 0 1][x] = a^2b^2 - b^2h^2 - a^2k^2 
+     [1  0][0   a^2][-1 0][y]                  [-1 0][y]
 
+a^2x^2 + b^2y^2 + 2a^2kx - 2b^2hy = a^2b^2 - b^2h^2 - a^2k^2 
+a^2(x^2 + 2kx + k^2) + b^2(y^2 - 2hy + h^2) = a^2b^2
+(x + k)^2/b^2 + (y-h)^2/a^2 = 1
+Center: (-k,h)
+h.d. = b
+v.d. = a
+
+Reflect
+x-axis
+[x y][1  0][b^2   0][1  0][x] + [-2b^2h -2a^2k][1  0][x] = a^2b^2 - b^2h^2 - a^2k^2 
+     [0 -1][0   a^2][0 -1][y]                  [0 -1][y]
+
+b^2x^2 + a^2y^2 - 2b^2hx + 2a^2ky = a^2b^2 - b^2h^2 - a^2k^2 
+b^2(x^2 - 2hx + h^2) + a^2(y^2 + 2kx + k^2) = a^2b^2
+(x - h)^2/a^2 + (y + k)^2/b^2 = 1
+Center: (h,-k)
+h.d. = a
+v.d. = b
+
+y-axis
+[x y][-1 0][b^2   0][-1 0][x] + [-2b^2h -2a^2k][-1 0][x] = a^2b^2 - b^2h^2 - a^2k^2 
+     [ 0 1][0   a^2][ 0 1][y]                  [ 0 1][y]
+
+b^2x^2 + a^2y^2 + 2b^2hx - 2a^2ky =  a^2b^2 - b^2h^2 - a^2k^2 
+b^2(x^2 + 2hx + h^2) + a^2(y^2 - 2a^2k + k^2) = a^2b^2
+(x + h)^2/a^2 + (y - k)^2/b^2 = 1
+Center: (-h,k)
+h.d. = a
+v.d. = b
+
+Hyperbola
+Vertical
+
+(y-k)^2/b^2 - (x-h)^2/a^2 = 1
+a^2y^2 - 2a^2ky + a^2k^2 - b^2x^2 + 2b^2hx - b^2h^2 = a^2b^2
+- b^2x^2 + a^2y^2 + 2b^2hx - 2a^2ky = a^2b^2 - a^2k^2  + b^2h^2
+
+[x y][-b^2   0][x] + [2b^2h -2a^2k][x] = a^2b^2 - a^2k^2  + b^2h^2
+     [   0 a^2][y]                 [y]
+
+translate
+add [a b] to [h k]
+
+scale
+
+multiply [h.d. v.d.] by r
+
+Rotate
+90 clockwise
+[x y][0 -1][-b^2   0][ 0 1][x] + [2b^2h -2a^2k][ 0 1][x] = a^2b^2 - a^2k^2  + b^2h^2
+     [1  0][   0 a^2][-1 0][y]                 [-1 0][y]
+
+a^2x^2 - b^2y^2 + 2a^2kx + 2b^2hy = a^2b^2 - a^2k^2  + b^2h^2
+a^2(x^2 + 2kx + k^2) - b^2(y^2 - 2hy + h^2) = a^2b^2
+(x + k)^2/b^2 - (y - h)^2/a^2 = 1
+Center: (-k,h)
+h.d. = b
+v.d. = a
+Opening Horizontal
+
+180 
+[x y][-1  0][-b^2   0][-1  0][x] + [2b^2h -2a^2k][-1  0][x] = a^2b^2 - a^2k^2  + b^2h^2
+     [ 0 -1][   0 a^2][ 0 -1][y]                 [ 0 -1][y]
+
+-b^2x^2 + a^2y^2 -2b^2hx + 2a^2ky = a^2b^2 - a^2k^2  + b^2h^2
+-b^2(x^2 + 2hx + h^2) + a^2(y^2 + 2ky + k^2) = a^2b^2
+-(x+h)^2/a^2 + (y + k)^2/b^2 = 1
+Center: (-h,-k)
+h.d. = a
+v.d. = b
+Opening Vertical
+
+90 counterclockwise
+[x y][ 0  1][-b^2   0][0 -1][x] + [2b^2h -2a^2k][0 -1][x] = a^2b^2 - a^2k^2  + b^2h^2
+     [-1  0][   0 a^2][1  0][y]                 [1  0][y]
+
+a^2x^2 - b^2y^2  - 2a^2kx - 2b^2hy = a^2b^2 - a^2k^2  + b^2h^2
+a^2(x^2 - 2kx + k^2) - b^2(y^2 + 2hy + h^2) = a^2b^2
+(x - k)^2/b^2 - (y + h)^2/a^2 = 1
+Center: (k,-h)
+h.d. = b
+v.d. = a
+Opening Horizontal
+
+Reflect
+x-axis
 
 
 
