@@ -3,6 +3,7 @@ package mp1.controller;
 import mp1.model.Shape;
 import mp1.model.object.*;
 import mp1.view.*;
+import mp1.view.transform.ITransform;
 
 public class GraphicsController implements IController {
 	private Object2D activeObject;
@@ -89,5 +90,9 @@ public class GraphicsController implements IController {
 				break;
 		}
 		System.out.println(activeObject);
+	}
+
+	public void transform(ITransform transform) {
+		movedObject = transform.transform(activeObject);
 	}
 }

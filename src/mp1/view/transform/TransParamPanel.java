@@ -20,15 +20,28 @@ import mp1.view.layout.AGBLayout;
 
 public abstract class TransParamPanel extends JPanel {
 	private Transformation trans;
-
 	protected IController control;
+	protected InputListener inputListen;
 
 	public TransParamPanel(Transformation trans, IController control) {
+		super(new AGBLayout());
 		this.trans = trans;
 		this.control = control;
+		inputListen = new InputListener();
+
+		addComponents();
 	}
 
 	public Transformation getTransformation() {
 		return trans;
+	}
+
+	protected abstract void addComponents();
+	protected abstract ITransform getCommand() throws IllegalArgumentException;
+
+	protected class InputListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			control.transform(getCommand());
+		}
 	}
 }
