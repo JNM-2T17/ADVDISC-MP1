@@ -25,6 +25,10 @@ public class Ellipse implements AdvancedObject2D{
 
 	public Object2D rotate(int x){
 		
+		
+
+
+
 		return null;
 
 	}
