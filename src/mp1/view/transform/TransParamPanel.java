@@ -9,7 +9,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
@@ -41,7 +40,12 @@ public abstract class TransParamPanel extends JPanel {
 
 	protected class InputListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			control.transform(getCommand());
+			try {
+				control.transform(getCommand());
+			} catch(IllegalArgumentException iae) {
+				JOptionPane.showMessageDialog(null,iae.getMessage(),"Error"
+												,JOptionPane.ERROR_MESSAGE);
+			}
 		}
 	}
 }

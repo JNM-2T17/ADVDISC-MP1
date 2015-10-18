@@ -21,8 +21,8 @@ public class ScalePanel extends TransParamPanel {
 	private JLabel scalarLabel;
 	private JTextField scalarField;
 
-	public ScalePanel(Transformation trans,IController control) {
-		super(trans,control);
+	public ScalePanel(IController control) {
+		super(Transformation.SCALE,control);
 	}
 
 	protected void addComponents() {
