@@ -18,6 +18,14 @@ public class Vector implements AdvancedObject2D, ShearObject2D
 		this.y = y;
 	}
 
+	public double getX() {
+		return x;
+	}
+
+	public double getY() {
+		return y;
+	}
+
 	public void setX(double x){
 		this.x = x;
 	}

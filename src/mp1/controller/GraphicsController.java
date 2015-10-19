@@ -4,6 +4,7 @@ import mp1.model.Shape;
 import mp1.model.object.*;
 import mp1.view.*;
 import mp1.view.transform.*;
+import mp1.view.draw.*;
 
 /**
  *
@@ -17,6 +18,7 @@ public class GraphicsController implements IController {
 	private MainGraphicsPanel mgPanel;
 	private TransformPanelDirector director;
 	private TransformPanel transformPanel;
+	private GraphPanel graphPanel;
 
 	public GraphicsController() {
 		gf = new GraphicsFrame(this);
@@ -96,12 +98,15 @@ public class GraphicsController implements IController {
 		}
 		transformPanel = director.getTransformPanel(activeObject,s);
 		gf.setSide(transformPanel);
-		pack();
-		gf.setMain(null);
+		graphPanel = new GraphPanel(s,activeObject,25);
+		gf.setMain(graphPanel);
+		gf.setSize(1300,700);
+		gf.setLocationRelativeTo(null);
 	}
 
 	public void transform(ITransform transform) {
 		movedObject = transform.transform(activeObject);
 		transformPanel.setTransformed(movedObject);
+		graphPanel.setTrans(movedObject);
 	}
 }
