@@ -20,10 +20,12 @@ import mp1.view.layout.AGBLayout;
 
 public class TransformPanel extends JPanel {
 	private Object2D model;
+	private Object2D transformed;;
 
 	private JTabbedPane transformPane;
 	private JLabel transformLabel;
 	private JLabel objectLabel;
+	private JLabel transLabel;
 	private JButton backButton;
 
 	private IController control;
@@ -51,13 +53,23 @@ public class TransformPanel extends JPanel {
 		AGBLayout.addComp(this,objectLabel,0,1,2,1,100,100
 							,GridBagConstraints.CENTER,GridBagConstraints.NONE);
 
+		transLabel = new JLabel();
+		transLabel.setFont(new Font("Segoe UI",Font.PLAIN,14));
+		AGBLayout.addComp(this,transLabel,0,2,2,1,100,100
+							,GridBagConstraints.CENTER,GridBagConstraints.NONE);
+
 		transformPane = new JTabbedPane();
-		AGBLayout.addComp(this,transformPane,0,2,2,1,100,100
+		AGBLayout.addComp(this,transformPane,0,3,2,1,100,100
 							,GridBagConstraints.CENTER,GridBagConstraints.BOTH);
 	}
 
 	public void addPane(TransParamPanel panel) {
 		transformPane.add(panel.getTransformation().toString(),panel);
+	}
+
+	public void setTransformed(Object2D obj) {
+		transformed = obj;
+		transLabel.setText("Transformed Object: " + obj);
 	}
 
 	public void clear() {

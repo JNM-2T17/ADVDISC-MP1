@@ -33,7 +33,7 @@ public class ShearRotatePanel extends TransParamPanel {
 							,GridBagConstraints.NONE);
 
 		thetaField = new JTextField("0",15);
-		thetaField.addActionListener(inputListen);
+		thetaField.addKeyListener(inputListen);
 		thetaField.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,thetaField,1,0,1,1,100,100
 							,GridBagConstraints.WEST
@@ -46,7 +46,9 @@ public class ShearRotatePanel extends TransParamPanel {
 		String error = "";
 
 		try {
-			theta = Double.parseDouble(thetaField.getText());
+			String text = thetaField.getText();
+			text = text.length() == 0  || text.equals("-") ? "0" : text;
+			theta = Double.parseDouble(text);
 		} catch(NumberFormatException nfe) {
 			error += (error.length() == 0 ? "" : "\n") + "Invalid theta value";
 		}	

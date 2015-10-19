@@ -14,4 +14,8 @@ public class Shear implements ITransform {
 		ShearObject2D so2 = (ShearObject2D)obj;
 		return so2.shear(theta);
 	}
+
+	public String toString() {
+		return "Shearing by " + theta + " degrees.";
+	}
 }

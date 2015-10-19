@@ -14,4 +14,8 @@ public class Scale implements ITransform {
 		AdvancedObject2D ao2 = (AdvancedObject2D)obj;
 		return ao2.scale(scalar);
 	}
+
+	public String toString() {
+		return "Scaling by factor of " + scalar; 
+	}
 }

@@ -64,7 +64,7 @@ public class Parabola implements AdvancedObject2D {
     
     @Override
     public Object2D scale(double magnitude) {
-        return new Parabola(h, k, magnitude*magnitude
+        return new Parabola(h, k, this.magnitude*magnitude
                             , openingVertical);
     }
 

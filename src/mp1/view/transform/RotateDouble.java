@@ -14,4 +14,8 @@ public class RotateDouble implements ITransform {
 		DoubleRotateObject2D dro2 = (DoubleRotateObject2D)obj;
 		return dro2.rotate(theta);
 	}
+
+	public String toString() {
+		return "Rotating " + theta + " degrees";
+	}
 }

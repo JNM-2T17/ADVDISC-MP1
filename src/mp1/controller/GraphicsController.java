@@ -78,11 +78,8 @@ public class GraphicsController implements IController {
 											,params[3] == 1);
 				break;
 			case HYPERBOLA:
-				System.out.println("Center: (" + params[0] + "," + params[1] 
-									+ ")\na = " + params[2] + "\nb = " 
-									+ params[3] + "\nOpening " 
-									+ (params[4] == 1 ? "Vertical" 
-										: "Horizontal"));
+				activeObject = new Hyperbola(params[0],params[1],params[2]
+												,params[3],params[4] == 1);
 				break;
 			case POINT:
 				activeObject = new Point(params[0],params[1]);
@@ -101,5 +98,6 @@ public class GraphicsController implements IController {
 
 	public void transform(ITransform transform) {
 		movedObject = transform.transform(activeObject);
+		transformPanel.setTransformed(movedObject);
 	}
 }

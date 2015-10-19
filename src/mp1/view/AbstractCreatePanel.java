@@ -49,7 +49,6 @@ public abstract class AbstractCreatePanel extends JPanel {
 	protected class CreateListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			try {
-				System.out.println(shape);
 				control.createShape(shape,getParams());
 			} catch(Exception ex) {
 				JOptionPane.showMessageDialog(null,ex.getMessage()

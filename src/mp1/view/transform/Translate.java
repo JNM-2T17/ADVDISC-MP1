@@ -14,4 +14,8 @@ public class Translate implements ITransform {
 	public Object2D transform(Object2D obj) {
 		return obj.translate(x,y);
 	}
+
+	public String toString() {
+		return "Translating by [" + x + " " + y + "]";
+	}
 }

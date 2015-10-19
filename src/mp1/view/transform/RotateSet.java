@@ -14,4 +14,17 @@ public class RotateSet implements ITransform {
 		AdvancedObject2D ao2 = (AdvancedObject2D)obj;
 		return ao2.rotate(rotation);
 	}
+
+	public String toString() {
+		switch(rotation) {
+			case AdvancedObject2D.ROTATE_LEFT_90:
+				return "Rotating 90 degrees counterclockwise";
+			case AdvancedObject2D.ROTATE_RIGHT_90:
+				return "Rotating 90 degrees clockwise";
+			case AdvancedObject2D.ROTATE_180:
+				return "Rotating 180 degrees";
+			default:
+				return null;
+		}
+	}
 }

@@ -2,7 +2,8 @@ package mp1.model.object;
 
 import java.lang.Math;
 
-public class Vector implements AdvancedObject2D, ShearObject2D {
+public class Vector implements AdvancedObject2D, ShearObject2D
+								, DoubleRotateObject2D {
 
 	private double x;
 	private double y;
@@ -25,7 +26,22 @@ public class Vector implements AdvancedObject2D, ShearObject2D {
 	}
 
 	public Object2D rotate(int degree) {
-		return null;
+		double deg;
+		switch(degree) {
+			case AdvancedObject2D.ROTATE_LEFT_90:	
+				deg = 90;
+				break;
+			case AdvancedObject2D.ROTATE_180:
+				deg = 180;
+				break;
+			case AdvancedObject2D.ROTATE_RIGHT_90:
+				deg = -90;
+				break;
+			default:
+				deg = 0;
+		}
+
+		return rotate(deg);
 	}
 
 	// Need to double check
@@ -43,9 +59,11 @@ public class Vector implements AdvancedObject2D, ShearObject2D {
 
 	public Object2D reflect(int cas){
 		switch(cas){
-			case 3: return new Vector((this.x - this.y) * 2, this.y);
-
-			case 4: return new Vector(this.x, (this.y - this.x) * 2);
+			case AdvancedObject2D.REFLECT_X_AXIS: 
+				return new Vector(this.x, -this.y);
+			case AdvancedObject2D.REFLECT_Y_AXIS: 	
+				return new Vector(-this.x, this.y);
+			default:
 		}
 		return null;
 	}

@@ -34,7 +34,7 @@ public class TranslatePanel extends TransParamPanel {
 							,GridBagConstraints.NONE);
 
 		xField = new JTextField("0",15);
-		xField.addActionListener(inputListen);
+		xField.addKeyListener(inputListen);
 		xField.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,xField,1,0,1,1,100,100,GridBagConstraints.WEST
 							,GridBagConstraints.NONE);
@@ -45,7 +45,7 @@ public class TranslatePanel extends TransParamPanel {
 							,GridBagConstraints.NONE);
 
 		yField = new JTextField("0",15);
-		yField.addActionListener(inputListen);
+		yField.addKeyListener(inputListen);
 		yField.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,yField,1,1,1,1,100,100,GridBagConstraints.WEST
 							,GridBagConstraints.NONE);
@@ -58,13 +58,17 @@ public class TranslatePanel extends TransParamPanel {
 		String error = "";
 
 		try {
-			x = Double.parseDouble(xField.getText());
+			String text = xField.getText();
+			text = text.length() == 0  || text.equals("-") ? "0" : text;
+			x = Double.parseDouble(text);
 		} catch(NumberFormatException nfe) {
 			error += (error.length() == 0 ? "" : "\n") + "Invalid x value";
 		}	
 
 		try {
-			y = Double.parseDouble(yField.getText());
+			String text = yField.getText();
+			text = text.length() == 0  || text.equals("-") ? "0" : text;
+			y = Double.parseDouble(text);
 		} catch(NumberFormatException nfe) {
 			error += (error.length() == 0 ? "" : "\n") + "Invalid y value";
 		}

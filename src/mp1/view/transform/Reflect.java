@@ -14,4 +14,15 @@ public class Reflect implements ITransform {
 		AdvancedObject2D ao2 = (AdvancedObject2D)obj;
 		return ao2.reflect(axis);
 	}
+
+	public String toString() {
+		switch(axis) {
+			case AdvancedObject2D.REFLECT_X_AXIS:
+				return "Reflecting along x-axis";
+			case AdvancedObject2D.REFLECT_Y_AXIS:
+				return "Reflecting along y-axis";
+			default:
+				return null;
+		}
+	}
 }
