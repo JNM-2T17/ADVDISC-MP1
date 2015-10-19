@@ -30,8 +30,9 @@ public class ShearRotatePanel extends TransParamPanel {
 	}
 
 	protected void addComponents() {
-		thetaLabel = new JLabel("Angle in degrees (" + (trans == SHEAR ? "" 
-									: "counter") + "clockwise):");
+		thetaLabel = new JLabel("Angle in degrees (" + (getTransformation() 
+								== Transformation.SHEAR ? "" : "counter") 
+								+ "clockwise):");
 		thetaLabel.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,thetaLabel,0,0,1,1,100,100
 							,GridBagConstraints.EAST
