@@ -3,6 +3,10 @@ package mp1.controller;
 import mp1.model.Shape;
 import mp1.view.transform.ITransform;
 
+/**
+ *
+ * @author Austin Fernandez
+ */
 public interface IController {
 	public void showMain();
 	public void pack();

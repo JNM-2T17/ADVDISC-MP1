@@ -2,6 +2,11 @@ package mp1.model.object;
 
 import java.lang.Math;
 
+/**
+ *
+ * @author Austin Fernandez
+ * @author Jonah Syfu
+ */
 public class Vector implements AdvancedObject2D, ShearObject2D
 								, DoubleRotateObject2D {
 

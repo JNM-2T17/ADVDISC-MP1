@@ -17,6 +17,10 @@ import mp1.controller.IController;
 import mp1.model.Transformation;
 import mp1.view.layout.AGBLayout;
 
+/**
+ *
+ * @author Austin Fernandez
+ */
 public class TranslatePanel extends TransParamPanel {
 	private JLabel xLabel;
 	private JTextField xField;

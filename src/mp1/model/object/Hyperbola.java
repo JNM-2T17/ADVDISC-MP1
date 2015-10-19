@@ -2,6 +2,10 @@ package mp1.model.object;
 
 import java.lang.Math;
 
+/**
+ *
+ * @author Austin Fernandez
+ */
 public class Hyperbola implements AdvancedObject2D {
     
     double h;

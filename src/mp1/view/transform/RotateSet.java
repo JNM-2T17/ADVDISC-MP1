@@ -3,6 +3,10 @@ package mp1.view.transform;
 import mp1.model.object.Object2D;
 import mp1.model.object.AdvancedObject2D;
 
+/**
+ *
+ * @author Austin Fernandez
+ */
 public class RotateSet implements ITransform {
 	private int rotation;
 

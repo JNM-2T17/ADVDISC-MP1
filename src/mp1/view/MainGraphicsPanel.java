@@ -18,6 +18,10 @@ import mp1.controller.IController;
 import mp1.model.Shape;
 import mp1.view.layout.AGBLayout;
 
+/**
+ *
+ * @author Austin Fernandez
+ */
 public class MainGraphicsPanel extends JPanel {
 	private HashMap<JButton,Shape> keyMapping;
 

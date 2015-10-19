@@ -1,5 +1,10 @@
 package mp1.model.object;
 
+/**
+ *
+ * @author Austin Fernandez
+ * @author John Joseph Andres
+ */
 public class Ellipse implements AdvancedObject2D{
 	
 	private double h;

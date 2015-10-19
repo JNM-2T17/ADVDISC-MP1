@@ -1,5 +1,9 @@
 package mp1.model;
 
+/**
+ *
+ * @author Austin Fernandez
+ */
 public enum Shape {
 	ELLIPSE("Ellipse"),
 	LINE_SEGMENT("Line Segment"),

@@ -1,5 +1,9 @@
 package mp1.model.object;
 
+/**
+ *
+ * @author John Joseph Andres
+ */
 public class Point implements Object2D {
 	
 	private double x;

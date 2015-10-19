@@ -18,6 +18,10 @@ import mp1.model.Shape;
 import mp1.model.object.Object2D;
 import mp1.view.layout.AGBLayout;
 
+/**
+ *
+ * @author Austin Fernandez
+ */
 public class TransformPanel extends JPanel {
 	private Object2D model;
 	private Object2D transformed;;

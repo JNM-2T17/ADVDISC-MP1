@@ -2,6 +2,10 @@ package mp1.model.object;
 
 import java.lang.Math;
 
+/**
+ *
+ * @author Jonah Syfu
+ */
 public class LineSegment implements AdvancedObject2D, ShearObject2D
 									, DoubleRotateObject2D {
 

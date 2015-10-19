@@ -17,6 +17,10 @@ import mp1.model.Transformation;
 import mp1.model.object.AdvancedObject2D;
 import mp1.view.layout.AGBLayout;
 
+/**
+ *
+ * @author Austin Fernandez
+ */
 public class ReflectPanel extends TransParamPanel {
 	private JRadioButton xButton;
 	private JRadioButton yButton;

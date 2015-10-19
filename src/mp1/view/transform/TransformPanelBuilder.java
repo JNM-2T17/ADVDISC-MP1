@@ -4,6 +4,10 @@ import mp1.controller.IController;
 import mp1.model.Transformation;
 import mp1.model.object.Object2D;
 
+/**
+ *
+ * @author Austin Fernandez
+ */
 public class TransformPanelBuilder {
 	private TransformPanel transPanel;
 	private IController control;

@@ -19,6 +19,10 @@ import mp1.controller.IController;
 import mp1.model.Transformation;
 import mp1.view.layout.AGBLayout;
 
+/**
+ *
+ * @author Austin Fernandez
+ */
 public abstract class TransParamPanel extends JPanel {
 	private Transformation trans;
 	protected IController control;
@@ -54,7 +58,6 @@ public abstract class TransParamPanel extends JPanel {
 				confirmed = true;
 			} catch(IllegalArgumentException iae) {
 				if( confirmed ) {
-					System.out.println(trans);
 					JOptionPane.showMessageDialog(null,iae.getMessage(),"Error"
 													,JOptionPane.ERROR_MESSAGE);
 					confirmed = false;

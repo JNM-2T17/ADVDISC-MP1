@@ -5,6 +5,10 @@ import javax.swing.UIManager.*;
 
 import mp1.controller.GraphicsController;
 
+/**
+ *
+ * @author Austin Fernandez
+ */
 public class Driver {
 	public static void main(String[] args) {
 		try {

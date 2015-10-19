@@ -6,6 +6,10 @@ import javax.swing.JPanel;
 
 import mp1.controller.IController;
 
+/**
+ *
+ * @author Austin Fernandez
+ */
 public class GraphicsFrame extends JFrame {
 	private JPanel mainPanel;
 	private JPanel sidePanel;

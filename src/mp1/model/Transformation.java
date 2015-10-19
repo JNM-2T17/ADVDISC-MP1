@@ -1,5 +1,9 @@
 package mp1.model;
 
+/**
+ *
+ * @author Austin Fernandez
+ */
 public enum Transformation {
 	TRANSLATE("Translate"),
 	ROTATE_SET("Static Rotate"),

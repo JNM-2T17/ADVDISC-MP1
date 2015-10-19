@@ -16,6 +16,10 @@ import mp1.controller.IController;
 import mp1.model.Shape;
 import mp1.view.layout.AGBLayout;
 
+/**
+ *
+ * @author Austin Fernandez
+ */
 public abstract class AbstractCreatePanel extends JPanel {
 	protected Shape shape; 
 

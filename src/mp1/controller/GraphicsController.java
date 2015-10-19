@@ -5,6 +5,10 @@ import mp1.model.object.*;
 import mp1.view.*;
 import mp1.view.transform.*;
 
+/**
+ *
+ * @author Austin Fernandez
+ */
 public class GraphicsController implements IController {
 	private Object2D activeObject;
 	private Object2D movedObject;
