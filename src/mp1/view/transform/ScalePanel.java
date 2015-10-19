@@ -32,7 +32,7 @@ public class ScalePanel extends TransParamPanel {
 							,GridBagConstraints.EAST
 							,GridBagConstraints.NONE);
 
-		scalarField = new JTextField(15);
+		scalarField = new JTextField("0",15);
 		scalarField.addActionListener(inputListen);
 		scalarField.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,scalarField,1,0,1,1,100,100

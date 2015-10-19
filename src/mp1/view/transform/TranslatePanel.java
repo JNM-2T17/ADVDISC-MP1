@@ -33,7 +33,7 @@ public class TranslatePanel extends TransParamPanel {
 		AGBLayout.addComp(this,xLabel,0,0,1,1,100,100,GridBagConstraints.EAST
 							,GridBagConstraints.NONE);
 
-		xField = new JTextField(15);
+		xField = new JTextField("0",15);
 		xField.addActionListener(inputListen);
 		xField.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,xField,1,0,1,1,100,100,GridBagConstraints.WEST
@@ -44,7 +44,7 @@ public class TranslatePanel extends TransParamPanel {
 		AGBLayout.addComp(this,yLabel,0,1,1,1,100,100,GridBagConstraints.EAST
 							,GridBagConstraints.NONE);
 
-		yField = new JTextField(15);
+		yField = new JTextField("0",15);
 		yField.addActionListener(inputListen);
 		yField.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,yField,1,1,1,1,100,100,GridBagConstraints.WEST

@@ -35,6 +35,7 @@
 "C:\\DLSU\\Term 7\\ADVDISC\\Requirements\\ADVDISC-MP1\\src\\mp1\\view\\transform\\TransformBuilder.java"
 "C:\\DLSU\\Term 7\\ADVDISC\\Requirements\\ADVDISC-MP1\\src\\mp1\\view\\transform\\TransformPanel.java"
 "C:\\DLSU\\Term 7\\ADVDISC\\Requirements\\ADVDISC-MP1\\src\\mp1\\view\\transform\\TransformPanelBuilder.java"
+"C:\\DLSU\\Term 7\\ADVDISC\\Requirements\\ADVDISC-MP1\\src\\mp1\\view\\transform\\TransformPanelDirector.java"
 "C:\\DLSU\\Term 7\\ADVDISC\\Requirements\\ADVDISC-MP1\\src\\mp1\\view\\transform\\Translate.java"
 "C:\\DLSU\\Term 7\\ADVDISC\\Requirements\\ADVDISC-MP1\\src\\mp1\\view\\transform\\TranslatePanel.java"
 "C:\\DLSU\\Term 7\\ADVDISC\\Requirements\\ADVDISC-MP1\\src\\mp1\\view\\transform\\TransParamPanel.java"

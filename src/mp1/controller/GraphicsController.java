@@ -3,7 +3,7 @@ package mp1.controller;
 import mp1.model.Shape;
 import mp1.model.object.*;
 import mp1.view.*;
-import mp1.view.transform.ITransform;
+import mp1.view.transform.*;
 
 public class GraphicsController implements IController {
 	private Object2D activeObject;
@@ -11,15 +11,19 @@ public class GraphicsController implements IController {
 
 	private GraphicsFrame gf;
 	private MainGraphicsPanel mgPanel;
+	private TransformPanelDirector director;
+	private TransformPanel transformPanel;
 
 	public GraphicsController() {
 		gf = new GraphicsFrame(this);
 		mgPanel = new MainGraphicsPanel(this);
 		showMain();
+		director = new TransformPanelDirector(this);
 	}
 
 	public void showMain() {
 		gf.setMain(mgPanel);
+		gf.setSide(null);
 		gf.setSize(600,400);
 		gf.setLocationRelativeTo(null);
 	}
@@ -86,10 +90,13 @@ public class GraphicsController implements IController {
 			case POLYGON:
 				break;
 			case VECTOR:
-				//activeObject = new Vector(params[0],params[1]);
+				activeObject = new Vector(params[0],params[1]);
 				break;
 		}
-		System.out.println(activeObject);
+		transformPanel = director.getTransformPanel(activeObject,s);
+		gf.setSide(transformPanel);
+		pack();
+		gf.setMain(null);
 	}
 
 	public void transform(ITransform transform) {

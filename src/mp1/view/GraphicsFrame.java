@@ -31,15 +31,19 @@ public class GraphicsFrame extends JFrame {
 
 	public void setMain(JPanel panel) {
 		mainPanel.removeAll();
-		mainPanel.add(panel,BorderLayout.CENTER);
-		mainPanel.repaint();
-		mainPanel.revalidate();
+		if( panel != null ) {
+			mainPanel.add(panel,BorderLayout.CENTER);
+			mainPanel.repaint();
+			mainPanel.revalidate();
+		}
 	}
 
 	public void setSide(JPanel panel) {
 		sidePanel.removeAll();
-		sidePanel.add(panel,BorderLayout.CENTER);
-		sidePanel.repaint();
-		sidePanel.revalidate();
+		if( panel != null ) {
+			sidePanel.add(panel,BorderLayout.CENTER);
+			sidePanel.repaint();
+			sidePanel.revalidate();
+		}
 	}	
 }

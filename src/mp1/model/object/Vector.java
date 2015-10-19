@@ -55,4 +55,8 @@ public class Vector implements AdvancedObject2D, ShearObject2D {
 		double tan = Math.tan(angleInRadian);
 		return new Vector(this.x + this.y * tan, this.y);
 	}
+
+	public String toString() {
+		return ("v = [" + x + " " + y + "]");
+	}
 }

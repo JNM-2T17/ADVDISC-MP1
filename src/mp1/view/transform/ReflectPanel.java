@@ -28,7 +28,7 @@ public class ReflectPanel extends TransParamPanel {
 	protected void addComponents() {
 		ButtonGroup bg = new ButtonGroup();
 
-		xButton = new JRadioButton("x-axis");
+		xButton = new JRadioButton("x-axis",true);
 		xButton.addActionListener(inputListen);
 		bg.add(xButton);
 		AGBLayout.addComp(this,xButton,0,0,1,1,100,100,GridBagConstraints.CENTER

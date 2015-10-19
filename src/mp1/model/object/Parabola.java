@@ -70,24 +70,93 @@ public class Parabola implements AdvancedObject2D {
 
     @Override
     public Object2D reflect(int axis) throws IllegalArgumentException {
-        switch(axis) {
-            case AdvancedObject2D.REFLECT_X_AXIS:
-                return new Parabola(h,-k,-magnitude,openingVertical);
-            case AdvancedObject2D.REFLECT_Y_AXIS:
-                return new Parabola(-h,k,magnitude,openingVertical);
-            default:
-                return null;
+        if(openingVertical){
+            switch(axis) {
+                case AdvancedObject2D.REFLECT_X_AXIS:
+                    return new Parabola(h,-k,-magnitude,true);
+                case AdvancedObject2D.REFLECT_Y_AXIS:
+                    return new Parabola(-h,k,magnitude,true);
+                default:
+                    return null;
+            }
+        } else {
+            switch(axis) {
+                case AdvancedObject2D.REFLECT_X_AXIS:
+                    return new Parabola(h,-k,magnitude,false);
+                case AdvancedObject2D.REFLECT_Y_AXIS:
+                    return new Parabola(-h,k,-magnitude,false);
+                default:
+                    return null;
+            }
         }
     }
 
     @Override
     public Object2D translate(double x, double y) {
-        return new Parabola(h + x,k + y,magnitude
-                            ,openingVertical);
+        return new Parabola(h + x,k + y,magnitude,openingVertical);
     }
 
     public String toString() {
-        return ("Vertex: (" + h + "," + k + ")\np = " + magnitude 
-                + "\nOpening " + (openingVertical ? "Vertical" : "Horizontal"));
+        if( openingVertical ) {
+            double e = -2 * h;
+            double f = -4 * magnitude;
+            double con = h * h + 4 * magnitude * k;
+            String ret = "x^2";
+            if( e != 0 ) {
+                if( e < 0 ) {
+                    ret += " " + e + "x";
+                } else {
+                    ret += " + " + e + "x";
+                }
+            }
+
+            if( f != 0 ) {
+                if( f < 0 ) {
+                    ret += " " + f + "y";
+                } else {
+                    ret += " + " + f + "y";
+                }
+            }
+
+            if( con != 0 ) {
+                if( con < 0 ) {
+                    ret += " " + con + "";
+                } else {
+                    ret += " + " + con + "";
+                }
+            }
+
+            return ret + " = 0";
+        } else {
+            double e = -4 * magnitude;
+            double f = -2 * k;
+            double con = k * k + 4 * magnitude * h;
+            String ret = "y^2";
+            if( e != 0 ) {
+                if( e < 0 ) {
+                    ret += " " + e + "x";
+                } else {
+                    ret += " + " + e + "x";
+                }
+            }
+
+            if( f != 0 ) {
+                if( f < 0 ) {
+                    ret += " " + f + "y";
+                } else {
+                    ret += " + " + f + "y";
+                }
+            }
+
+            if( con != 0 ) {
+                if( con < 0 ) {
+                    ret += " " + con + "";
+                } else {
+                    ret += " + " + con + "";
+                }
+            }
+
+            return ret + " = 0";
+        }
     }
 }

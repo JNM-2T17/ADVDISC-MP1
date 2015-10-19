@@ -32,7 +32,7 @@ public class ShearRotatePanel extends TransParamPanel {
 							,GridBagConstraints.EAST
 							,GridBagConstraints.NONE);
 
-		thetaField = new JTextField(15);
+		thetaField = new JTextField("0",15);
 		thetaField.addActionListener(inputListen);
 		thetaField.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,thetaField,1,0,1,1,100,100

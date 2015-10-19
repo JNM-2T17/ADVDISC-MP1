@@ -2,13 +2,14 @@ package mp1.view.transform;
 
 import mp1.controller.IController;
 import mp1.model.Transformation;
+import mp1.model.object.Object2D;
 
 public class TransformPanelBuilder {
 	private TransformPanel transPanel;
 	private IController control;
 
-	public TransformPanelBuilder(IController control) {
-		transPanel = new TransformPanel(control);
+	public TransformPanelBuilder(Object2D model, IController control) {
+		transPanel = new TransformPanel(model, control);
 		this.control = control;
 	}
 

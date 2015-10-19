@@ -43,6 +43,7 @@ public abstract class TransParamPanel extends JPanel {
 			try {
 				control.transform(getCommand());
 			} catch(IllegalArgumentException iae) {
+				System.out.println(trans);
 				JOptionPane.showMessageDialog(null,iae.getMessage(),"Error"
 												,JOptionPane.ERROR_MESSAGE);
 			}

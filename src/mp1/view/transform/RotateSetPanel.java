@@ -29,25 +29,28 @@ public class RotateSetPanel extends TransParamPanel {
 	protected void addComponents() {
 		ButtonGroup bg = new ButtonGroup();
 
-		left90Button = new JRadioButton("90 degrees counterclockwise");
+		left90Button = new JRadioButton("90 degrees counterclockwise",true);
 		left90Button.addActionListener(inputListen);
+		left90Button.setBorder(BorderFactory.createEmptyBorder(0,30,0,0));
 		bg.add(left90Button);
 		AGBLayout.addComp(this,left90Button,0,0,1,1,100,100
-							,GridBagConstraints.CENTER
+							,GridBagConstraints.WEST
 							,GridBagConstraints.NONE);
 
 		right90Button = new JRadioButton("90 degrees clockwise");
 		right90Button.addActionListener(inputListen);
+		right90Button.setBorder(BorderFactory.createEmptyBorder(0,30,0,0));
 		bg.add(right90Button);
 		AGBLayout.addComp(this,right90Button,0,1,1,1,100,100
-							,GridBagConstraints.CENTER
+							,GridBagConstraints.WEST
 							,GridBagConstraints.NONE);
 
 		rotate180Button = new JRadioButton("180 degrees");
 		rotate180Button.addActionListener(inputListen);
+		rotate180Button.setBorder(BorderFactory.createEmptyBorder(0,30,0,0));
 		bg.add(rotate180Button);
 		AGBLayout.addComp(this,rotate180Button,0,2,1,1,100,100
-							,GridBagConstraints.CENTER
+							,GridBagConstraints.WEST
 							,GridBagConstraints.NONE);
 	}
 
