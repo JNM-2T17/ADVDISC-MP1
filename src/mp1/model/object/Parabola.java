@@ -97,66 +97,55 @@ public class Parabola implements AdvancedObject2D {
     }
 
     public String toString() {
+        double e;
+        double f;
+        double con;
+        String ret = "";
+
         if( openingVertical ) {
-            double e = -2 * h;
-            double f = -4 * magnitude;
-            double con = h * h + 4 * magnitude * k;
-            String ret = "x^2";
-            if( e != 0 ) {
-                if( e < 0 ) {
-                    ret += " " + e + "x";
-                } else {
-                    ret += " + " + e + "x";
-                }
-            }
-
-            if( f != 0 ) {
-                if( f < 0 ) {
-                    ret += " " + f + "y";
-                } else {
-                    ret += " + " + f + "y";
-                }
-            }
-
-            if( con != 0 ) {
-                if( con < 0 ) {
-                    ret += " " + con + "";
-                } else {
-                    ret += " + " + con + "";
-                }
-            }
-
-            return ret + " = 0";
+            e = -2 * h;
+            f = -4 * magnitude;
+            con = h * h + 4 * magnitude * k;
+            ret = "x<sup>2</sup>";
         } else {
-            double e = -4 * magnitude;
-            double f = -2 * k;
-            double con = k * k + 4 * magnitude * h;
-            String ret = "y^2";
-            if( e != 0 ) {
-                if( e < 0 ) {
-                    ret += " " + e + "x";
-                } else {
-                    ret += " + " + e + "x";
-                }
-            }
-
-            if( f != 0 ) {
-                if( f < 0 ) {
-                    ret += " " + f + "y";
-                } else {
-                    ret += " + " + f + "y";
-                }
-            }
-
-            if( con != 0 ) {
-                if( con < 0 ) {
-                    ret += " " + con + "";
-                } else {
-                    ret += " + " + con + "";
-                }
-            }
-
-            return ret + " = 0";
+            e = -4 * magnitude;
+            f = -2 * k;
+            con = k * k + 4 * magnitude * h;
+            ret = "y<sup>2</sup>";
         }
+
+        if( e != 0 ) {
+            if( e == 1 ) {
+                ret += " + x";
+            } else if( e == -1 ) {
+                ret += " - x";
+            } else if( e < 0 ) {
+                ret += " " + e + "x";
+            } else {
+                ret += " + " + e + "x";
+            }
+        }
+
+        if( f != 0 ) {
+            if( f == 1 ) {
+                ret += " + y";
+            } else if( f == -1 ) {
+                ret += " - y";
+            } else if( f < 0 ) {
+                ret += " " + f + "y";
+            } else {
+                ret += " + " + f + "y";
+            }
+        }
+
+        if( con != 0 ) {
+            if( con < 0 ) {
+                ret += " " + con + "";
+            } else {
+                ret += " + " + con + "";
+            }
+        }
+
+        return ret + " = 0";
     }
 }

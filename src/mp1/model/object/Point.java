@@ -17,6 +17,6 @@ public class Point implements Object2D {
 	}
 
 	public String toString() {
-		return "(" + x + "," + y + ")";
+		return "P = [" + x + " " + y + "]";
  	}
 }

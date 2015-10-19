@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mp1.model.object;
 
 import java.lang.Math;
 
-/**
- *
- * @author Angelo Amadora
- */
 public class Hyperbola implements AdvancedObject2D {
     
     double h;
@@ -30,19 +21,18 @@ public class Hyperbola implements AdvancedObject2D {
 
     @Override
     public Object2D rotate(int direction) throws IllegalArgumentException {
-        if( openingVertical ) {
-            switch(direction) {
-                case AdvancedObject2D.ROTATE_LEFT_90:
-                    return new Hyperbola(k,-h,vertDistance,horizDistance,false);
-                case AdvancedObject2D.ROTATE_RIGHT_90:
-                    return new Hyperbola(-k,h,vertDistance,horizDistance,false);
-                case AdvancedObject2D.ROTATE_180:
-                    return new Hyperbola(-h,-k,horizDistance,vertDistance,true);
-                default:
-                    throw new IllegalArgumentException();
-            }
-        } else {
-            return null;
+        switch(direction) {
+            case AdvancedObject2D.ROTATE_LEFT_90:
+                return new Hyperbola(k,-h,vertDistance,horizDistance
+                                    ,!openingVertical);
+            case AdvancedObject2D.ROTATE_RIGHT_90:
+                return new Hyperbola(-k,h,vertDistance,horizDistance
+                                    ,!openingVertical);
+            case AdvancedObject2D.ROTATE_180:
+                return new Hyperbola(-h,-k,horizDistance,vertDistance
+                                    ,openingVertical);
+            default:
+                throw new IllegalArgumentException();
         }
     }
 
@@ -54,17 +44,15 @@ public class Hyperbola implements AdvancedObject2D {
 
     @Override
     public Object2D reflect(int axis) throws IllegalArgumentException {
-        if( openingVertical ) {
-            switch(axis) {
-                case AdvancedObject2D.REFLECT_X_AXIS:
-                    return new Hyperbola(h,-k,horizDistance,vertDistance,true);
-                case AdvancedObject2D.REFLECT_Y_AXIS:
-                    return new Hyperbola(-h,k,horizDistance,vertDistance,true);
-                default:
-                    throw new IllegalArgumentException();
-            }
-        } else {
-            return null;
+        switch(axis) {
+            case AdvancedObject2D.REFLECT_X_AXIS:
+                return new Hyperbola(h,-k,horizDistance,vertDistance
+                                        ,openingVertical);
+            case AdvancedObject2D.REFLECT_Y_AXIS:
+                return new Hyperbola(-h,k,horizDistance,vertDistance
+                                        ,openingVertical);
+            default:
+                throw new IllegalArgumentException();
         }
     }
 
@@ -90,7 +78,8 @@ public class Hyperbola implements AdvancedObject2D {
             e = -horizDistance * horizDistance * vertDistance * vertDistance
                  + horizDistance * horizDistance * k * k 
                  - vertDistance * vertDistance * h * h;
-            ret = a + "x^2 + " + b + "y^2";
+            ret = (a == -1 ? "-" : a) + "x<sup>2</sup> + " + (b == 1 ? "" : b) 
+                    + "y<sup>2</sup>";
         } else {
             a = vertDistance * vertDistance;
             b = -horizDistance * horizDistance;
@@ -99,11 +88,16 @@ public class Hyperbola implements AdvancedObject2D {
             e = -horizDistance * horizDistance * vertDistance * vertDistance
                 + vertDistance * vertDistance * h * h - horizDistance 
                 * horizDistance * k * k; 
-            ret = a + "x^2 " + b + "y^2";
+            ret = (a == 1 ? "" : a) + "x<sup>2</sup> " + (b == -1 ? "-" : b ) 
+                    + "y<sup>2</sup>";
         }
 
         if( c != 0 ) {
-            if( c < 0 ) {
+            if( c == 1 ) {
+                ret += " + x";
+            } else if( c == -1 ) {
+                ret += " - x";
+            } else if( c < 0 ) {
                 ret += " " + c + "x";
             } else {
                 ret += " + " + c + "x";
@@ -111,7 +105,11 @@ public class Hyperbola implements AdvancedObject2D {
         }
 
         if( d != 0 ) {
-            if( d < 0 ) {
+            if( d == 1 ) {
+                ret += " + y";
+            } else if( d == -1 ) {
+                ret += " - y";
+            } else if( d < 0 ) {
                 ret += " " + d + "y";
             } else {
                 ret += " + " + d + "y";

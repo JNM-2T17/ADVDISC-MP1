@@ -48,7 +48,8 @@ public class TransformPanel extends JPanel {
 		AGBLayout.addComp(this,backButton,1,0,1,1,100,100
 							,GridBagConstraints.CENTER,GridBagConstraints.NONE);
 
-		objectLabel = new JLabel("Current Object: " + model);
+		objectLabel = new JLabel("<html>Current Object: <br/>" + model 
+								+ "</html>");
 		objectLabel.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,objectLabel,0,1,2,1,100,100
 							,GridBagConstraints.CENTER,GridBagConstraints.NONE);
@@ -69,7 +70,7 @@ public class TransformPanel extends JPanel {
 
 	public void setTransformed(Object2D obj) {
 		transformed = obj;
-		transLabel.setText("Transformed Object: " + obj);
+		transLabel.setText("<html>Transformed Object:<br/> " + obj + "</html>");
 	}
 
 	public void clear() {
@@ -78,7 +79,7 @@ public class TransformPanel extends JPanel {
 
 	private class BackListen implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			if( JOptionPane.showConfirmDialog(null,"Current Object will be dele" 
+			if( JOptionPane.showConfirmDialog(null,"Current object will be dele" 
 												+ "ted. Are you sure you want " 
 												+ "to go back?","Confirm"
 												,JOptionPane.YES_NO_OPTION,

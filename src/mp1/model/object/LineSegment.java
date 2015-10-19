@@ -76,6 +76,7 @@ public class LineSegment implements AdvancedObject2D, ShearObject2D
 	}
 
 	public String toString() {
-		return "P = [" + x1 + " " + y1 + "], Q = [" + x2 + " " + y2 + "]";
+		return "P = [" + x1 + " " + y1 + "], <br/> Q = [" + x2 + " " 
+				+ y2 + "]";
 	}
 }
