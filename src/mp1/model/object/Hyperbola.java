@@ -23,6 +23,47 @@ public class Hyperbola implements AdvancedObject2D {
         this.openingVertical = openingVertical;
     }
 
+    public double getH() {
+        return h;
+    }
+
+    public double getK() {
+        return k;
+    }
+
+    public double getHorizDistance() {
+        return horizDistance;
+    }
+
+    public double getVertDistance() {
+        return vertDistance;
+    }
+
+    public boolean isOpeningVertical() {
+        return openingVertical;
+    }
+
+    public double[] getRoots(double single) {
+        double[] roots = new double[2];
+
+        if(openingVertical) {
+            roots[0] = h - Math.sqrt(horizDistance*horizDistance*(single - k)
+                        *(single - k)/vertDistance/vertDistance - horizDistance 
+                        * horizDistance);
+            roots[1] = h + Math.sqrt(horizDistance*horizDistance*(single - k)
+                        *(single - k)/vertDistance/vertDistance - horizDistance 
+                        * horizDistance);
+        } else {
+            roots[0] = -Math.sqrt(vertDistance * vertDistance * (single - h) 
+                        * (single - h) / horizDistance / horizDistance 
+                        - vertDistance * vertDistance) + k;
+            roots[1] = Math.sqrt(vertDistance * vertDistance * (single - h) 
+                        * (single - h) / horizDistance / horizDistance 
+                        - vertDistance * vertDistance) + k;
+        }
+        return roots;
+    }
+
     @Override
     public Object2D rotate(int direction) throws IllegalArgumentException {
         switch(direction) {

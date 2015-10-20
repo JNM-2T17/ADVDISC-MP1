@@ -19,7 +19,35 @@ public class Parabola implements AdvancedObject2D {
         this.magnitude = magnitude;
         this.openingVertical = openingVertical;
     }
+
+    public double getH() {
+        return h;
+    }
     
+    public double getK() {
+        return k;
+    }
+
+    public double getMagnitude() {
+        return magnitude;
+    }
+
+    public boolean isOpeningVertical() {
+        return openingVertical;
+    }
+
+    public double[] getRoots(double single) {
+        double[] roots = new double[2];
+        if( openingVertical ) {
+            roots[0] = -Math.sqrt(4 * magnitude * (single - k)) + h;
+            roots[1] = Math.sqrt(4 * magnitude * (single - k)) + h;
+        } else {
+            roots[0] = -Math.sqrt(4 * magnitude * (single - h)) + k;
+            roots[1] = Math.sqrt(4 * magnitude * (single - h)) + k;
+        }
+        return roots;
+    }
+
     public void setH(double x){
         h = x;
     }

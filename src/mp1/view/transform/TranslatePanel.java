@@ -43,7 +43,7 @@ public class TranslatePanel extends TransParamPanel {
 		AGBLayout.addComp(this,xField,1,0,1,1,100,100,GridBagConstraints.WEST
 							,GridBagConstraints.NONE);
 
-		yLabel = new JLabel("");
+		yLabel = new JLabel("Y-Translation:");
 		yLabel.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,yLabel,0,1,1,1,100,100,GridBagConstraints.EAST
 							,GridBagConstraints.NONE);

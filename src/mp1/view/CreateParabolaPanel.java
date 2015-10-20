@@ -149,6 +149,10 @@ public class CreateParabolaPanel extends AbstractCreatePanel {
 
 		try {
 			p = Double.parseDouble(pField.getText());
+			if( p == 0 ) {
+				error += (error.length() == 0 ? "" : "\n") 
+						+ "Magnitude cannot be zero.";
+			}
 		} catch(NumberFormatException nfe) {
 			error += (error.length() == 0 ? "" : "\n") 
 					+ "Please input a numerical magnitude.";

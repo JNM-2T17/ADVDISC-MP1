@@ -21,6 +21,22 @@ public class Ellipse implements AdvancedObject2D{
 		this.vertDistance = vertDistance;
 	}
 
+	public double getH() {
+		return h;
+	}
+
+	public double getK() {
+		return k;
+	}
+
+	public double getHorizDistance() {
+		return horizDistance;
+	}
+
+	public double getVertDistance() {
+		return vertDistance;
+	}
+
 	public Object2D translate(double x, double y){
 
 		return new Ellipse(h + x, k + y

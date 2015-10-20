@@ -25,12 +25,16 @@ public class Graph extends JComponent {
 
 		switch(s) {
 			case ELLIPSE:
+				drawStrategy = new DrawEllipse(getAxis());
 				break;
 			case LINE_SEGMENT:
+				drawStrategy = new DrawLineSegment(getAxis());
 				break;
 			case PARABOLA:
+				drawStrategy = new DrawParabola(getAxis());
 				break;
 			case HYPERBOLA:
+				drawStrategy = new DrawHyperbola(getAxis());
 				break;
 			case POINT:
 				break;

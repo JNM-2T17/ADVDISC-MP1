@@ -6,7 +6,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.*;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 import mp1.model.Shape;
 import mp1.model.object.*;
@@ -17,7 +16,6 @@ public class GraphPanel extends JPanel {
 	private Object2D mainObject;
 	private Object2D transObject;
 
-	private JScrollPane scrollPane;
 	private JPanel graphPanel;
 	private Graph graph;
 
@@ -33,11 +31,7 @@ public class GraphPanel extends JPanel {
 		graphPanel = new JPanel(new BorderLayout());
 		graphPanel.add(graph,BorderLayout.CENTER);
 
-		scrollPane = new JScrollPane(graphPanel,JScrollPane
-										.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane
-										.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scrollPane.setSize(300,300);
-		add(scrollPane,BorderLayout.CENTER);
+		add(graphPanel,BorderLayout.CENTER);
 		graph.repaint();
 	}
 
