@@ -128,6 +128,10 @@ public class CreateEllipsePanel extends AbstractCreatePanel {
 
 		try {
 			hd = Double.parseDouble(hdField.getText());
+			if( hd == 0 ) {
+				error += (error.length() == 0 ? "" : "\n") 
+						+ "Horizontal distance cannot be zero."
+			}
 		} catch(NumberFormatException nfe) {
 			error += (error.length() == 0 ? "" : "\n") 
 					+ "Please input a numerical horizontal distance.";
@@ -135,6 +139,10 @@ public class CreateEllipsePanel extends AbstractCreatePanel {
 
 		try {
 			vd = Double.parseDouble(vdField.getText());
+			if( vd == 0 ) {
+				error += (error.length() == 0 ? "" : "\n") 
+						+ "Vertical distance cannot be zero."
+			}
 		} catch(NumberFormatException nfe) {
 			error += (error.length() == 0 ? "" : "\n") 
 					+ "Please input a numerical vertical distance.";
