@@ -166,7 +166,7 @@ public class CreateHyperbolaPanel extends AbstractCreatePanel {
 			hd = Double.parseDouble(hdField.getText());
 			if( hd == 0 ) {
 				error += (error.length() == 0 ? "" : "\n") 
-						+ "Horizontal distance cannot be zero."
+						+ "Horizontal distance cannot be zero.";
 			}
 		} catch(NumberFormatException nfe) {
 			error += (error.length() == 0 ? "" : "\n") 
@@ -177,7 +177,7 @@ public class CreateHyperbolaPanel extends AbstractCreatePanel {
 			vd = Double.parseDouble(vdField.getText());
 			if( vd == 0 ) {
 				error += (error.length() == 0 ? "" : "\n") 
-						+ "Vertical distance cannot be zero."
+						+ "Vertical distance cannot be zero.";
 			}
 		} catch(NumberFormatException nfe) {
 			error += (error.length() == 0 ? "" : "\n") 
