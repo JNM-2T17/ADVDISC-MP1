@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.*;
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 import mp1.model.Shape;
@@ -27,6 +28,7 @@ public class GraphPanel extends JPanel {
 		setSize(300,300);
 
 		graph = new Graph(s,main,size);
+		graph.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
 		graphPanel = new JPanel(new BorderLayout());
 		graphPanel.add(graph,BorderLayout.CENTER);

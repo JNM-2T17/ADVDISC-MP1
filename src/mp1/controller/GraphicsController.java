@@ -100,7 +100,7 @@ public class GraphicsController implements IController {
 		gf.setSide(transformPanel);
 		graphPanel = new GraphPanel(s,activeObject,25);
 		gf.setMain(graphPanel);
-		gf.setSize(1075,650);
+		gf.setSize(1064,640);
 		gf.setLocationRelativeTo(null);
 	}
 

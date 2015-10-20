@@ -48,6 +48,7 @@ public class Graph extends JComponent {
 		}
 
 		setBackground(Color.WHITE);
+		setOpaque(true);
 	}
 
 	private void drawGrid(Graphics2D g2) {
@@ -84,7 +85,10 @@ public class Graph extends JComponent {
 	public void paintComponent(Graphics g) {
 		Graphics2D g2 = (Graphics2D)g;
 
-		drawGrid(g2);
+		g2.setColor(getBackground());
+        g2.fillRect(0, 0, 2 * getAxis(), 2 * getAxis());
+        g2.setPaint(Color.BLACK);
+        drawGrid(g2);
 		g2.setStroke(new BasicStroke(2));
 		g2.setPaint(Color.GREEN);
 		drawStrategy.drawObject(mainObject,g2);
