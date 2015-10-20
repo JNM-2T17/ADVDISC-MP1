@@ -23,6 +23,7 @@ public class DrawPoint implements IDraw {
 
 		Shape s = new Line2D.Double(p.getX() + axis,-p.getY() + axis
 									,p.getX() + axis,-p.getY() + axis);
+		g2.setStroke(new BasicStroke(10));
 		g2.draw(s);
 	}
 }

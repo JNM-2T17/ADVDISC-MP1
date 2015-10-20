@@ -25,6 +25,7 @@
 "C:\\DLSU\\Term 7\\ADVDISC\\Requirements\\ADVDISC-MP1\\src\\mp1\\view\\draw\\DrawHyperbola.java"
 "C:\\DLSU\\Term 7\\ADVDISC\\Requirements\\ADVDISC-MP1\\src\\mp1\\view\\draw\\DrawLineSegment.java"
 "C:\\DLSU\\Term 7\\ADVDISC\\Requirements\\ADVDISC-MP1\\src\\mp1\\view\\draw\\DrawParabola.java"
+"C:\\DLSU\\Term 7\\ADVDISC\\Requirements\\ADVDISC-MP1\\src\\mp1\\view\\draw\\DrawPoint.java"
 "C:\\DLSU\\Term 7\\ADVDISC\\Requirements\\ADVDISC-MP1\\src\\mp1\\view\\draw\\DrawVector.java"
 "C:\\DLSU\\Term 7\\ADVDISC\\Requirements\\ADVDISC-MP1\\src\\mp1\\view\\draw\\Graph.java"
 "C:\\DLSU\\Term 7\\ADVDISC\\Requirements\\ADVDISC-MP1\\src\\mp1\\view\\draw\\GraphPanel.java"

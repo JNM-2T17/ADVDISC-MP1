@@ -35,14 +35,10 @@ public class DrawHyperbola implements IDraw {
 			roots = p.getRoots(-axis);
 			s1 = new QuadCurve2D.Double(0.0,-roots[0] + axis,p.getH() + axis
 										,-p.getK() + axis,0.0,-roots[1] + axis);
-			System.out.println((-roots[0] + axis) + " " + (p.getH() + axis) 
-								+ " " + (-p.getK() + axis) + " "  + (-roots[1] + axis) );
 			roots = p.getRoots(axis);
 			s2 = new QuadCurve2D.Double(2.0 * axis,-roots[0] + axis,p.getH() 
 										+ axis,-p.getK() + axis
 										,2.0 * axis,-roots[1] + axis);
-			System.out.println((-roots[0] + axis) + " " + (p.getH() + axis) 
-								+ " " + (-p.getK() + axis) + " "  + (-roots[1] + axis) );
 		}
 
 		g2.draw(s1);

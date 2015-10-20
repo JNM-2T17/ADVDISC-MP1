@@ -15,6 +15,14 @@ public class Point implements Object2D {
 		this.y = y;
 	}
 
+	public double getX() {
+		return x;
+	}
+
+	public double getY() {
+		return y;
+	}
+
 	public Object2D translate(double x, double y){
 
 		return new Point(this.x + x, this.y + y);

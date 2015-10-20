@@ -1,1 +1,8 @@
-advdisc.mp1.model.object
+mp1
+mp1.controller
+mp1.model
+mp1.model.object
+mp1.view
+mp1.view.draw
+mp1.view.layout
+mp1.view.transform

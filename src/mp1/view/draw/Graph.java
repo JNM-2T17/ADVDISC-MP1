@@ -37,6 +37,7 @@ public class Graph extends JComponent {
 				drawStrategy = new DrawHyperbola(getAxis());
 				break;
 			case POINT:
+				drawStrategy = new DrawPoint(getAxis());
 				break;
 			case POLYGON:
 				break;
