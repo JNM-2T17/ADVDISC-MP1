@@ -39,6 +39,7 @@ public class TransformPanel extends JPanel {
 		this.control = control;
 
 		setLayout(new AGBLayout());
+		setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
 		transformLabel = new JLabel("Select Transformation Parameters");
 		transformLabel.setFont(new Font("Segoe UI",Font.BOLD,16));
@@ -64,7 +65,7 @@ public class TransformPanel extends JPanel {
 							,GridBagConstraints.CENTER,GridBagConstraints.NONE);
 
 		transformPane = new JTabbedPane();
-		AGBLayout.addComp(this,transformPane,0,3,2,1,100,100
+		AGBLayout.addComp(this,transformPane,0,3,2,2,100,100
 							,GridBagConstraints.CENTER,GridBagConstraints.BOTH);
 	}
 
