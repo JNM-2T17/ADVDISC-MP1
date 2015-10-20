@@ -18,6 +18,10 @@ import mp1.controller.IController;
 import mp1.model.Shape;
 import mp1.view.layout.AGBLayout;
 
+/**
+ *
+ * @author Austin Fernandez
+ */
 public class MainGraphicsPanel extends JPanel {
 	private HashMap<JButton,Shape> keyMapping;
 
@@ -29,6 +33,7 @@ public class MainGraphicsPanel extends JPanel {
 	private JButton pointButton;
 	private JButton polygonButton;
 	private JButton vectorButton;
+	private JLabel credits;
 
 	private IController control;
 
@@ -93,6 +98,12 @@ public class MainGraphicsPanel extends JPanel {
 		keyMapping.put(vectorButton,Shape.VECTOR);
 		AGBLayout.addComp(this,vectorButton,1,3,1,1,100,100
 							,GridBagConstraints.CENTER,GridBagConstraints.BOTH);
+
+		credits = new JLabel("<html> &copy; Fernandez, Amadora, Syfu, Andres 2015</html>");
+		credits.setFont(new Font("Segoe UI",Font.PLAIN,12));
+		credits.setBorder(BorderFactory.createEmptyBorder(20,10,10,10));
+		AGBLayout.addComp(this,credits,0,4,3,1,100,100
+							,GridBagConstraints.CENTER,GridBagConstraints.NONE);		
 	}
 
 	private class ShapeListen implements ActionListener {

@@ -20,6 +20,10 @@ import mp1.controller.IController;
 import mp1.model.Shape;
 import mp1.view.layout.AGBLayout;
 
+/**
+ *
+ * @author Austin Fernandez
+ */
 public class CreateParabolaPanel extends AbstractCreatePanel {
 	private JLabel pointLabel;
 	private JLabel hLabel;
@@ -145,6 +149,10 @@ public class CreateParabolaPanel extends AbstractCreatePanel {
 
 		try {
 			p = Double.parseDouble(pField.getText());
+			if( p == 0 ) {
+				error += (error.length() == 0 ? "" : "\n") 
+						+ "Magnitude cannot be zero.";
+			}
 		} catch(NumberFormatException nfe) {
 			error += (error.length() == 0 ? "" : "\n") 
 					+ "Please input a numerical magnitude.";

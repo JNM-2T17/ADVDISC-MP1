@@ -17,6 +17,10 @@ import mp1.controller.IController;
 import mp1.model.Shape;
 import mp1.view.layout.AGBLayout;
 
+/**
+ *
+ * @author Austin Fernandez
+ */
 public class CreatePointPanel extends AbstractCreatePanel {
 	private JLabel pointLabel;
 	private JLabel xLabel;
@@ -96,8 +100,11 @@ public class CreatePointPanel extends AbstractCreatePanel {
 			double[] params = new double[2];
 			params[0] = x;
 			params[1] = y;
+			System.out.println(params[0] + " " + params[1] + " " + error);
+			
 			return params;
 		} else {
+			System.out.println(x + " " + y + " " + error);
 			throw new Exception(error);
 		}
 	}

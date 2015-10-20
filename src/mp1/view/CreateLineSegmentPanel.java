@@ -17,6 +17,10 @@ import mp1.controller.IController;
 import mp1.model.Shape;
 import mp1.view.layout.AGBLayout;
 
+/**
+ *
+ * @author Austin Fernandez
+ */
 public class CreateLineSegmentPanel extends AbstractCreatePanel {
 	private JLabel pointLabel;
 	private JLabel x1Label;

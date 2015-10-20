@@ -2,6 +2,10 @@ package mp1.model.object;
 
 import java.lang.Math;
 
+/**
+ *
+ * @author Jonah Syfu
+ */
 public class LineSegment implements AdvancedObject2D, ShearObject2D
 									, DoubleRotateObject2D {
 
@@ -16,6 +20,22 @@ public class LineSegment implements AdvancedObject2D, ShearObject2D
 		this.x2 = x2;
 		this.y1 = y1;
 		this.y2 = y2;
+	}
+
+	public double getX1() {
+		return this.x1;
+	}
+
+	public double getY1() {
+		return this.y1;
+	}
+
+	public double getX2() {
+		return this.x2;
+	}
+
+	public double getY2() {
+		return this.y2;
 	}
 
 	public void setX1(double x){
@@ -49,12 +69,27 @@ public class LineSegment implements AdvancedObject2D, ShearObject2D
 								, this.x2 * sin + this.y2 * cos);
 	}
 
-	public Object2D rotate(int rotate){
-		return null;
+	public Object2D rotate(int degree){
+		double deg;
+		switch(degree) {
+			case AdvancedObject2D.ROTATE_LEFT_90:	
+				deg = 90;
+				break;
+			case AdvancedObject2D.ROTATE_180:
+				deg = 180;
+				break;
+			case AdvancedObject2D.ROTATE_RIGHT_90:
+				deg = -90;
+				break;
+			default:
+				deg = 0;
+		}
+
+		return rotate(deg);
 	}
 
 	public Object2D scale(double dd){
-		return new LineSegment(this.x1 * dd, this.x2 * dd, this.y1 * dd
+		return new LineSegment(this.x1 * dd, this.y1 * dd, this.x2 * dd
 								, this.y2 * dd);
 	}
 
@@ -64,7 +99,7 @@ public class LineSegment implements AdvancedObject2D, ShearObject2D
 				return new LineSegment(this.x1, -this.y1, this.x2,-this.y2);
 
 			case AdvancedObject2D.REFLECT_Y_AXIS: 
-				return new LineSegment(-this.x1, this.y2, -this.x2, this.y1);
+				return new LineSegment(-this.x1, this.y1, -this.x2, this.y2);
 		}
 		return null;
 	}
@@ -76,6 +111,7 @@ public class LineSegment implements AdvancedObject2D, ShearObject2D
 	}
 
 	public String toString() {
-		return "Endpoints: (" + x1 + "," + y1 + "),(" + x2 + "," + y2 + ")";
+		return "P = [" + x1 + " " + y1 + "], <br/> Q = [" + x2 + " " 
+				+ y2 + "]";
 	}
 }

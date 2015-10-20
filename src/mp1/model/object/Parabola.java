@@ -1,13 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mp1.model.object;
 import java.lang.Math;
+
 /**
  *
  * @author Angelo Amadora
+ * @author Austin Fernandez
  */
 public class Parabola implements AdvancedObject2D {
 
@@ -22,7 +19,35 @@ public class Parabola implements AdvancedObject2D {
         this.magnitude = magnitude;
         this.openingVertical = openingVertical;
     }
+
+    public double getH() {
+        return h;
+    }
     
+    public double getK() {
+        return k;
+    }
+
+    public double getMagnitude() {
+        return magnitude;
+    }
+
+    public boolean isOpeningVertical() {
+        return openingVertical;
+    }
+
+    public double[] getRoots(double single) {
+        double[] roots = new double[2];
+        if( openingVertical ) {
+            roots[0] = -Math.sqrt(4 * magnitude * (single - k)) + h;
+            roots[1] = Math.sqrt(4 * magnitude * (single - k)) + h;
+        } else {
+            roots[0] = -Math.sqrt(4 * magnitude * (single - h)) + k;
+            roots[1] = Math.sqrt(4 * magnitude * (single - h)) + k;
+        }
+        return roots;
+    }
+
     public void setH(double x){
         h = x;
     }
@@ -64,30 +89,88 @@ public class Parabola implements AdvancedObject2D {
     
     @Override
     public Object2D scale(double magnitude) {
-        return new Parabola(h, k, magnitude*magnitude
+        return new Parabola(h, k, this.magnitude*magnitude
                             , openingVertical);
     }
 
     @Override
     public Object2D reflect(int axis) throws IllegalArgumentException {
-        switch(axis) {
-            case AdvancedObject2D.REFLECT_X_AXIS:
-                return new Parabola(h,-k,-magnitude,openingVertical);
-            case AdvancedObject2D.REFLECT_Y_AXIS:
-                return new Parabola(-h,k,magnitude,openingVertical);
-            default:
-                return null;
+        if(openingVertical){
+            switch(axis) {
+                case AdvancedObject2D.REFLECT_X_AXIS:
+                    return new Parabola(h,-k,-magnitude,true);
+                case AdvancedObject2D.REFLECT_Y_AXIS:
+                    return new Parabola(-h,k,magnitude,true);
+                default:
+                    return null;
+            }
+        } else {
+            switch(axis) {
+                case AdvancedObject2D.REFLECT_X_AXIS:
+                    return new Parabola(h,-k,magnitude,false);
+                case AdvancedObject2D.REFLECT_Y_AXIS:
+                    return new Parabola(-h,k,-magnitude,false);
+                default:
+                    return null;
+            }
         }
     }
 
     @Override
     public Object2D translate(double x, double y) {
-        return new Parabola(h + x,k + y,magnitude
-                            ,openingVertical);
+        return new Parabola(h + x,k + y,magnitude,openingVertical);
     }
 
     public String toString() {
-        return ("Vertex: (" + h + "," + k + ")\np = " + magnitude 
-                + "\nOpening " + (openingVertical ? "Vertical" : "Horizontal"));
+        double e;
+        double f;
+        double con;
+        String ret = "";
+
+        if( openingVertical ) {
+            e = -2 * h;
+            f = -4 * magnitude;
+            con = h * h + 4 * magnitude * k;
+            ret = "x<sup>2</sup>";
+        } else {
+            e = -4 * magnitude;
+            f = -2 * k;
+            con = k * k + 4 * magnitude * h;
+            ret = "y<sup>2</sup>";
+        }
+
+        if( e != 0 ) {
+            if( e == 1 ) {
+                ret += " + x";
+            } else if( e == -1 ) {
+                ret += " - x";
+            } else if( e < 0 ) {
+                ret += " " + e + "x";
+            } else {
+                ret += " + " + e + "x";
+            }
+        }
+
+        if( f != 0 ) {
+            if( f == 1 ) {
+                ret += " + y";
+            } else if( f == -1 ) {
+                ret += " - y";
+            } else if( f < 0 ) {
+                ret += " " + f + "y";
+            } else {
+                ret += " + " + f + "y";
+            }
+        }
+
+        if( con != 0 ) {
+            if( con < 0 ) {
+                ret += " " + con + "";
+            } else {
+                ret += " + " + con + "";
+            }
+        }
+
+        return ret + " = 0";
     }
 }

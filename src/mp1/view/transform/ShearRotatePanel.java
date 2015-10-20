@@ -17,6 +17,10 @@ import mp1.controller.IController;
 import mp1.model.Transformation;
 import mp1.view.layout.AGBLayout;
 
+/**
+ *
+ * @author Austin Fernandez
+ */
 public class ShearRotatePanel extends TransParamPanel {
 	private JLabel thetaLabel;
 	private JTextField thetaField;
@@ -26,14 +30,16 @@ public class ShearRotatePanel extends TransParamPanel {
 	}
 
 	protected void addComponents() {
-		thetaLabel = new JLabel("Angle in degrees (counterclockwise):");
+		thetaLabel = new JLabel("Angle in degrees (" + (getTransformation() 
+								== Transformation.SHEAR ? "" : "counter") 
+								+ "clockwise):");
 		thetaLabel.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,thetaLabel,0,0,1,1,100,100
 							,GridBagConstraints.EAST
 							,GridBagConstraints.NONE);
 
-		thetaField = new JTextField(15);
-		thetaField.addActionListener(inputListen);
+		thetaField = new JTextField("0",15);
+		thetaField.addKeyListener(inputListen);
 		thetaField.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,thetaField,1,0,1,1,100,100
 							,GridBagConstraints.WEST
@@ -46,7 +52,9 @@ public class ShearRotatePanel extends TransParamPanel {
 		String error = "";
 
 		try {
-			theta = Double.parseDouble(thetaField.getText());
+			String text = thetaField.getText();
+			text = text.length() == 0  || text.equals("-") ? "0" : text;
+			theta = Double.parseDouble(text);
 		} catch(NumberFormatException nfe) {
 			error += (error.length() == 0 ? "" : "\n") + "Invalid theta value";
 		}	

@@ -17,12 +17,16 @@ import mp1.controller.IController;
 import mp1.model.Transformation;
 import mp1.view.layout.AGBLayout;
 
+/**
+ *
+ * @author Austin Fernandez
+ */
 public class ScalePanel extends TransParamPanel {
 	private JLabel scalarLabel;
 	private JTextField scalarField;
 
-	public ScalePanel(Transformation trans,IController control) {
-		super(trans,control);
+	public ScalePanel(IController control) {
+		super(Transformation.SCALE,control);
 	}
 
 	protected void addComponents() {
@@ -32,8 +36,8 @@ public class ScalePanel extends TransParamPanel {
 							,GridBagConstraints.EAST
 							,GridBagConstraints.NONE);
 
-		scalarField = new JTextField(15);
-		scalarField.addActionListener(inputListen);
+		scalarField = new JTextField("0",15);
+		scalarField.addKeyListener(inputListen);
 		scalarField.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,scalarField,1,0,1,1,100,100
 							,GridBagConstraints.WEST
@@ -46,10 +50,16 @@ public class ScalePanel extends TransParamPanel {
 		String error = "";
 
 		try {
-			scalar = Double.parseDouble(scalarField.getText());
+			String text = scalarField.getText();
+			text = text.length() == 0 || text.equals("-") ? "1" : text;
+			scalar = Double.parseDouble(text);
 		} catch(NumberFormatException nfe) {
 			error += (error.length() == 0 ? "" : "\n") + "Invalid scalar value";
 		}	
+
+		if( scalar == 0 ) {
+			error = "Cannot scale by a factor of 0";
+		}
 
 		if( error.length() == 0 ) {
 			return new Scale(scalar);

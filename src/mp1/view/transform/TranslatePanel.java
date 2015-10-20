@@ -17,6 +17,10 @@ import mp1.controller.IController;
 import mp1.model.Transformation;
 import mp1.view.layout.AGBLayout;
 
+/**
+ *
+ * @author Austin Fernandez
+ */
 public class TranslatePanel extends TransParamPanel {
 	private JLabel xLabel;
 	private JTextField xField;
@@ -33,19 +37,19 @@ public class TranslatePanel extends TransParamPanel {
 		AGBLayout.addComp(this,xLabel,0,0,1,1,100,100,GridBagConstraints.EAST
 							,GridBagConstraints.NONE);
 
-		xField = new JTextField(15);
-		xField.addActionListener(inputListen);
+		xField = new JTextField("0",15);
+		xField.addKeyListener(inputListen);
 		xField.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,xField,1,0,1,1,100,100,GridBagConstraints.WEST
 							,GridBagConstraints.NONE);
 
-		yLabel = new JLabel("");
+		yLabel = new JLabel("Y-Translation:");
 		yLabel.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,yLabel,0,1,1,1,100,100,GridBagConstraints.EAST
 							,GridBagConstraints.NONE);
 
-		yField = new JTextField(15);
-		yField.addActionListener(inputListen);
+		yField = new JTextField("0",15);
+		yField.addKeyListener(inputListen);
 		yField.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,yField,1,1,1,1,100,100,GridBagConstraints.WEST
 							,GridBagConstraints.NONE);
@@ -58,13 +62,17 @@ public class TranslatePanel extends TransParamPanel {
 		String error = "";
 
 		try {
-			x = Double.parseDouble(xField.getText());
+			String text = xField.getText();
+			text = text.length() == 0  || text.equals("-") ? "0" : text;
+			x = Double.parseDouble(text);
 		} catch(NumberFormatException nfe) {
 			error += (error.length() == 0 ? "" : "\n") + "Invalid x value";
 		}	
 
 		try {
-			y = Double.parseDouble(yField.getText());
+			String text = yField.getText();
+			text = text.length() == 0  || text.equals("-") ? "0" : text;
+			y = Double.parseDouble(text);
 		} catch(NumberFormatException nfe) {
 			error += (error.length() == 0 ? "" : "\n") + "Invalid y value";
 		}

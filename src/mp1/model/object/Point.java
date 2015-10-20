@@ -1,5 +1,9 @@
 package mp1.model.object;
 
+/**
+ *
+ * @author John Joseph Andres
+ */
 public class Point implements Object2D {
 	
 	private double x;
@@ -11,12 +15,20 @@ public class Point implements Object2D {
 		this.y = y;
 	}
 
+	public double getX() {
+		return x;
+	}
+
+	public double getY() {
+		return y;
+	}
+
 	public Object2D translate(double x, double y){
 
 		return new Point(this.x + x, this.y + y);
 	}
 
 	public String toString() {
-		return "(" + x + "," + y + ")";
+		return "P = [" + x + " " + y + "]";
  	}
 }
