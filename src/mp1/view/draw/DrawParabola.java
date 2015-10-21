@@ -21,37 +21,96 @@ public class DrawParabola implements IDraw {
 	public void drawObject(Object2D obj,Graphics2D g2) {
 		Parabola p = (Parabola)obj;
 		Shape s;
-		double[] roots;
+		double[] roots, nextRoots;
 
 		if( p.isOpeningVertical() ) {
 			if( p.getMagnitude() > 0 ) {
 				roots = p.getRoots(axis);
-				s = new QuadCurve2D.Double(roots[0] + axis, 0.0, p.getH() + axis
-											,-p.getK() + 2 * axis
-											,roots[1] + axis,0.0);
+				double i = axis - 1;
+				while( i > p.getK() ) {
+					nextRoots = p.getRoots(i);
+					s = new Line2D.Double(roots[0] + axis,axis - (i + 1)
+											, nextRoots[0] + axis, axis - i);
+					g2.draw(s);
+					s = new Line2D.Double(roots[1] + axis,axis - (i + 1)
+											, nextRoots[1] + axis, axis - i);
+					g2.draw(s);
+					roots = nextRoots;
+					i--;
+				}
+
+				s = new Line2D.Double(roots[0] + axis, axis - (i + 1)
+										,p.getH() + axis,-p.getK() + axis);
+				g2.draw(s);
+				s = new Line2D.Double(roots[1] + axis, axis - (i + 1)
+										,p.getH() + axis,-p.getK() + axis);
+				g2.draw(s);
 			} else {
 				roots = p.getRoots(-axis);
-				s = new QuadCurve2D.Double(roots[0] + axis, 2.0 * axis
-											, p.getH() + axis
-											,-p.getK(),roots[1] + axis
-											,2.0 * axis);
+				double i = -axis + 1;
+				while( i < p.getK() ) {
+					nextRoots = p.getRoots(i);
+					s = new Line2D.Double(roots[0] + axis,axis - (i - 1)
+											, nextRoots[0] + axis, axis - i);
+					g2.draw(s);
+					s = new Line2D.Double(roots[1] + axis,axis - (i - 1)
+											, nextRoots[1] + axis, axis - i);
+					g2.draw(s);
+					roots = nextRoots;
+					i++;
+				}
+
+				s = new Line2D.Double(roots[0] + axis, axis - (i - 1)
+										,p.getH() + axis,-p.getK() + axis);
+				g2.draw(s);
+				s = new Line2D.Double(roots[1] + axis, axis - (i - 1)
+										,p.getH() + axis,-p.getK() + axis);
+				g2.draw(s);
 			}
 		} else {
 			if( p.getMagnitude() > 0 ) {
 				roots = p.getRoots(axis);
-				s = new QuadCurve2D.Double(2.0 * axis,-roots[0] + axis
-											,p.getH()
-											,-p.getK() + axis,2.0 * axis
-											,-roots[1] + axis);
+				double i = axis - 1;
+				while( i > p.getH() ) {
+					nextRoots = p.getRoots(i);
+					s = new Line2D.Double(axis + (i + 1), -roots[0] + axis,
+											axis + i, -nextRoots[0] + axis);
+					g2.draw(s);
+					s = new Line2D.Double(axis + (i + 1), -roots[1] + axis,
+											axis + i, -nextRoots[1] + axis);
+					g2.draw(s);
+					roots = nextRoots;
+					i--;
+				}
+
+				s = new Line2D.Double(axis + (i + 1), -roots[0] + axis
+										,p.getH() + axis,-p.getK() + axis);
+				g2.draw(s);
+				s = new Line2D.Double(axis + (i + 1), -roots[1] + axis 
+										,p.getH() + axis,-p.getK() + axis);
+				g2.draw(s);
 			} else {
 				roots = p.getRoots(-axis);
-				s = new QuadCurve2D.Double(0.0,-roots[0] + axis
-											,p.getH() + 2 * axis
-											,-p.getK() + axis,0.0
-											,-roots[1] + axis);
+				double i = -axis + 1;
+				while( i < p.getH() ) {
+					nextRoots = p.getRoots(i);
+					s = new Line2D.Double(axis + (i - 1), -roots[0] + axis,
+											axis + i, -nextRoots[0] + axis);
+					g2.draw(s);
+					s = new Line2D.Double(axis + (i - 1), -roots[1] + axis,
+											axis + i, -nextRoots[1] + axis);
+					g2.draw(s);
+					roots = nextRoots;
+					i++;
+				}
+
+				s = new Line2D.Double(axis + (i - 1), -roots[0] + axis
+										,p.getH() + axis,-p.getK() + axis);
+				g2.draw(s);
+				s = new Line2D.Double(axis + (i - 1), -roots[1] + axis 
+										,p.getH() + axis,-p.getK() + axis);
+				g2.draw(s);
 			}
 		}
-
-		g2.draw(s);
 	}
 }
