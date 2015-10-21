@@ -216,6 +216,7 @@ public class CreatePolygonPanel extends AbstractCreatePanel {
 
 		public void setNumber(int i) {
 			number = i;
+			numberLabel.setText("Vertex " + i);
 		}
 
 		public void setDeletable(boolean deletable) {
