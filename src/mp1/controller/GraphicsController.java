@@ -61,6 +61,8 @@ public class GraphicsController implements IController {
 				pack();
 				break;
 			case POLYGON:
+				gf.setMain(new CreatePolygonPanel(this));
+				pack();
 				break;
 			case VECTOR:
 				gf.setMain(new CreatePointPanel(Shape.VECTOR,this));
@@ -91,6 +93,15 @@ public class GraphicsController implements IController {
 				activeObject = new Point(params[0],params[1]);
 				break;
 			case POLYGON:
+				int vert = (int)params[0];
+				double[] xs = new double[vert];
+				double[] ys = new double[vert];
+
+				for( int i = 0; i < vert; i++ ) {
+					xs[i] = params[i + 1];
+					ys[i] = params[i + 1 + vert];
+				}
+				activeObject = new Polygon(xs,ys,vert);
 				break;
 			case VECTOR:
 				activeObject = new Vector(params[0],params[1]);

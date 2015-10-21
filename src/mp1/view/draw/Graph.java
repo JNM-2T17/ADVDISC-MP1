@@ -40,6 +40,7 @@ public class Graph extends JComponent {
 				drawStrategy = new DrawPoint(getAxis());
 				break;
 			case POLYGON:
+				drawStrategy = new DrawPolygon(getAxis());
 				break;
 			case VECTOR:
 				drawStrategy = new DrawVector(getAxis());
