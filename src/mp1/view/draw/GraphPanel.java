@@ -14,17 +14,13 @@ import mp1.model.object.*;
 public class GraphPanel extends JPanel {
 	private final int size;
 
-	private Object2D mainObject;
-	private Object2D transObject;
-
 	private JPanel graphPanel;
 	private Graph graph;
 
 	public GraphPanel(Shape s, Object2D main, int size) {
 		super(new BorderLayout());
 		this.size = size;
-		mainObject = main;
-
+	
 		setSize(300,300);
 
 		graph = new Graph(s,main,size);
@@ -38,7 +34,6 @@ public class GraphPanel extends JPanel {
 	}
 
 	public void setTrans(Object2D obj) {
-		transObject = obj;
 		graph.setTrans(obj);
 	}
 }

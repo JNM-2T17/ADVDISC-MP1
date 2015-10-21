@@ -86,11 +86,11 @@ public class CreatePolygonPanel extends AbstractCreatePanel {
 		for( i = 0; i < pointPanels.size(); i++ ) {
 			try {
 				p = pointPanels.get(i).getPoint();
+				coords[i][0] = p.getX();
+				coords[i][1] = p.getY();
 			} catch( IllegalArgumentException iae ) {
 				error += (error.length() == 0 ? "" : "\n") + iae.getMessage();
 			}
-			coords[i][0] = p.getX();
-			coords[i][1] = p.getY();
 		}
 
 		if( error.length() == 0 ) {
@@ -251,6 +251,7 @@ public class CreatePolygonPanel extends AbstractCreatePanel {
 			if( error.length() == 0 ) {
 				return new Point(x,y);
 			} else {
+				System.out.println(number + " " + error);
 				throw new IllegalArgumentException(error);
 			}
 		}
