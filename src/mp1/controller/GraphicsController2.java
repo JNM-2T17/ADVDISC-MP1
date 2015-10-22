@@ -33,6 +33,7 @@ public class GraphicsController2 extends GraphicsController {
 
 	public void showMain() {
 		gf.setMain(mainGraphPanel);
+		director.setBuilder(new TransformPanelBuilder2(activeObject,this));
 		transformPanel = director.getTransformPanel(null,null);
 		gf.setSide(transformPanel);
 		gf.setSize(1194,680);
@@ -70,6 +71,7 @@ public class GraphicsController2 extends GraphicsController {
 	}
 
 	public void delete(Object2D obj) {
+		director.setBuilder(new TransformPanelBuilder2(null,this));
 		transformPanel = director.getTransformPanel(null,null);
 		gf.setSide(transformPanel);
 		mainGraphPanel.deleteMain(obj);
