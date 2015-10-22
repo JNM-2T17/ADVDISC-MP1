@@ -9,30 +9,41 @@ import mp1.model.object.Object2D;
  * @author Austin Fernandez
  */
 public class TransformPanelDirector {
+	TransformBuilder builder;
 	IController control;
 
-	public TransformPanelDirector(IController control) {
+	public TransformPanelDirector(TransformBuilder builder,IController control) {
 		this.control = control;
+		this.builder = builder;
+	}
+
+	public void setBuilder(TransformBuilder builder) {
+		this.builder = builder;
 	}
 
 	public TransformPanel getTransformPanel(Object2D obj, Shape s) {
-		TransformPanelBuilder builder = new TransformPanelBuilder(obj, control);
-		builder.addTranslate();
-		switch(s) {
-			case LINE_SEGMENT:
-			case POLYGON:
-			case VECTOR:
-				builder.addShear();
-				builder.addRotate(true);
-				// fall-through
-			case ELLIPSE:
-			case PARABOLA:
-			case HYPERBOLA:
-				builder.addRotate(false);
-				builder.addScale();
-				builder.addReflect();
-				break;
-			default:
+		if( builder == null ) {
+			builder = new TransformPanelBuilder(obj,control);
+		}
+		
+		if( s != null ) {
+			builder.addTranslate();
+			switch(s) {
+				case LINE_SEGMENT:
+				case POLYGON:
+				case VECTOR:
+					builder.addShear();
+					builder.addRotate(true);
+					// fall-through
+				case ELLIPSE:
+				case PARABOLA:
+				case HYPERBOLA:
+					builder.addRotate(false);
+					builder.addScale();
+					builder.addReflect();
+					break;
+				default:
+			}
 		}
 		return builder.build();
 	}

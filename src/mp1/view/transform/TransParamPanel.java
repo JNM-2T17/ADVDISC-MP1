@@ -71,10 +71,14 @@ public abstract class TransParamPanel extends JPanel {
 
 		public void keyPressed(KeyEvent e) {}
 
-		public void keyTyped(KeyEvent e) {}
+		public void keyTyped(KeyEvent e) {
+			if( e.getKeyChar() == '\n') {
+				transform();
+			}
+		}
 
 		public void keyReleased(KeyEvent e) {
-			transform();
+			//transform();
 		}
 	}
 }

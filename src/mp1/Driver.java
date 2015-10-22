@@ -4,6 +4,7 @@ import javax.swing.UIManager;
 import javax.swing.UIManager.*;
 
 import mp1.controller.GraphicsController;
+import mp1.controller.GraphicsController2;
 
 /**
  *
@@ -21,6 +22,6 @@ public class Driver {
 			e.printStackTrace();
 		}
 
-		new GraphicsController();
+		new GraphicsController2();
 	}
 }

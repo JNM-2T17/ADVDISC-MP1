@@ -14,15 +14,27 @@ import mp1.model.object.*;
 public class GraphPanel extends JPanel {
 	private final int size;
 
-	private JPanel graphPanel;
+	protected JPanel graphPanel;
 	private Graph graph;
+
+	public GraphPanel(int size) {
+		super(new BorderLayout());
+		this.size = size;
+
+		graph = new Graph(size);
+		graph.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+
+		graphPanel = new JPanel(new BorderLayout());
+		graphPanel.add(graph,BorderLayout.CENTER);
+
+		add(graphPanel,BorderLayout.CENTER);
+		graph.repaint();
+	}
 
 	public GraphPanel(Shape s, Object2D main, int size) {
 		super(new BorderLayout());
 		this.size = size;
 	
-		setSize(300,300);
-
 		graph = new Graph(s,main,size);
 		graph.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
@@ -31,6 +43,14 @@ public class GraphPanel extends JPanel {
 
 		add(graphPanel,BorderLayout.CENTER);
 		graph.repaint();
+	}
+
+	public Object2D getMain() {
+		return graph.getMain();
+	}
+
+	public void setMain(Shape s, Object2D obj) {
+		graph.setMain(s,obj);
 	}
 
 	public void setTrans(Object2D obj) {

@@ -251,7 +251,6 @@ public class CreatePolygonPanel extends AbstractCreatePanel {
 			if( error.length() == 0 ) {
 				return new Point(x,y);
 			} else {
-				System.out.println(number + " " + error);
 				throw new IllegalArgumentException(error);
 			}
 		}
