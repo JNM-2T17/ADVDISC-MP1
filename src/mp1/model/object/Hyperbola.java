@@ -67,10 +67,10 @@ public class Hyperbola implements AdvancedObject2D {
     @Override
     public Object2D rotate(int direction) throws IllegalArgumentException {
         switch(direction) {
-            case AdvancedObject2D.ROTATE_LEFT_90:
+            case AdvancedObject2D.ROTATE_RIGHT_90:
                 return new Hyperbola(k,-h,vertDistance,horizDistance
                                     ,!openingVertical);
-            case AdvancedObject2D.ROTATE_RIGHT_90:
+            case AdvancedObject2D.ROTATE_LEFT_90:
                 return new Hyperbola(-k,h,vertDistance,horizDistance
                                     ,!openingVertical);
             case AdvancedObject2D.ROTATE_180:
