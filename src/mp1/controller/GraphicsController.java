@@ -11,13 +11,13 @@ import mp1.view.draw.*;
  * @author Austin Fernandez
  */
 public class GraphicsController implements IController {
-	private Object2D activeObject;
+	protected Object2D activeObject;
 	private Object2D movedObject;
 
-	private GraphicsFrame gf;
+	protected GraphicsFrame gf;
 	private MainGraphicsPanel mgPanel;
-	private TransformPanelDirector director;
-	private TransformPanel transformPanel;
+	protected TransformPanelDirector director;
+	protected TransformPanel transformPanel;
 	private GraphPanel graphPanel;
 
 	public GraphicsController() {
@@ -107,6 +107,10 @@ public class GraphicsController implements IController {
 				activeObject = new Vector(params[0],params[1]);
 				break;
 		}
+		setGraphs(s);
+	}
+
+	public void setGraphs(Shape s) {
 		transformPanel = director.getTransformPanel(activeObject,s);
 		gf.setSide(transformPanel);
 		graphPanel = new GraphPanel(s,activeObject,25);

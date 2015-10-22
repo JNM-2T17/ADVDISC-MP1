@@ -17,22 +17,24 @@ public class TransformPanelDirector {
 
 	public TransformPanel getTransformPanel(Object2D obj, Shape s) {
 		TransformPanelBuilder builder = new TransformPanelBuilder(obj, control);
-		builder.addTranslate();
-		switch(s) {
-			case LINE_SEGMENT:
-			case POLYGON:
-			case VECTOR:
-				builder.addShear();
-				builder.addRotate(true);
-				// fall-through
-			case ELLIPSE:
-			case PARABOLA:
-			case HYPERBOLA:
-				builder.addRotate(false);
-				builder.addScale();
-				builder.addReflect();
-				break;
-			default:
+		if( s != null ) {
+			builder.addTranslate();
+			switch(s) {
+				case LINE_SEGMENT:
+				case POLYGON:
+				case VECTOR:
+					builder.addShear();
+					builder.addRotate(true);
+					// fall-through
+				case ELLIPSE:
+				case PARABOLA:
+				case HYPERBOLA:
+					builder.addRotate(false);
+					builder.addScale();
+					builder.addReflect();
+					break;
+				default:
+			}
 		}
 		return builder.build();
 	}

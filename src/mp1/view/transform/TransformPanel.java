@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -28,6 +29,8 @@ public class TransformPanel extends JPanel {
 
 	private JTabbedPane transformPane;
 	private JLabel transformLabel;
+	private JPanel objectsPanel;
+	private JScrollPane objectsPane;
 	private JLabel objectLabel;
 	private JLabel transLabel;
 	private JButton backButton;
@@ -53,19 +56,28 @@ public class TransformPanel extends JPanel {
 		AGBLayout.addComp(this,backButton,1,0,1,1,100,100
 							,GridBagConstraints.CENTER,GridBagConstraints.NONE);
 
+		objectsPanel = new JPanel(new AGBLayout());
+		objectsPane = new JScrollPane(objectsPanel,JScrollPane
+										.VERTICAL_SCROLLBAR_AS_NEEDED
+										,JScrollPane
+										.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
 		objectLabel = new JLabel("<html>Current Object: <br/>" + model 
 								+ "</html>");
 		objectLabel.setFont(new Font("Segoe UI",Font.PLAIN,14));
-		AGBLayout.addComp(this,objectLabel,0,1,2,1,100,100
+		AGBLayout.addComp(objectsPanel,objectLabel,0,0,1,1,100,100
 							,GridBagConstraints.CENTER,GridBagConstraints.NONE);
 
 		transLabel = new JLabel();
 		transLabel.setFont(new Font("Segoe UI",Font.PLAIN,14));
-		AGBLayout.addComp(this,transLabel,0,2,2,1,100,100
+		AGBLayout.addComp(objectsPanel,transLabel,0,1,1,1,100,100
 							,GridBagConstraints.CENTER,GridBagConstraints.NONE);
 
+		AGBLayout.addComp(this,objectsPane,0,1,2,1,100,100
+							,GridBagConstraints.CENTER,GridBagConstraints.BOTH);
+
 		transformPane = new JTabbedPane();
-		AGBLayout.addComp(this,transformPane,0,3,2,2,100,100
+		AGBLayout.addComp(this,transformPane,0,2,2,2,100,100
 							,GridBagConstraints.CENTER,GridBagConstraints.BOTH);
 	}
 

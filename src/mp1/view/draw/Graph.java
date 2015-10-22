@@ -14,15 +14,22 @@ import mp1.model.object.*;
 public class Graph extends JComponent {
 	private final int size;
 
-	private Object2D mainObject;
-	private Object2D transObject;
+	protected Object2D mainObject;
+	protected Object2D transObject;
 
-	private IDraw drawStrategy;
+	protected IDraw drawStrategy;
+
+	public Graph(int size) {
+		this.size = size;
+	}
 
 	public Graph(mp1.model.Shape s, Object2D main, int size) {
 		this.size = size;
+		setStrat(s);
 		mainObject = main;
+	}
 
+	public void setStrat(mp1.model.Shape s) {
 		switch(s) {
 			case ELLIPSE:
 				drawStrategy = new DrawEllipse(getAxis());
@@ -47,12 +54,9 @@ public class Graph extends JComponent {
 				break;
 			default:
 		}
-
-		setBackground(Color.WHITE);
-		setOpaque(true);
 	}
 
-	private void drawGrid(Graphics2D g2) {
+	protected void drawGrid(Graphics2D g2) {
 		int start = 0;
 		int end = 24 * size;
 		for( int i = start; i <= end; i += size ) {
@@ -74,9 +78,19 @@ public class Graph extends JComponent {
 		g2.draw(axis);
 	}
 
-	private int getAxis() {
+	public Object2D getMain() {
+		return mainObject;
+	}
+
+	public int getAxis() {
 		return size * 12;
 	}
+
+	public void setMain(mp1.model.Shape s, Object2D obj) {
+		mainObject = obj;
+		setStrat(s);
+		repaint();
+	} 
 
 	public void setTrans(Object2D obj) {
 		transObject = obj;
@@ -86,13 +100,17 @@ public class Graph extends JComponent {
 	public void paintComponent(Graphics g) {
 		Graphics2D g2 = (Graphics2D)g;
 
-		g2.setColor(getBackground());
+		System.out.println("Painting Graph");
+		g2.setColor(Color.WHITE);
         g2.fillRect(0, 0, 2 * getAxis(), 2 * getAxis());
         g2.setPaint(Color.BLACK);
         drawGrid(g2);
 		g2.setStroke(new BasicStroke(2));
-		g2.setPaint(Color.GREEN);
-		drawStrategy.drawObject(mainObject,g2);
+		if( mainObject != null ) {
+			g2.setPaint(Color.GREEN);
+			drawStrategy.drawObject(mainObject,g2);
+		}
+
 		if( transObject != null ) {
 			g2.setPaint(Color.RED);
 			drawStrategy.drawObject(transObject,g2);

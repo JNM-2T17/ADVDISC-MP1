@@ -365,7 +365,7 @@ scale
 multiply [h.d. v.d.] by r
 
 Rotate
-90 clockwise
+90 counterkwise
 [x y][0 -1][b^2    0][ 0 1][x] + [-2b^2h 2a^2k][ 0 1][x] = a^2b^2 - a^2k^2  + b^2h^2
      [1  0][  0 -a^2][-1 0][y]                 [-1 0][y]
 
