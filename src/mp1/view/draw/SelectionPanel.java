@@ -55,6 +55,7 @@ public class SelectionPanel extends JPanel {
 		deleteButton = new JButton("Delete Selected");
 		deleteButton.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		deleteButton.addActionListener(new DeleteListen());
+		deleteButton.setVisible(false);
 		deletePanel.add(deleteButton);
 
 		add(deletePanel,BorderLayout.NORTH);

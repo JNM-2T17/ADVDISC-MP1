@@ -35,7 +35,7 @@ public class GraphicsController2 extends GraphicsController {
 		gf.setMain(mainGraphPanel);
 		transformPanel = director.getTransformPanel(null,null);
 		gf.setSide(transformPanel);
-		gf.setSize(1214,680);
+		gf.setSize(1194,680);
 	}
 
 	public void shapeScreen(Shape s) {
@@ -58,7 +58,7 @@ public class GraphicsController2 extends GraphicsController {
 		transformPanel = director.getTransformPanel(activeObject,s);
 		gf.setSide(transformPanel);
 		gf.setMain(mainGraphPanel);
-		gf.setSize(1214,680);
+		gf.setSize(1194,680);
 		gf.setLocationRelativeTo(null);
 	}
 
