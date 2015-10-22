@@ -49,6 +49,15 @@ public class Graph2 extends Graph {
 		repaint();
 	}
 
+	public Object2D getLast() {
+		ArrayList<Object2D> list = mainObjects.get(mainObject);
+		if(list.size() == 0) {
+			return mainObject;
+		} else {
+			return list.get(list.size() - 1);
+		}
+	}
+
 	public void addTransform(Object2D obj, Object2D trans) {
 		mainObjects.get(obj).add(trans);
 		repaint();
@@ -57,6 +66,25 @@ public class Graph2 extends Graph {
 	public void replaceTransform(Object2D obj, Object2D trans) {
 		mainObjects.get(obj).set(mainObjects.get(obj).size() - 1,trans);
 		repaint();
+	}
+
+	public void undoTransform(Object2D obj) {
+		ArrayList<Object2D> trans = mainObjects.get(obj);
+		if( trans.size() > 0 ) {
+			trans.remove(trans.size() - 1);
+		}
+		repaint();
+	}
+
+	public Iterator getObjects() {
+		Iterator itr = mainObjects.entrySet().iterator();
+		ArrayList<Object2D> objects = new ArrayList<Object2D>();
+		while( itr.hasNext()) {
+			Map.Entry me = (Map.Entry)itr.next();
+			objects.add((Object2D)me.getKey());
+		}
+
+		return objects.iterator();
 	}
 
 	public void paintComponent(Graphics g) {
@@ -82,9 +110,8 @@ public class Graph2 extends Graph {
 			if(temp.size() != 0) {
 				g2.setPaint(key == mainObject ? Color.RED 
 								: new Color(127,0,0));
-				drawStrategy.drawObject(transObject,g2);
+				drawStrategy.drawObject(temp.get(temp.size() - 1),g2);
 			}
-			System.out.println(key);
 		}
 	}
 }

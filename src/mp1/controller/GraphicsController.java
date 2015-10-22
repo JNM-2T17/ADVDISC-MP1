@@ -23,8 +23,8 @@ public class GraphicsController implements IController {
 	public GraphicsController() {
 		gf = new GraphicsFrame(this);
 		mgPanel = new MainGraphicsPanel(this);
+		director = new TransformPanelDirector(null,this);
 		showMain();
-		director = new TransformPanelDirector(this);
 	}
 
 	public void showMain() {

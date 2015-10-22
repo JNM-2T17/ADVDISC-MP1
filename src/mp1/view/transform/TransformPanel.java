@@ -33,9 +33,9 @@ public class TransformPanel extends JPanel {
 	private JScrollPane objectsPane;
 	private JLabel objectLabel;
 	private JLabel transLabel;
-	private JButton backButton;
+	protected JButton backButton;
 
-	private IController control;
+	protected IController control;
 
 	public TransformPanel(Object2D model, IController control) {
 		this.model = model;

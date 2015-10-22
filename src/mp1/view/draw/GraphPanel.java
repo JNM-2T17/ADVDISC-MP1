@@ -45,6 +45,10 @@ public class GraphPanel extends JPanel {
 		graph.repaint();
 	}
 
+	public Object2D getMain() {
+		return graph.getMain();
+	}
+
 	public void setMain(Shape s, Object2D obj) {
 		graph.setMain(s,obj);
 	}

@@ -8,12 +8,12 @@ import mp1.model.object.Object2D;
  *
  * @author Austin Fernandez
  */
-public class TransformPanelBuilder implements TransformBuilder {
-	private TransformPanel transPanel;
+public class TransformPanelBuilder2 implements TransformBuilder {
+	private TransformPanel2 transPanel;
 	private IController control;
 
-	public TransformPanelBuilder(Object2D model, IController control) {
-		transPanel = new TransformPanel(model, control);
+	public TransformPanelBuilder2(Object2D model, IController control) {
+		transPanel = new TransformPanel2(model, control);
 		this.control = control;
 	}
 

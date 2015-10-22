@@ -100,7 +100,6 @@ public class Graph extends JComponent {
 	public void paintComponent(Graphics g) {
 		Graphics2D g2 = (Graphics2D)g;
 
-		System.out.println("Painting Graph");
 		g2.setColor(Color.WHITE);
         g2.fillRect(0, 0, 2 * getAxis(), 2 * getAxis());
         g2.setPaint(Color.BLACK);

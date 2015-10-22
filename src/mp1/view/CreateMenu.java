@@ -42,43 +42,43 @@ public class CreateMenu extends JMenuBar {
 		createMenu.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		add(createMenu);
 
-		pointItem = new JMenuItem("Create point");
+		pointItem = new JMenuItem("Create Point");
 		pointItem.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		hash.put(pointItem,Shape.POINT);
 		pointItem.addActionListener(new MenuListen());
 		createMenu.add(pointItem);
 
-		vectorItem = new JMenuItem("Create vector");
+		vectorItem = new JMenuItem("Create Vector");
 		vectorItem.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		hash.put(vectorItem,Shape.VECTOR);
 		vectorItem.addActionListener(new MenuListen());
 		createMenu.add(vectorItem);
 
-		lineSegmentItem = new JMenuItem("Create lineSegment");
+		lineSegmentItem = new JMenuItem("Create Line Segment");
 		lineSegmentItem.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		hash.put(lineSegmentItem,Shape.LINE_SEGMENT);
 		lineSegmentItem.addActionListener(new MenuListen());
 		createMenu.add(lineSegmentItem);
 
-		polygonItem = new JMenuItem("Create polygon");
+		polygonItem = new JMenuItem("Create Polygon");
 		polygonItem.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		hash.put(polygonItem,Shape.POLYGON);
 		polygonItem.addActionListener(new MenuListen());
 		createMenu.add(polygonItem);
 
-		parabolaItem = new JMenuItem("Create parabola");
+		parabolaItem = new JMenuItem("Create Parabola");
 		parabolaItem.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		hash.put(parabolaItem,Shape.PARABOLA);
 		parabolaItem.addActionListener(new MenuListen());
 		createMenu.add(parabolaItem);
 
-		hyperbolaItem = new JMenuItem("Create hyperbola");
+		hyperbolaItem = new JMenuItem("Create Hyperbola");
 		hyperbolaItem.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		hash.put(hyperbolaItem,Shape.HYPERBOLA);
 		hyperbolaItem.addActionListener(new MenuListen());
 		createMenu.add(hyperbolaItem);
 
-		ellipseItem = new JMenuItem("Create ellipse");
+		ellipseItem = new JMenuItem("Create Ellipse");
 		ellipseItem.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		hash.put(ellipseItem,Shape.ELLIPSE);
 		ellipseItem.addActionListener(new MenuListen());
