@@ -98,9 +98,18 @@ public class GraphicsController2 extends GraphicsController {
 		transformPanel = director.getTransformPanel(obj,s);
 		gf.setSide(transformPanel);
 		mainGraphPanel.setMain(s,obj);	
+		Object2D trans = mainGraphPanel.getLast();
+		if( trans != obj ) {
+			transformPanel.setTransformed(trans);
+		}
 	} 
 
 	public void undo() {
-		mainGraphPanel.undoTransform(mainGraphPanel.getMain());
+		Object2D main = mainGraphPanel.getMain();
+		mainGraphPanel.undoTransform(main);
+		Object2D trans = mainGraphPanel.getLast();
+		if( trans != main ) {
+			transformPanel.setTransformed(trans);
+		}
 	}
 }

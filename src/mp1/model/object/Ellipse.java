@@ -17,8 +17,8 @@ public class Ellipse implements AdvancedObject2D{
 
 		h = x;
 		k = y;
-		this.horizDistance = horizDistance;
-		this.vertDistance = vertDistance;
+		this.horizDistance = Math.abs(horizDistance);
+		this.vertDistance = Math.abs(vertDistance);
 	}
 
 	public double getH() {
