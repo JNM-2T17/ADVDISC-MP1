@@ -76,6 +76,14 @@ public class Graph extends JComponent {
 		g2.draw(axis);
 		axis = new Line2D.Double(getAxis(),start,getAxis(),end);
 		g2.draw(axis);
+
+		g2.setPaint(Color.BLACK);
+		g2.drawString("" + -getAxis(),0,0 + 10);
+		g2.drawString("0",0,getAxis());
+		g2.drawString("" + getAxis(),0,2*getAxis());
+		g2.drawString("" + -getAxis(),0,2*getAxis() + 10);
+		g2.drawString("0",getAxis()-3,2*getAxis() + 10);
+		g2.drawString("" + getAxis(),2*getAxis()-20,2*getAxis() + 10);
 	}
 
 	public Object2D getMain() {
