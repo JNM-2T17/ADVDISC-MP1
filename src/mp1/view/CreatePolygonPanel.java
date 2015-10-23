@@ -1,11 +1,18 @@
 package mp1.view;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -26,6 +33,7 @@ public class CreatePolygonPanel extends AbstractCreatePanel {
 	private JLabel shapeLabel;
 	private JButton addButton;
 	private JButton createButton;
+	private ImageIcon deleteIcon;
 
 	private JPanel sidesPanel;
 	private JScrollPane sideScrollPane;
@@ -35,6 +43,12 @@ public class CreatePolygonPanel extends AbstractCreatePanel {
 	}
 
 	protected void createComponents() {
+		deleteIcon = new ImageIcon(getClass()
+									.getResource("/assets/deleteicon.png"));
+		Image i = deleteIcon.getImage();
+		i = i.getScaledInstance(15,15,0);
+		deleteIcon = new ImageIcon(i);
+
 		shapeLabel = new JLabel("Create a Polygon");
 		shapeLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		shapeLabel.setFont(new Font("Segoe UI",Font.BOLD,24));
@@ -180,7 +194,8 @@ public class CreatePolygonPanel extends AbstractCreatePanel {
 								,GridBagConstraints.CENTER
 								,GridBagConstraints.NONE);
 
-			deleteButton = new JButton("X");
+			deleteButton = new JButton(deleteIcon);
+			deleteButton.setBackground(Color.WHITE);
 			deleteButton.setFont(new Font("Segoe UI",Font.PLAIN,14));
 			deleteButton.addActionListener(new DeleteListen());
 			AGBLayout.addComp(this,deleteButton,1,0,1,1,100,100

@@ -50,6 +50,10 @@ public abstract class AbstractCreatePanel extends JPanel {
 
 	protected abstract void clear();
 
+	public void setBackVisible(boolean visible) {
+		backButton.setVisible(visible);
+	}
+
 	protected class CreateListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			try {

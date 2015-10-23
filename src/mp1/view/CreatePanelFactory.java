@@ -31,23 +31,33 @@ public class CreatePanelFactory {
 	}
 
 	public AbstractCreatePanel getPanel(Shape s) {
+		AbstractCreatePanel panel;
 		switch(s) {
 			case ELLIPSE:
-				return new CreateEllipsePanel(control);
+				panel = new CreateEllipsePanel(control);
+				break;
 			case LINE_SEGMENT:
-				return new CreateLineSegmentPanel(control);
+				panel = new CreateLineSegmentPanel(control);
+				break;
 			case PARABOLA:
-				return new CreateParabolaPanel(control);
+				panel = new CreateParabolaPanel(control);
+				break;
 			case HYPERBOLA:
-				return new CreateHyperbolaPanel(control);
+				panel = new CreateHyperbolaPanel(control);
+				break;
 			case POINT:
-				return new CreatePointPanel(Shape.POINT,control);
+				panel = new CreatePointPanel(Shape.POINT,control);
+				break;
 			case POLYGON:
-				return new CreatePolygonPanel(control);
+				panel = new CreatePolygonPanel(control);
+				break;
 			case VECTOR:
-				return new CreatePointPanel(Shape.VECTOR,control);
+				panel = new CreatePointPanel(Shape.VECTOR,control);
+				break;
 			default:
 				return null;
 		}
+		panel.setBackVisible(false);
+		return panel;
 	}
 }
