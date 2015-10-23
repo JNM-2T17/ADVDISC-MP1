@@ -59,6 +59,7 @@ public class CreateParabolaPanel extends AbstractCreatePanel {
 							,GridBagConstraints.HORIZONTAL);
 
 		hField = new JTextField(10);
+		hField.addKeyListener(new CreateListener());
 		hField.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,hField,1,1,1,1,100,100,GridBagConstraints.CENTER
 							,GridBagConstraints.HORIZONTAL);
@@ -71,6 +72,7 @@ public class CreateParabolaPanel extends AbstractCreatePanel {
 							,GridBagConstraints.HORIZONTAL);
 
 		kField = new JTextField(10);
+		kField.addKeyListener(new CreateListener());
 		kField.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,kField,3,1,1,1,100,100,GridBagConstraints.CENTER
 							,GridBagConstraints.HORIZONTAL);
@@ -83,6 +85,7 @@ public class CreateParabolaPanel extends AbstractCreatePanel {
 							,GridBagConstraints.HORIZONTAL);
 
 		pField = new JTextField(10);
+		pField.addKeyListener(new CreateListener());
 		pField.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,pField,1,2,1,1,100,100,GridBagConstraints.CENTER
 							,GridBagConstraints.HORIZONTAL);

@@ -53,6 +53,7 @@ public class CreateLineSegmentPanel extends AbstractCreatePanel {
 							,GridBagConstraints.HORIZONTAL);
 
 		x1Field = new JTextField(10);
+		x1Field.addKeyListener(new CreateListener());
 		x1Field.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,x1Field,1,1,1,1,100,100,GridBagConstraints.CENTER
 							,GridBagConstraints.HORIZONTAL);
@@ -65,6 +66,7 @@ public class CreateLineSegmentPanel extends AbstractCreatePanel {
 							,GridBagConstraints.HORIZONTAL);
 
 		y1Field = new JTextField(10);
+		y1Field.addKeyListener(new CreateListener());
 		y1Field.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,y1Field,3,1,1,1,100,100,GridBagConstraints.CENTER
 							,GridBagConstraints.HORIZONTAL);
@@ -77,6 +79,7 @@ public class CreateLineSegmentPanel extends AbstractCreatePanel {
 							,GridBagConstraints.HORIZONTAL);
 
 		x2Field = new JTextField(10);
+		x2Field.addKeyListener(new CreateListener());
 		x2Field.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,x2Field,1,2,1,1,100,100,GridBagConstraints.CENTER
 							,GridBagConstraints.HORIZONTAL);
@@ -89,6 +92,7 @@ public class CreateLineSegmentPanel extends AbstractCreatePanel {
 							,GridBagConstraints.HORIZONTAL);
 
 		y2Field = new JTextField(10);
+		y2Field.addKeyListener(new CreateListener());
 		y2Field.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,y2Field,3,2,1,1,100,100,GridBagConstraints.CENTER
 							,GridBagConstraints.HORIZONTAL);

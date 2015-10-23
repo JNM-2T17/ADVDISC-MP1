@@ -25,5 +25,6 @@ public class DrawPoint implements IDraw {
 									,p.getX() + axis,-p.getY() + axis);
 		g2.setStroke(new BasicStroke(10));
 		g2.draw(s);
+		g2.setStroke(new BasicStroke(2));
 	}
 }

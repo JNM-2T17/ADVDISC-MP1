@@ -4,6 +4,8 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -54,8 +56,8 @@ public abstract class AbstractCreatePanel extends JPanel {
 		backButton.setVisible(visible);
 	}
 
-	protected class CreateListener implements ActionListener{
-		public void actionPerformed(ActionEvent e) {
+	protected class CreateListener implements ActionListener, KeyListener{
+		private void create() {
 			try {
 				control.createShape(shape,getParams());
 			} catch(Exception ex) {
@@ -64,6 +66,20 @@ public abstract class AbstractCreatePanel extends JPanel {
 											JOptionPane.ERROR_MESSAGE);
 			}
 		}
+
+		public void actionPerformed(ActionEvent e) {
+			create();
+		}
+
+		public void keyPressed(KeyEvent e) {}
+		
+		public void keyTyped(KeyEvent e) {
+			if( e.getKeyChar() == '\n' ) {
+				create();
+			}
+		}
+		
+		public void keyReleased(KeyEvent e) {}
 	}
 
 	protected class BackListener implements ActionListener {

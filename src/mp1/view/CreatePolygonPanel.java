@@ -210,6 +210,7 @@ public class CreatePolygonPanel extends AbstractCreatePanel {
 								,GridBagConstraints.NONE);
 
 			xField = new JTextField(15);
+			xField.addKeyListener(new CreateListener());
 			xField.setFont(new Font("Segoe UI",Font.PLAIN,14));
 			AGBLayout.addComp(this,xField,1,1,1,1,100,100
 								,GridBagConstraints.CENTER
@@ -223,6 +224,7 @@ public class CreatePolygonPanel extends AbstractCreatePanel {
 								,GridBagConstraints.NONE);
 
 			yField = new JTextField(15);
+			yField.addKeyListener(new CreateListener());
 			yField.setFont(new Font("Segoe UI",Font.PLAIN,14));
 			AGBLayout.addComp(this,yField,3,1,1,1,100,100
 								,GridBagConstraints.CENTER

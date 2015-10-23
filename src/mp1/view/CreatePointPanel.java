@@ -49,6 +49,7 @@ public class CreatePointPanel extends AbstractCreatePanel {
 							,GridBagConstraints.HORIZONTAL);
 
 		xField = new JTextField(10);
+		xField.addKeyListener(new CreateListener());
 		xField.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,xField,1,1,1,1,100,100,GridBagConstraints.CENTER
 							,GridBagConstraints.HORIZONTAL);
@@ -61,6 +62,7 @@ public class CreatePointPanel extends AbstractCreatePanel {
 							,GridBagConstraints.HORIZONTAL);
 
 		yField = new JTextField(10);
+		yField.addKeyListener(new CreateListener());
 		yField.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,yField,3,1,1,1,100,100,GridBagConstraints.CENTER
 							,GridBagConstraints.HORIZONTAL);

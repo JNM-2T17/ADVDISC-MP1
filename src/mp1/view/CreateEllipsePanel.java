@@ -54,6 +54,7 @@ public class CreateEllipsePanel extends AbstractCreatePanel {
 
 		hField = new JTextField(10);
 		hField.setFont(new Font("Segoe UI",Font.PLAIN,14));
+		hField.addKeyListener(new CreateListener());
 		AGBLayout.addComp(this,hField,1,1,1,1,100,100,GridBagConstraints.CENTER
 							,GridBagConstraints.HORIZONTAL);
 		
@@ -66,6 +67,7 @@ public class CreateEllipsePanel extends AbstractCreatePanel {
 
 		kField = new JTextField(10);
 		kField.setFont(new Font("Segoe UI",Font.PLAIN,14));
+		kField.addKeyListener(new CreateListener());
 		AGBLayout.addComp(this,kField,3,1,1,1,100,100,GridBagConstraints.CENTER
 							,GridBagConstraints.HORIZONTAL);
 		
@@ -78,6 +80,7 @@ public class CreateEllipsePanel extends AbstractCreatePanel {
 
 		hdField = new JTextField(10);
 		hdField.setFont(new Font("Segoe UI",Font.PLAIN,14));
+		hdField.addKeyListener(new CreateListener());
 		AGBLayout.addComp(this,hdField,1,2,1,1,100,100,GridBagConstraints.CENTER
 							,GridBagConstraints.HORIZONTAL);
 		
@@ -90,6 +93,7 @@ public class CreateEllipsePanel extends AbstractCreatePanel {
 
 		vdField = new JTextField(10);
 		vdField.setFont(new Font("Segoe UI",Font.PLAIN,14));
+		vdField.addKeyListener(new CreateListener());
 		AGBLayout.addComp(this,vdField,3,2,1,1,100,100,GridBagConstraints.CENTER
 							,GridBagConstraints.HORIZONTAL);
 		

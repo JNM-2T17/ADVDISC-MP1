@@ -61,6 +61,7 @@ public class CreateHyperbolaPanel extends AbstractCreatePanel {
 							,GridBagConstraints.HORIZONTAL);
 
 		hField = new JTextField(10);
+		hField.addKeyListener(new CreateListener());
 		hField.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,hField,1,1,1,1,100,100,GridBagConstraints.CENTER
 							,GridBagConstraints.HORIZONTAL);
@@ -73,6 +74,7 @@ public class CreateHyperbolaPanel extends AbstractCreatePanel {
 							,GridBagConstraints.HORIZONTAL);
 
 		kField = new JTextField(10);
+		kField.addKeyListener(new CreateListener());
 		kField.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,kField,3,1,1,1,100,100,GridBagConstraints.CENTER
 							,GridBagConstraints.HORIZONTAL);
@@ -85,6 +87,7 @@ public class CreateHyperbolaPanel extends AbstractCreatePanel {
 							,GridBagConstraints.HORIZONTAL);
 
 		hdField = new JTextField(10);
+		hdField.addKeyListener(new CreateListener());
 		hdField.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,hdField,1,2,1,1,100,100,GridBagConstraints.CENTER
 							,GridBagConstraints.HORIZONTAL);
@@ -97,6 +100,7 @@ public class CreateHyperbolaPanel extends AbstractCreatePanel {
 							,GridBagConstraints.HORIZONTAL);
 
 		vdField = new JTextField(10);
+		vdField.addKeyListener(new CreateListener());
 		vdField.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,vdField,3,2,1,1,100,100,GridBagConstraints.CENTER
 							,GridBagConstraints.HORIZONTAL);

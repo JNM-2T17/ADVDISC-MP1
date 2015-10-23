@@ -45,23 +45,17 @@ public abstract class TransParamPanel extends JPanel {
 	protected abstract ITransform getCommand() throws IllegalArgumentException;
 
 	protected class InputListener implements ActionListener,KeyListener {
-		private boolean confirmed;
-
+		
 		public InputListener() {
 			super();
-			confirmed = true;
 		}
 
 		private void transform() {
 			try {
 				control.transform(getCommand());
-				confirmed = true;
 			} catch(IllegalArgumentException iae) {
-				if( confirmed ) {
-					JOptionPane.showMessageDialog(null,iae.getMessage(),"Error"
-													,JOptionPane.ERROR_MESSAGE);
-					confirmed = false;
-				}
+				JOptionPane.showMessageDialog(null,iae.getMessage(),"Error"
+												,JOptionPane.ERROR_MESSAGE);
 			}
 		}
 
