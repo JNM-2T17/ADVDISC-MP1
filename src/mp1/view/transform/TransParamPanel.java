@@ -77,8 +77,6 @@ public abstract class TransParamPanel extends JPanel {
 			}
 		}
 
-		public void keyReleased(KeyEvent e) {
-			//transform();
-		}
+		public void keyReleased(KeyEvent e) {}
 	}
 }

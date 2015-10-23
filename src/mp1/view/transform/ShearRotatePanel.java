@@ -35,14 +35,14 @@ public class ShearRotatePanel extends TransParamPanel {
 								+ "clockwise):");
 		thetaLabel.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(this,thetaLabel,0,0,1,1,100,100
-							,GridBagConstraints.EAST
+							,GridBagConstraints.SOUTH
 							,GridBagConstraints.NONE);
 
 		thetaField = new JTextField("0",15);
 		thetaField.addKeyListener(inputListen);
 		thetaField.setFont(new Font("Segoe UI",Font.PLAIN,14));
-		AGBLayout.addComp(this,thetaField,1,0,1,1,100,100
-							,GridBagConstraints.WEST
+		AGBLayout.addComp(this,thetaField,0,1,1,1,100,100
+							,GridBagConstraints.NORTH
 							,GridBagConstraints.NONE);
 
 	}

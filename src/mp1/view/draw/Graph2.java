@@ -104,12 +104,12 @@ public class Graph2 extends Graph {
 			ArrayList<Object2D> temp = (ArrayList<Object2D>)me.getValue();
 			
 			g2.setPaint(key == mainObject ? Color.GREEN 
-							: new Color(0,127,0));
+							: new Color(0,192,0));
 			setStrat(shapes.get(key));
 			drawStrategy.drawObject(key,g2);
 			if(temp.size() != 0) {
 				g2.setPaint(key == mainObject ? Color.RED 
-								: new Color(127,0,0));
+								: new Color(192,0,0));
 				drawStrategy.drawObject(temp.get(temp.size() - 1),g2);
 			}
 		}

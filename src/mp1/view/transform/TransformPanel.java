@@ -1,5 +1,6 @@
 package mp1.view.transform;
 
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
@@ -43,6 +44,9 @@ public class TransformPanel extends JPanel {
 
 		setLayout(new AGBLayout());
 		setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+
+		Dimension d = getPreferredSize();
+		setPreferredSize(new Dimension(410,d.height));
 
 		transformLabel = new JLabel("Select Transformation Parameters");
 		transformLabel.setFont(new Font("Segoe UI",Font.BOLD,16));

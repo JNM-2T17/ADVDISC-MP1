@@ -1,6 +1,7 @@
 package mp1.view.draw;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -45,7 +46,8 @@ public class SelectionPanel extends JPanel {
 		super(new BorderLayout());
 		this.control = control;
 
-		setSize(200,getPreferredSize().height);
+		Dimension d = getPreferredSize();
+		setPreferredSize(new Dimension(160,d.height));
 
 		radioButtons = new ArrayList<JRadioButton>();
 		objectMap = new HashMap<JRadioButton,Object2D>();
