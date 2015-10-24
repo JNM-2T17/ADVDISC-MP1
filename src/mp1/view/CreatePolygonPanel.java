@@ -110,10 +110,12 @@ public class CreatePolygonPanel extends AbstractCreatePanel {
 		if( error.length() == 0 ) {
 			double[] ret = new double[sides * 2 + 1];
 			ret[0] = sides;
+			
 			for( i = 0; i < sides; i++ ) {
 				ret[i + 1] = coords[i][0];
 				ret[i + 1 + sides] = coords[i][1];
 			}
+
 			return ret;
 		} else {
 			throw new Exception(error);
