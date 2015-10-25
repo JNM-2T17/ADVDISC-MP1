@@ -65,14 +65,8 @@ public class GraphicsController2 extends GraphicsController {
 
 
 	public void transform(ITransform trans) {
-		Object2D last = mainGraphPanel.getLast();
-		Object2D obj = trans.transform(last);
-		if( !(last instanceof Curve) && obj instanceof Curve ) {
-			director.setBuilder(new TransformPanelBuilder2(activeObject,this));
-			transformPanel = director.getTransformPanel(activeObject
-														,Shape.CURVE);
-			gf.setSide(transformPanel);
-		}
+		Object2D obj = trans.transform(mainGraphPanel.getLast());
+		System.out.println(obj);
 		mainGraphPanel.addTransform(mainGraphPanel.getMain(),obj);
 		transformPanel.setTransformed(obj);
 	}
@@ -84,7 +78,7 @@ public class GraphicsController2 extends GraphicsController {
 		mainGraphPanel.deleteMain(obj);
 	}
 
-	public Shape getShape(Object2D obj) {
+	public void setMain(Object2D obj) {
 		Shape s = null;
 		if( obj instanceof Point) {
 			s = Shape.POINT;
@@ -101,36 +95,20 @@ public class GraphicsController2 extends GraphicsController {
 		} else if( obj instanceof Ellipse ) {
 			s = Shape.ELLIPSE;
 		} 
-
-		return s;
-	}
-
-	public void setMain(Object2D obj) {
-		Shape s = getShape(obj);
-		mainGraphPanel.setMain(s,obj);	
-		activeObject = obj;
-		Object2D trans = mainGraphPanel.getLast();
-		s = getShape(trans);
 		director.setBuilder(new TransformPanelBuilder2(obj,this));
 		transformPanel = director.getTransformPanel(obj,s);
 		gf.setSide(transformPanel);
+		mainGraphPanel.setMain(s,obj);	
+		Object2D trans = mainGraphPanel.getLast();
 		if( trans != obj ) {
 			transformPanel.setTransformed(trans);
 		}
 	} 
 
 	public void undo() {
-		Object2D current = mainGraphPanel.getLast();
 		Object2D main = mainGraphPanel.getMain();
 		mainGraphPanel.undoTransform(main);
 		Object2D trans = mainGraphPanel.getLast();
-		if( current instanceof Curve && !(trans instanceof Curve) ) {
-			Shape s = getShape(trans);
-			director.setBuilder(new TransformPanelBuilder2(main,this));
-			transformPanel = director.getTransformPanel(main,s);
-			gf.setSide(transformPanel);
-		}
-
 		if( trans != main ) {
 			transformPanel.setTransformed(trans);
 		} else {

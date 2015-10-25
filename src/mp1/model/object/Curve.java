@@ -138,43 +138,24 @@ public class Curve implements AdvancedObject2D
 	}
 
 	public Object2D translate(double h, double k){
-		if( y2 == 0 ) {
-			//y = (-ax^2 - ex - h)/(bx + f)
-			return new Curve(x2,xy,0,xy*k + 2*x2*h + x,-xy*h+y,xy*h*k-y*k
-								+2*x2*h*h-x*h+h);
-		} else {
-			//cy^2 + (bx + f)y + ax^2 + ex + h = 0 
-			//y = (-(bx + f) +- sqrt((b^2 - 4ac)x^2 + 2(bf - 2ce)x + f^2 - 4ch))/2c
-			double linear = -xy/2/y2;
-			double verticalShift = -y/2/y2;
-			double divisor = 2 * y2;
-			double innerX2 = xy * xy - 4 * x2 * y2;
-			double innerX = 2 * (xy * y - 2 * y2 * x);
-			double innerConst = y * y - 4 * y2 * constant;
-			
-			// double linearValue = linear * arg;
-			// double sqrt = 0;
-			// if( innerX2 == 0 ) {
-			// 	sqrt = Math.sqrt(innerX * arg + innerConst)/divisor;
-			// } else {
+		double[] args = new double[6];
 
-			// 	//a(x^2 + bx/a + b^2/4a^2) + c - b^2/4a
-			// 	//a(x + b/2a)^2 + c - b^2/4a
-			// 	double xMult = innerX2;
-			// 	double xShift = -innerX/2/innerX2;
-			// 	double innerShift = innerConst - innerX * innerX / 4 / innerX2;
-			// 	double radicand = xMult*(arg - xShift)*(arg - xShift) 
-			// 							+ innerShift;
-			// 	if( Math.abs(radicand) < 0.0001 ) {
-			// 		radicand = 0;
-			// 	}
+		/*
+		a(x-h)^2 + b(x-h)(y-k) + c(y-k)^2 + e(x-h) + f(y-k) + h = 0
+		a(x^2 - 2hx + h^2) + (bx-bh)(y-k) + c(y^2 - 2ky + k^2) + ex - eh + fy - fk + h = 0
+		ax^2 - 2ahx + ah^2 + bxy - bhy - bkx + bhk + cy^2 - 2cky + ck^2 + ex - eh + fy - fk + h = 0
+		ax^2 + bxy + cy^2 - (2ah + bk - e)x - (bh + 2ck - f)y + ah^2 + bhk + ck^2 - eh - fk + h = 0
+		*/
+		args[0] = x2;
+		args[1] = xy;
+		args[2] = y2;
+		args[3] = -(2 * x2 * h + xy * k - x);
+		args[4] = -(xy * h + 2 * y2 * k - y);
+		args[5] = x2 * h * h + xy * h * k + y2 * k * k - x * h - y * k 
+					+ constant;
 
-			// 	sqrt = Math.sqrt(radicand)/divisor;
-			// }
-			// return new double[] { linearValue + verticalShift - sqrt
-			// 							,linearValue + verticalShift + sqrt};
-			return null;
-		}
+		return new Curve(args[0],args[1],args[2],args[3],args[4]
+									,args[5]);
 	}
 
 	// Need to double check
@@ -215,7 +196,15 @@ public class Curve implements AdvancedObject2D
 	}
 
 	public Object2D scale(double dd){
-		return null;
+		double part = Math.abs(x2) * Math.abs(y2);
+		double newCon = constant + part;
+		double sq = dd * dd;
+		System.out.println(newCon);
+		part *= sq;
+		// System.out.print("newCon = (" + newCon + " + " + part + ") * " + sq);
+		newCon = (newCon - part) * sq;
+		// System.out.println("newCon = " + newCon);
+		return new Curve(x2 * sq,xy * sq, y2 * sq,x * sq, y * sq, newCon);
 	}
 
 	public Object2D reflect(int cas){
