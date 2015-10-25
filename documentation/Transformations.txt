@@ -15,27 +15,27 @@ by [a b]
 
 rotate
 by d degrees
-[cos d -sin d] [x]
-[sin d  cos d] [y]
+[cos d -sin d] [x] = [xcosd - ysind]
+[sin d  cos d] [y]   [xsind + ycosd]
 
 scale
 by factor r
 
-r[x]
- [y]
+r[x] = [rx]
+ [y]   [ry]
 
 reflect
 x-axis
-[1  0] [x]
-[0 -1] [y]
+[1  0] [x] = [ x]
+[0 -1] [y]   [-y]
 y-axis
-[-1 0] [x]
-[ 0 1] [y]
+[-1 0] [x] = [-x]
+[ 0 1] [y]   [ y]
 
 shear
 by d degrees
-[1 tan d] [x]
-[0   1  ] [y]
+[1 tan d] [x] = [x + ytand]
+[0   1  ] [y]   [    y    ]
 
 LINE SEGMENT - apply the above to endpoints
 POLYGON - apply the above to all vertices
