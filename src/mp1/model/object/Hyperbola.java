@@ -6,7 +6,8 @@ import java.lang.Math;
  *
  * @author Austin Fernandez
  */
-public class Hyperbola implements AdvancedObject2D {
+public class Hyperbola implements AdvancedObject2D,DoubleRotateObject2D
+                                    ,ShearObject2D {
     
     double h;
     double k;
@@ -41,6 +42,38 @@ public class Hyperbola implements AdvancedObject2D {
 
     public boolean isOpeningVertical() {
         return openingVertical;
+    }
+
+    public Curve getCurve() {
+        if( openingVertical ) {
+            //-b^2(x-h)^2 + a^2(y-k)^2 = a^2b^2
+            //-b^2x^2 + 2b^2hx - b^2h^2 + a^2y^2 - 2a^2ky + a^2k^2 - a^2b^2 = 0
+            return new Curve(-vertDistance * vertDistance,0,horizDistance
+                                *horizDistance,2 * vertDistance * vertDistance 
+                                * h, -2 * horizDistance * horizDistance * k,
+                            -vertDistance * vertDistance * h * h + horizDistance 
+                            * horizDistance * k * k - horizDistance 
+                            * horizDistance * vertDistance * vertDistance);
+        } else {
+            //b^2(x-h)^2 - a^2(y-k)^2 = a^2b^2
+            //b^2x^2 - 2b^2hx + b^2h^2 - a^2y^2 + 2a^2ky - a^2k^2 - a^2b^2 = 0
+            return new Curve(vertDistance * vertDistance,0,-horizDistance
+                                *horizDistance,-2 * vertDistance * vertDistance 
+                                * h, 2 * horizDistance * horizDistance * k,
+                            vertDistance * vertDistance * h * h - horizDistance 
+                            * horizDistance * k * k - horizDistance 
+                            * horizDistance * vertDistance * vertDistance);
+        }
+    }
+
+    public Object2D rotate(double degree) {
+        Curve c = getCurve();
+        return c.rotate(degree);
+    }
+
+    public Object2D shear(double degree) {
+        Curve c = getCurve();
+        return c.shear(degree);
     }
 
     public double[] getRoots(double single) {

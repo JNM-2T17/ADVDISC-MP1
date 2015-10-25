@@ -24,7 +24,6 @@ public class Graph2 extends Graph {
 
 		mainObjects = new HashMap<Object2D,ArrayList<Object2D>>();
 		shapes = new HashMap<Object2D,mp1.model.Shape>();
-		addMain(mp1.model.Shape.CURVE,new Curve(10000,16000,40000,0,0,-400000000));
 	}
 
 	public Graph2(mp1.model.Shape s, Object2D main, int size) {

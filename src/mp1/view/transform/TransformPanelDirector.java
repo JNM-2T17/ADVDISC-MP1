@@ -27,26 +27,33 @@ public class TransformPanelDirector {
 		}
 		
 		if( s != null ) {
-			builder.addTranslate();
-			switch(s) {
-				case LINE_SEGMENT:
-				case POLYGON:
-				case VECTOR:
-					builder.addShear();
-					builder.addRotate(true);
-					// fall-through
-				case ELLIPSE:
-				case PARABOLA:
-				case HYPERBOLA:
-					if( builder instanceof TransformPanelBuilder2) {
+			if( s == Shape.CURVE ) {
+				builder.addShear();
+				builder.addRotate(true);
+				builder.addRotate(false);
+				builder.addReflect();
+			} else {
+				builder.addTranslate();
+				switch(s) {
+					case LINE_SEGMENT:
+					case POLYGON:
+					case VECTOR:
 						builder.addShear();
 						builder.addRotate(true);
-					}
-					builder.addRotate(false);
-					builder.addScale();
-					builder.addReflect();
-					break;
-				default:
+						// fall-through
+					case ELLIPSE:
+					case PARABOLA:
+					case HYPERBOLA:
+						if( builder instanceof TransformPanelBuilder2) {
+							builder.addShear();
+							builder.addRotate(true);
+						}
+						builder.addRotate(false);
+						builder.addScale();
+						builder.addReflect();
+						break;
+					default:
+				}
 			}
 		}
 		return builder.build();

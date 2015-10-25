@@ -28,9 +28,9 @@ public class DrawCurve implements IDraw {
 		double vertex = interval[1];
 		Shape s;
 		
-		for( int x = 0; x < interval.length; x++ ) {
-			System.out.println(interval[x]);
-		}
+		// for( int x = 0; x < interval.length; x++ ) {
+		// 	System.out.println(interval[x]);
+		// }
 
 		if( interval.length == 2 ) {
 			if( interval[0] == -axis) {
@@ -48,14 +48,18 @@ public class DrawCurve implements IDraw {
 					roots = nextRoots;
 					i++;
 				}
-				s = new Line2D.Double((i - 1) + axis,-roots[0] + axis
-										,interval[1] + axis
-										,-e.getValue(interval[1])[0] + axis);
-				g2.draw(s);
-				s = new Line2D.Double((i - 1) + axis,-roots[1] + axis
-										,interval[1] + axis
-										,-e.getValue(interval[1])[0] + axis);
-				g2.draw(s);
+				if( interval[1] != axis) {
+					s = new Line2D.Double((i - 1) + axis,-roots[0] + axis
+											,interval[1] + axis
+											,-e.getValue(interval[1])[0] 
+											+ axis);
+					g2.draw(s);
+					s = new Line2D.Double((i - 1) + axis,-roots[1] + axis
+											,interval[1] + axis
+											,-e.getValue(interval[1])[0] 
+											+ axis);
+					g2.draw(s);
+				}
 			} else if( interval[1] == axis) {
 				roots = e.getValue(axis);
 				i = axis - 1;
@@ -78,7 +82,6 @@ public class DrawCurve implements IDraw {
 					i--;
 				}
 				double[] res = e.getValue(interval[0]);
-				System.out.println(res[0] + " and " + res[1]);
 				s = new Line2D.Double((i + 1) + axis,-roots[0] + axis
 										,interval[0] + axis
 										,-res[0] + axis);

@@ -5,7 +5,8 @@ package mp1.model.object;
  * @author Austin Fernandez
  * @author John Joseph Andres
  */
-public class Ellipse implements AdvancedObject2D{
+public class Ellipse implements AdvancedObject2D,DoubleRotateObject2D
+									,ShearObject2D{
 	
 	private double h;
 	private double k;
@@ -27,6 +28,27 @@ public class Ellipse implements AdvancedObject2D{
 
 	public double getK() {
 		return k;
+	}
+
+	private Curve getCurve() {
+		//b^2(x-h)^2 + a^2(y-k)^2 = a^2b^2
+		//b^2x^2 + a^2y^2 - 2b^2hx - 2a^2ky + b^2h^2+ a^2k^2 - a^2b^2;
+		return new Curve(vertDistance*vertDistance,0,horizDistance*horizDistance
+							,-2 * vertDistance * vertDistance * h, -2 
+							* horizDistance * horizDistance, vertDistance 
+							* vertDistance * h * h + horizDistance 
+							* horizDistance * k * k - horizDistance 
+							* horizDistance * vertDistance * vertDistance);
+	}
+
+	public Object2D rotate(double degree) {
+		Curve c = getCurve();
+		return c.rotate(degree);
+	}
+
+	public Object2D shear(double degree) {
+		Curve c = getCurve();
+		return c.shear(degree);	
 	}
 
 	public double getHorizDistance() {

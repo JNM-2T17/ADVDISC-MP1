@@ -52,8 +52,11 @@ public class Curve implements AdvancedObject2D
 				//		+innerShift)/divisor
 				//xMult(x-xShift)^2 >= -innerShift
 				// System.out.println(innerX2 + "x^2 + " + innerX + "x + " + innerConst);
-				// System.out.println(xMult + "(x - " + xShift + ") + " + innerShift);
+				// System.out.println(xMult + "(x - " + xShift + ")^2 + " + innerShift);
 				if( xMult > 0 ) {
+					if( -innerShift/xMult < 0 ) {
+						return new double[]{-axis,axis};
+					}
 					//(x-xShift)^2 >= -innerShift/xMult
 					return new double[]{-axis,-Math.sqrt(-innerShift/xMult) 
 										+ xShift,Math.sqrt(-innerShift/xMult) 
@@ -125,8 +128,44 @@ public class Curve implements AdvancedObject2D
 		}
 	}
 
-	public Object2D translate(double x, double w){
-		return null;
+	public Object2D translate(double h, double k){
+		if( y2 == 0 ) {
+			//y = (-ax^2 - ex - h)/(bx + f)
+			return new Curve(x2,xy,0,xy*k + 2*x2*h + x,-xy*h+y,xy*h*k-y*k
+								+2*x2*h*h-x*h+h);
+		} else {
+			//cy^2 + (bx + f)y + ax^2 + ex + h = 0 
+			//y = (-(bx + f) +- sqrt((b^2 - 4ac)x^2 + 2(bf - 2ce)x + f^2 - 4ch))/2c
+			double linear = -xy/2/y2;
+			double verticalShift = -y/2/y2;
+			double divisor = 2 * y2;
+			double innerX2 = xy * xy - 4 * x2 * y2;
+			double innerX = 2 * (xy * y - 2 * y2 * x);
+			double innerConst = y * y - 4 * y2 * constant;
+			
+			// double linearValue = linear * arg;
+			// double sqrt = 0;
+			// if( innerX2 == 0 ) {
+			// 	sqrt = Math.sqrt(innerX * arg + innerConst)/divisor;
+			// } else {
+
+			// 	//a(x^2 + bx/a + b^2/4a^2) + c - b^2/4a
+			// 	//a(x + b/2a)^2 + c - b^2/4a
+			// 	double xMult = innerX2;
+			// 	double xShift = -innerX/2/innerX2;
+			// 	double innerShift = innerConst - innerX * innerX / 4 / innerX2;
+			// 	double radicand = xMult*(arg - xShift)*(arg - xShift) 
+			// 							+ innerShift;
+			// 	if( Math.abs(radicand) < 0.0001 ) {
+			// 		radicand = 0;
+			// 	}
+
+			// 	sqrt = Math.sqrt(radicand)/divisor;
+			// }
+			// return new double[] { linearValue + verticalShift - sqrt
+			// 							,linearValue + verticalShift + sqrt};
+			return null;
+		}
 	}
 
 	// Need to double check
@@ -141,8 +180,9 @@ public class Curve implements AdvancedObject2D
 		double[][] cPrime = matrixMultiply(pInv,matrixMultiply(c,p));
 		double[][] gPrime = matrixMultiply(g,p);
 
-		Curve curve = new Curve(cPrime[0][0],cPrime[0][1] + cPrime[1][0],cPrime[1][1]
-							,gPrime[0][0],gPrime[0][1],constant);
+		Curve curve = new Curve(cPrime[0][0],cPrime[0][1] + cPrime[1][0]
+								,cPrime[1][1],gPrime[0][0],gPrime[0][1]
+								,constant);
 		return curve;
 	}
 
@@ -166,7 +206,18 @@ public class Curve implements AdvancedObject2D
 	}
 
 	public Object2D scale(double dd){
-		return null;
+		double[][] c = new double[][]{{x2,xy/2},{xy/2,y2}};
+		double[][] g = new double[][]{{x,y}};
+		double[][] p = new double[][]{{dd,0},{0,dd}};
+		double[][] pInv = new double[][]{{1/dd,0}
+										,{0,1/dd}};;
+		double[][] cPrime = matrixMultiply(pInv,matrixMultiply(c,p));
+		double[][] gPrime = matrixMultiply(g,p);
+
+		Curve curve = new Curve(cPrime[0][0],cPrime[0][1] + cPrime[1][0]
+								,cPrime[1][1],gPrime[0][0],gPrime[0][1]
+								,constant);
+		return curve;
 	}
 
 	public Object2D reflect(int cas){
@@ -194,8 +245,9 @@ public class Curve implements AdvancedObject2D
 		double[][] cPrime = matrixMultiply(pInv,matrixMultiply(c,p));
 		double[][] gPrime = matrixMultiply(g,p);
 
-		Curve curve = new Curve(cPrime[0][0],cPrime[0][1] + cPrime[1][0],cPrime[1][1]
-							,gPrime[0][0],gPrime[0][1],constant);
+		Curve curve = new Curve(cPrime[0][0],cPrime[0][1] + cPrime[1][0]
+								,cPrime[1][1],gPrime[0][0],gPrime[0][1]
+								,constant);
 		return curve;
 	}
 
@@ -209,8 +261,9 @@ public class Curve implements AdvancedObject2D
 		double[][] cPrime = matrixMultiply(pInv,matrixMultiply(c,p));
 		double[][] gPrime = matrixMultiply(g,p);
 
-		Curve curve = new Curve(cPrime[0][0],cPrime[0][1] + cPrime[1][0],cPrime[1][1]
-							,gPrime[0][0],gPrime[0][1],constant);
+		Curve curve = new Curve(cPrime[0][0],cPrime[0][1] + cPrime[1][0]
+								,cPrime[1][1],gPrime[0][0],gPrime[0][1]
+								,constant);
 		return curve;
 	}
 
