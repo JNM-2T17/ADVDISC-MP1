@@ -56,7 +56,7 @@ public class DrawCurve implements IDraw {
 					g2.draw(s);
 					s = new Line2D.Double((i - 1) + axis,-roots[1] + axis
 											,interval[1] + axis
-											,-e.getValue(interval[1])[0] 
+											,-e.getValue(interval[1])[1] 
 											+ axis);
 					g2.draw(s);
 				}

@@ -40,6 +40,10 @@ public class Curve implements AdvancedObject2D
 			double xShift = -innerX/2/innerX2;
 			double innerShift = innerConst - innerX * innerX / 4 / innerX2;
 
+			if( Math.abs(innerX2) < 0.00001 ) {
+				innerX2 = 0;
+			}
+
 			if( innerX2 == 0 ) {
 				//x > -innerConst/innerX
 				if( innerX > 0 ) {
@@ -87,6 +91,11 @@ public class Curve implements AdvancedObject2D
 			
 			double linearValue = linear * arg;
 			double sqrt = 0;
+			
+			if( Math.abs(innerX2) < 0.00001 ) {
+				innerX2 = 0;
+			}
+
 			if( innerX2 == 0 ) {
 				sqrt = Math.sqrt(innerX * arg + innerConst)/divisor;
 			} else {
@@ -123,7 +132,7 @@ public class Curve implements AdvancedObject2D
 					}
 				}
 			}
-
+			
 			return result;
 		}
 	}
@@ -171,8 +180,8 @@ public class Curve implements AdvancedObject2D
 	// Need to double check
 	public Object2D rotate(double degree){
 		double rads = Math.toRadians(degree);
-		double cos = Math.cos(rads);
-		double sin = Math.sin(rads);
+		double cos = Math.abs(Math.cos(rads)) < 0.00001 ? 0 : Math.cos(rads);
+		double sin = Math.abs(Math.sin(rads)) < 0.00001 ? 0 : Math.sin(rads);
 		double[][] c = new double[][]{{x2,xy/2},{xy/2,y2}};
 		double[][] g = new double[][]{{x,y}};
 		double[][] p = new double[][]{{cos,sin},{-sin,cos}};
@@ -206,18 +215,7 @@ public class Curve implements AdvancedObject2D
 	}
 
 	public Object2D scale(double dd){
-		double[][] c = new double[][]{{x2,xy/2},{xy/2,y2}};
-		double[][] g = new double[][]{{x,y}};
-		double[][] p = new double[][]{{dd,0},{0,dd}};
-		double[][] pInv = new double[][]{{1/dd,0}
-										,{0,1/dd}};;
-		double[][] cPrime = matrixMultiply(pInv,matrixMultiply(c,p));
-		double[][] gPrime = matrixMultiply(g,p);
-
-		Curve curve = new Curve(cPrime[0][0],cPrime[0][1] + cPrime[1][0]
-								,cPrime[1][1],gPrime[0][0],gPrime[0][1]
-								,constant);
-		return curve;
+		return null;
 	}
 
 	public Object2D reflect(int cas){
@@ -253,7 +251,7 @@ public class Curve implements AdvancedObject2D
 
 	public Object2D shear(double degree){
 		double rads = Math.toRadians(degree);
-		double tan = Math.tan(rads);
+		double tan = Math.abs(Math.tan(rads)) < 0.00001 ? 0 : Math.tan(rads);
 		double[][] c = new double[][]{{x2,xy/2},{xy/2,y2}};
 		double[][] g = new double[][]{{x,y}};
 		double[][] p = new double[][]{{1,tan},{0,1}};
