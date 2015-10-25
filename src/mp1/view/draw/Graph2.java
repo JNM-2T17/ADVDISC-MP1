@@ -24,6 +24,7 @@ public class Graph2 extends Graph {
 
 		mainObjects = new HashMap<Object2D,ArrayList<Object2D>>();
 		shapes = new HashMap<Object2D,mp1.model.Shape>();
+		addMain(mp1.model.Shape.CURVE,new Curve(10000,16000,40000,0,0,-400000000));
 	}
 
 	public Graph2(mp1.model.Shape s, Object2D main, int size) {
@@ -110,6 +111,10 @@ public class Graph2 extends Graph {
 			if(temp.size() != 0) {
 				g2.setPaint(key == mainObject ? Color.RED 
 								: new Color(192,0,0));
+				Object2D val = temp.get(temp.size() - 1);
+				if( val instanceof Curve) {
+					setStrat(mp1.model.Shape.CURVE);
+				}
 				drawStrategy.drawObject(temp.get(temp.size() - 1),g2);
 			}
 		}

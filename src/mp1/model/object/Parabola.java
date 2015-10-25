@@ -6,7 +6,8 @@ import java.lang.Math;
  * @author Angelo Amadora
  * @author Austin Fernandez
  */
-public class Parabola implements AdvancedObject2D {
+public class Parabola implements AdvancedObject2D, DoubleRotateObject2D
+                                    ,ShearObject2D {
 
     double h;
     double k;
@@ -34,6 +35,30 @@ public class Parabola implements AdvancedObject2D {
 
     public boolean isOpeningVertical() {
         return openingVertical;
+    }
+
+    private Curve getCurve() {
+        if( openingVertical ) {
+            //4p(y-k) = (x-h)^2
+            //4py - 4pk = x^2 - 2hx + h^2
+            //x^2 - 2hx - 4py + h^2 + 4pk = 0
+            return new Curve(1,0,0,-2*h,-4*magnitude,h*h + 4 * magnitude * k);
+        } else {
+            //4p(x - h) = (y - k)^2
+            //4px - 4ph = y^2 - 2ky + k^2
+            //y^2 - 2ky + k^2 - 4px + 4ph = 0
+            return new Curve(0,0,1,-4*magnitude,-2 * k,k*k + 4 * magnitude * h);
+        }
+    }
+
+    public Object2D rotate(double degree) {
+        Curve c = getCurve();
+        return c.rotate(degree);
+    }
+
+    public Object2D shear(double degree) {
+        Curve c = getCurve();
+        return c.shear(degree);
     }
 
     public double[] getRoots(double single) {

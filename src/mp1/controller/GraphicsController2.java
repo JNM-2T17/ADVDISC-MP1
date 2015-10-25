@@ -110,6 +110,8 @@ public class GraphicsController2 extends GraphicsController {
 		Object2D trans = mainGraphPanel.getLast();
 		if( trans != main ) {
 			transformPanel.setTransformed(trans);
+		} else {
+			transformPanel.setTransformed(null);
 		}
 	}
 }

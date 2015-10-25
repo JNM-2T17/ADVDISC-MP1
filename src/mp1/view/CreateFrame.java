@@ -28,7 +28,6 @@ public class CreateFrame extends JFrame {
 	private JPanel mainPanel;
 
 	public CreateFrame() {
-		super();
 		setTitle("Create Object");
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		mainPanel = new JPanel(new BorderLayout());

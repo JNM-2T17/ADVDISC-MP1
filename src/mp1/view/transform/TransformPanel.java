@@ -91,7 +91,13 @@ public class TransformPanel extends JPanel {
 
 	public void setTransformed(Object2D obj) {
 		transformed = obj;
-		transLabel.setText("<html>Transformed Object:<br/> " + obj + "</html>");
+		if( transformed == null ) {
+			transLabel.setVisible(false);
+		} else {
+			transLabel.setVisible(true);
+			transLabel.setText("<html>Transformed Object:<br/> " + obj 
+								+ "</html>");
+		}
 	}
 
 	public void clear() {

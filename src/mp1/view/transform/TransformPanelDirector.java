@@ -38,6 +38,10 @@ public class TransformPanelDirector {
 				case ELLIPSE:
 				case PARABOLA:
 				case HYPERBOLA:
+					if( builder instanceof TransformPanelBuilder2) {
+						builder.addShear();
+						builder.addRotate(true);
+					}
 					builder.addRotate(false);
 					builder.addScale();
 					builder.addReflect();

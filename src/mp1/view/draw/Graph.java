@@ -31,6 +31,9 @@ public class Graph extends JComponent {
 
 	public void setStrat(mp1.model.Shape s) {
 		switch(s) {
+			case CURVE:
+				drawStrategy = new DrawCurve(getAxis());
+				break;
 			case ELLIPSE:
 				drawStrategy = new DrawEllipse(getAxis());
 				break;
