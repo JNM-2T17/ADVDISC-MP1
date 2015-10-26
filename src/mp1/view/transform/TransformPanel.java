@@ -70,12 +70,12 @@ public class TransformPanel extends JPanel {
 								+ "</html>");
 		objectLabel.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(objectsPanel,objectLabel,0,0,1,1,100,100
-							,GridBagConstraints.CENTER,GridBagConstraints.NONE);
+							,GridBagConstraints.WEST,GridBagConstraints.NONE);
 
 		transLabel = new JLabel();
 		transLabel.setFont(new Font("Segoe UI",Font.PLAIN,14));
 		AGBLayout.addComp(objectsPanel,transLabel,0,1,1,1,100,100
-							,GridBagConstraints.CENTER,GridBagConstraints.NONE);
+							,GridBagConstraints.WEST,GridBagConstraints.NONE);
 
 		AGBLayout.addComp(this,objectsPane,0,1,2,1,100,100
 							,GridBagConstraints.CENTER,GridBagConstraints.BOTH);
